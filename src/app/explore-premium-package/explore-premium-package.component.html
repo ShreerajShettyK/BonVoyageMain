@@ -1,0 +1,25 @@
+<!-- landing-page.component.html -->
+
+<div class="landing-page">
+    <div class="premium-package">
+      <h2>Premium Package</h2>
+      <p>Number of Days: {{ premiumPackage.numberOfDays }}</p>
+      <p>Number of Persons: {{ premiumPackage.numberOfPersons }}</p>
+      <p>Price: {{ premiumPackage.price }}</p>
+    </div>
+  
+    <div class="places-container">
+      <div *ngFor="let place of places" class="place-card">
+        <img [src]="place.image" alt="{{ place.name }}" class="place-image">
+        <div class="place-details">
+          <h3>{{ place.name }}</h3>
+          <p>Number of Days: {{ place.numberOfDays }}</p>
+          <p>Price: {{ place.price }}</p>
+          <a [routerLink]="['/place', place.id]">Know about place</a>
+          <a [routerLink]="['/hotel', place.id]">Your hotel stay</a>
+        </div>
+      </div>
+    </div>
+    <a  class="btn btn-primary" (click)="sendEnquiry('Premium')" matTooltip="Click on Book now , to Book Your Package">Book Now</a>
+  </div>
+  

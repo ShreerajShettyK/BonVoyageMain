@@ -1,0 +1,7 @@
+<div *ngFor="let hotel of hotels" class="hotel-item">
+    <h2>{{ hotel.name }}</h2>
+    <img [src]="hotel.imageUrl" alt="{{ hotel.name }}">
+    <p>Rating: {{ hotel.rating }}</p>
+    <p>{{ hotel.description }}</p>
+  </div>
+  

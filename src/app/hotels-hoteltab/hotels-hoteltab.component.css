@@ -1,0 +1,98 @@
+/* places.component.css */
+
+.places-container {
+    display: flex;
+    flex-direction: column; /* Display items in a column on smaller screens */
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .place-item {
+    margin: 10px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transition for hover effect */
+  }
+  
+  .image-container {
+    width: 100%; /* Ensure the image takes full width */
+    max-width: 400px; /* Set the maximum width for larger screens */
+    border-radius: 10px; /* Add border-radius for rounded corners */
+    overflow: hidden; /* Hide overflow to ensure consistent height for all images */
+  }
+  
+  .place-item img {
+    width: 100%; /* Make the image fill the container width */
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  .place-item:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Add a subtle shadow effect on hover */
+    transform: translateY(-5px); /* Move the item up by 5 pixels on hover */
+  }
+  
+  .place-item h3 {
+    margin-top: 5px;
+    text-align: center; /* Center the heading text */
+    position: relative;
+    font-size: 18px; /* Adjust font size */
+    z-index: 1;
+  }
+  
+  .place-item h3::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    border-radius: 10px;
+    background: linear-gradient(45deg, #3498db, #8e44ad); /* Adjust gradient colors */
+    opacity: 0.7; /* Adjust opacity */
+    transform-origin: 0 0;
+    transform: scale(0, 1);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .place-item:hover h3::before {
+    transform: scale(1, 1);
+  }
+  
+  .place-item button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .place-item button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Responsive Styles */
+  @media only screen and (min-width: 769px) {
+    .places-container {
+      flex-direction: row; /* Display items in a row on larger screens */
+      flex-wrap: wrap; /* Allow items to wrap to the next row */
+      height: 500px;
+    }
+  
+    .place-item {
+      max-width: 200px; /* Set a maximum width for each item on larger screens */
+      flex: 1; /* Distribute available space equally among items */
+    }
+  
+    .place-item h3 {
+        order: 0; /* Adjust the order of h3 to come before buttons in the visual order */
+      }
+  }

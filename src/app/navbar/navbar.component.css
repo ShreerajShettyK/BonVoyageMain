@@ -1,0 +1,61 @@
+/* navbar.component.css */
+.navbar {
+  background-color: #333 !important;
+  border-radius: 0; /* Optional: Adjust the border-radius to your preference */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.navbar:hover {
+  background-color: #444 !important; /* Darken the background on hover */
+}
+
+.navbar-toggler-icon {
+  background-color: #fff; /* Change to your desired color */
+  transition: background-color 0.3s; /* Smooth transition for toggle button color */
+}
+
+.navbar-toggler:hover .navbar-toggler-icon {
+  background-color: #ccc; /* Change toggle button color on hover */
+}
+
+.navbar-nav .nav-link {
+  color: rgb(244, 244, 244);
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  transition: color 0.3s; /* Smooth transition for link color */
+  text-align: center !important;
+}
+
+.navbar-nav .nav-item {
+  margin-right: 10px; /* Optional: Adjust the spacing between nav items */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffcc00;
+  text-decoration: none; /* Remove default underline on hover */
+  transform: scale(1.1); /* Add a scaling effect on hover */
+}
+
+/* Highlight the active link */
+.navbar-nav .nav-link.active {
+  color: #ffcc00;
+  font-weight: bold; /* Optional: Add bold style to the active link */
+}
+
+/* navbar.component.css */
+
+/* ... (your existing styles) */
+
+/* Ensure the navbar remains in one row on smaller screens */
+@media (max-width: 767px) {
+  .navbar-nav {
+    flex-direction: row !important;
+    text-align: center !important;
+  }
+  .nav-item {
+    margin-right: 8px; /* Remove margin between nav items */
+  }
+  
+}
+
+
+

@@ -1,0 +1,30 @@
+/* hotelstay.component.css */
+
+.hotel-item {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hotel-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-top: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Optional: Center the hotel items horizontally */
+  .hotel-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Optional: Add some spacing between hotel items */
+  .hotel-item + .hotel-item {
+    margin-top: 20px;
+  }
+  

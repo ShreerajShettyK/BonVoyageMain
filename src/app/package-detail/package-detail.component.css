@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  .rows {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    min-height: 400px ;
+    overflow: auto;
+  }
+  
+  .col-md-4 {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 300px; /* Adjust based on your design */
+    margin: 1em 0;
+  }
+  
+  h2  {
+    text-align: center;
+    color: #333; /* Adjust text color based on your design */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: 300;
+  }
+
+  p{
+    text-align: center;
+    color: #333; /* Adjust text color based on your design */
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: small;
+  }
+  
+  .image-container {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  a {
+    display: block;
+  }
+  
+  img {
+    height: 200px;
+    width: 350px;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  img:hover {
+    transform: scale(1.1);
+  }
+
+  .row-btn{
+    margin-top: 4px;
+    border-radius: 20px;
+  }
+
+  .btn-primary:hover{
+    background-color: #4800ff;
+    color: #ffffff;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .button-margin {
+      margin : 8px auto ;
+    }
+  }
