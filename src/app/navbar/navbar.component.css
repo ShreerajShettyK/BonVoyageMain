@@ -8,6 +8,10 @@
 /* .navbar:hover {
   background-color: #000000 !important; 
 } */
+.navbar-brand {
+  color: rgb(0, 0, 0);
+  margin-left: 10%;
+}
 
 .navbar-toggler-icon {
   background-color: #fff; /* Change to your desired color */
@@ -20,9 +24,10 @@
 
 .navbar-nav .nav-link {
   color: rgb(0, 0, 0);
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  /* font-family: Georgia, 'Times New Roman', Times, serif; */
   transition: color 0.3s; /* Smooth transition for link color */
-  text-align: center !important;
+  text-align: right !important;
+  margin-right: 30px;
 }
 
 .navbar-nav .nav-item {
