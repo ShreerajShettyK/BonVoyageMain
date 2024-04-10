@@ -1,0 +1,161 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px 0;
+  min-height: 400px;
+  overflow: auto;
+}
+
+.col-md-4 {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 300px; /* Adjust based on your design */
+  margin: 1em 0;
+}
+
+h2 {
+  text-align: center;
+  color: #333; /* Adjust text color based on your design */
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.image-container {
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+a {
+  display: block;
+}
+
+img {
+  height: 200px;
+  width: 350px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+img:hover {
+  transform: scale(1.1);
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.about-section {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 23vh;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3 {
+  color: #ffcc00;
+   /* Adjust heading text color based on your design */
+}
+
+a {
+  color: #ffcc00; /* Match the link color with the heading color */
+}
+
+/* Media queries for responsive design */
+@media (min-width: 768px) {
+  .col-md-4 {
+    width: 30%;
+  }
+}
+.messagediv {
+  flex-direction: row !important;
+  max-width: fit-content;
+  max-height: fit-content;
+  text-align: center;
+  background-color: #00ffc8;
+  color: #fff;
+  border-radius: 15px; /* Adjust the value to control the curve */
+  margin: 5px auto; /* Center the container horizontally */
+}
+
+.message {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Add any additional styling as needed */
+
+@media (max-width: 768px) {
+  .message-container {
+    margin: auto; /* Adjust styles for tablets and phones */
+  }
+
+}
+
+@media (max-width: 768px) {
+  .messagediv {
+    margin: 10px; /* Adjust styles for tablets and phones */
+  }
+
+}
+
+
+.overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3)); /* Gradient background */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Box shadow */
+  text-align: center;
+}
+
+.image-container:hover .overlay {
+  opacity: 1;
+}
+.video-container {
+  width: 200px; /* Set the desired width */
+  height: 330px; /* Set the desired height */
+  position: relative;
+  margin: 20px auto; /* Optional: Center the video on the page with margin */
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures the video covers the entire container */
+}
+
+/* Optional: Add responsive styling */
+@media screen and (max-width: 600px) {
+  .video-container {
+    width: 80%; /* Adjust width for smaller screens */
+    height: 500px;
+    margin: 10px auto; /* Adjust margin for smaller screens */
+  }
+}
