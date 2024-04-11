@@ -8,9 +8,11 @@
 /* .navbar:hover {
   background-color: #000000 !important; 
 } */
-.navbar-brand {
+.webname {
   color: rgb(0, 0, 0);
   margin-left: 10%;
+  display: flex; /* Use flexbox layout */
+  align-items: center; /* Align items vertically */
 }
 
 .navbar-toggler-icon {

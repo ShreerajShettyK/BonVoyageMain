@@ -287,7 +287,8 @@ header .trip_bx .travel_bx .cards .card1 .btn_city h5 span{
 .offers .cards .card1 h3 {
     width: 140px;
     padding: 6px 0px;
-    background: rgb(165, 243, 165);
+    background: rgb(40, 40, 196);
+    color: #fff;
     border-radius: 20px;
     font-size: 12px;
     display: grid;
