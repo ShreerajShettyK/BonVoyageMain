@@ -19,11 +19,19 @@ export class UserDataModalComponent {
   showPaymentConfirmation: boolean = false;
   fullName: string = '';
   contactNumber: string = '';
+  couponCode: string = '';
   @Output() userDataSubmitted: EventEmitter<any> = new EventEmitter();
 
   constructor(public dialog: MatDialog) {}
 
   // Other methods...
+  applyCoupon(): void {
+    // Logic to apply the coupon code
+    console.log('Coupon code applied:', this.couponCode);
+
+    // Display an alert
+    window.alert('Coupon code applied successfully!');
+  }
 
   openPaymentConfirmation(): void {
     // Calculate total price and GST
@@ -48,14 +56,14 @@ export class UserDataModalComponent {
   calculateTotalPrice(): number {
     // Calculate total price based on the number of persons added
     // For demonstration purposes, let's assume a fixed price per person
-    const pricePerPerson = 750; // Replace this with your actual price calculation
+    const pricePerPerson = 12506; // Replace this with your actual price calculation
     return this.personsData.length * pricePerPerson;
   }
 
   calculateGST(totalPrice: number): number {
     // Calculate GST based on the total price
     // For demonstration purposes, let's assume a fixed GST rate
-    const gstRate = 0.18; // 18% GST
+    const gstRate = 0.8; // 18% GST
     return totalPrice * gstRate;
   }
   addPerson(): void {

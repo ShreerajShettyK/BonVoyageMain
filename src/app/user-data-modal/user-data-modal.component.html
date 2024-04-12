@@ -1,72 +1,111 @@
-<div class="model-content">
-    <!-- User details form -->
-    <div class="center">
-        <h1>Travellers Details</h1>
-    </div>
-    <div class="user-details">
-       
-        <form (submit)="submitUserData()">
-            <div class="cont">
-                <div class="c1">
-                    <div *ngIf="showNewPersonForm" class="form-group">
-                        <label for="name" class="form-label">Full Name:</label>
-                        <input type="text" id="name" class="form-input" [(ngModel)]="newPerson.name" name="name" required>
-                        <br><br>
-                        <label for="dob" class="form-label date-label">Date of Birth:</label>
-                        <input type="date" [(ngModel)]="newPerson.dob" name="dob" required>
-                        <br><br>
-                        <label for="gender" class="form-label gender-label">Gender:</label>
-                        <select [(ngModel)]="newPerson.gender" name="gender" required>
-                            <option value="male">Male</option>
-                            <option value="female">Female</option>
-                        </select>
-                        <br><br>
+<div class="tot">
+    <div class="model-content">
+        <!-- User details form -->
+        <div class="center">
+            <h1>Travellers Details - Let's Go</h1>
+        </div>
+        <div class="user-details">
+           
+            <form (submit)="submitUserData()">
+                <div class="cont">
+                    <div class="c1">
+                        <div *ngIf="showNewPersonForm" class="form-group">
+                            <label for="name" class="form-label">Full Name:</label>
+                            <input type="text" id="name" class="form-input" [(ngModel)]="newPerson.name" name="name" required>
+                            <br><br>
+                            <label for="dob" class="form-label date-label">Date of Birth:</label>
+                            <input type="date" [(ngModel)]="newPerson.dob" name="dob" required>
+                            <br><br>
+                            <label for="gender" class="form-label gender-label">Gender:</label>
+                            <select [(ngModel)]="newPerson.gender" name="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <br><br>
+                        </div>
+                        <div class="buttons-container">
+                            <!-- Add Person button -->
+                            <button type="button" id="add" (click)="addPerson()">Add Person</button>
+                        </div>
                     </div>
-                    <div class="buttons-container">
-                        <!-- Add Person button -->
-                        <button type="button" id="add" (click)="addPerson()">Add Person</button>
-                    </div>
+                   
                 </div>
-               
-            </div>
-            <!-- Input fields for new person -->
-            
-            
-            <!-- Table to display user details -->
-            <br><br>
-            <div class="t1">
-                <!-- User details table -->
-                <table *ngIf="personsData.length > 0">
-                    <!-- Table headers -->
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Date of Birth</th>
-                            <th>Gender</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <!-- Table body -->
-                    <tbody>
-                        <tr *ngFor="let person of personsData; let i = index">
-                            <!-- Table cells -->
-                            <td>{{ person.name }}</td>
-                            <td>{{ person.dob }}</td>
-                            <td>{{ person.gender }}</td>
-                            <td>
-                                <button type="button" (click)="editPerson(i)">Edit</button>
-                                <button type="button" (click)="removePerson(i)">Remove</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </form>
+                <!-- Input fields for new person -->
+                
+                
+                <!-- Table to display user details -->
+                <br><br>
+                <div class="t1">
+                    <!-- User details table -->
+                    <table *ngIf="personsData.length > 0">
+                        <!-- Table headers -->
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Date of Birth</th>
+                                <th>Gender</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <!-- Table body -->
+                        <tbody>
+                            <tr *ngFor="let person of personsData; let i = index">
+                                <!-- Table cells -->
+                                <td>{{ person.name }}</td>
+                                <td>{{ person.dob }}</td>
+                                <td>{{ person.gender }}</td>
+                                <td>
+                                    <button type="button" (click)="editPerson(i)">Edit</button>
+                                    <button type="button" (click)="removePerson(i)">Remove</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <!-- Submit button -->
+        <div class="button-container1">
+            <button type="button" (click)="submitUserData()" [disabled]="personsData.length === 0">Submit</button>
+        </div>
+        
+        
     </div>
-    <!-- Submit button -->
-    <div class="button-container1">
-        <button type="button" (click)="submitUserData()" [disabled]="personsData.length === 0">Submit</button>
-    </div>
+    <!-- Move the "inv" div outside of the "model-content" div -->
+    <div class="inv">
+        <mat-card>
+          <mat-card-header style="background-color: aliceblue; display: flex; flex-direction: column; border:1px solid white;">
+            <div style="align-self: flex-end;">
+              <div style="background-color: red; color: white; padding: 5px; height: 35px; font-weight: 600; font-size: smaller; border-radius: 5px;">8% GST</div>
+              <br>
+              <div style="background-color: green; color: white; padding: 5px; height: 35px; font-weight: 600; font-size: smaller; border-radius: 5px;">26% OFF</div>
+            </div>
+            <p style="text-decoration: line-through;">₹23,648 </p>                      
+            <p>₹12,506 per person*</p>
+            <p>*Excluding applicable taxes</p>
+            <h2>Important Information</h2>
+            <p>After entering the traveller details</p>
+            <p>If you click submit button</p>
+            <p>It will show the total amount to pay</p>
+            <p>Or you can pay here</p>
+            <h2>Coupons & Offers</h2>
+           <input type="text" placeholder="Have a Coupon Code?" value>
+            <br>
+            <button id="app" type="button" (click)="applyCoupon()" class="action-button">Apply</button>
+
+            <br>
+            
+            <button type="button" (click)="submitUserData()" [disabled]="personsData.length === 0">Click to pay</button>
+
+          </mat-card-header>
+         
+          <mat-card-content>
     
+          </mat-card-content>
+          <mat-card-footer>
+             
+          </mat-card-footer>
+      </mat-card>
+      </div>
     
 </div>

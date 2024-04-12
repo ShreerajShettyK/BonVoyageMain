@@ -5,7 +5,8 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input'; 
 // import { HotelDetailComponent } from './hotel-detail/hotel-detail.component';
 import { PlaceDetailComponent } from './place-detail/place-detail.component';
 import { HelpDetailComponent } from './help-detail/help-detail.component';
@@ -56,6 +57,8 @@ import { PaymentConfirmationPopupComponent } from './payment-confirmation-popup/
     MatTooltipModule,
     MatIconModule,
     FormsModule,
+    MatCardModule,
+    MatInputModule,
   ],
   
   providers: [],

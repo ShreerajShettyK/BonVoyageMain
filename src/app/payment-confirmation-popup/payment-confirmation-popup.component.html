@@ -1,11 +1,10 @@
 <h1 mat-dialog-title>Payment Confirmation</h1>
 <div mat-dialog-content class="popup">
-    <p>Total Price based on no of travellers: {{ totalPrice | currency }}</p>
-    <p>GST: {{ gst | currency }}</p>
-    <p>Total Amount (including GST): {{ getTotalPayment() | currency }}</p>
+    <p>Total Price based on no of travellers: {{ totalPrice | currency:'INR' }}</p>
+    <p>GST: {{ gst | currency:'INR' }}</p>
+    <p>Total Amount (including GST): {{ getTotalPayment() | currency:'INR' }}</p>
 </div>
 <div mat-dialog-actions class="popup">
- 
-  <button id="ok-button" mat-button (click)="onOK()">Pay Now</button>
-  <button id="cancel-button" mat-button (click)="onCancel()">Cancel</button>
+    <button id="ok-button" mat-button (click)="onOK()">Pay Now</button>
+    <button id="cancel-button" mat-button (click)="onCancel()">Cancel</button>
 </div>
