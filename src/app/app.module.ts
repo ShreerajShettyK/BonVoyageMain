@@ -1,15 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from '@angular/forms'; 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { AppRoutingModule } from './app-routing.module';
+
 // import { HotelDetailComponent } from './hotel-detail/hotel-detail.component';
 import { PlaceDetailComponent } from './place-detail/place-detail.component';
 import { HelpDetailComponent } from './help-detail/help-detail.component';
 import { EnquirySuccessModalComponent } from './enquiry-success-modal/enquiry-success-modal.component';
 import { PackageDetailComponent } from './package-detail/package-detail.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { matDialogAnimations } from '@angular/material/dialog';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -21,6 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ExploreComponent } from './explore/explore.component';
 import { HotelstayComponent } from './hotelstay/hotelstay.component';
 import { HotelsHoteltabComponent } from './hotels-hoteltab/hotels-hoteltab.component';
+import { UserDataModalComponent } from './user-data-modal/user-data-modal.component';
+import { PaymentConfirmationPopupComponent } from './payment-confirmation-popup/payment-confirmation-popup.component';
 
 
 
@@ -41,6 +45,8 @@ import { HotelsHoteltabComponent } from './hotels-hoteltab/hotels-hoteltab.compo
     ExploreComponent,
     HotelstayComponent,
     HotelsHoteltabComponent,
+    UserDataModalComponent,
+    PaymentConfirmationPopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,9 @@ import { HotelsHoteltabComponent } from './hotels-hoteltab/hotels-hoteltab.compo
     MatDialogModule,
     MatTooltipModule,
     MatIconModule,
+    FormsModule,
   ],
+  
   providers: [],
   bootstrap: [AppComponent,]
 })

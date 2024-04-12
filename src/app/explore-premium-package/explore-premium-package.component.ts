@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { EnquiryModalService } from '../services/enquiry-modal.service';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-explore-premium-package',
@@ -7,16 +7,14 @@ import { EnquiryModalService } from '../services/enquiry-modal.service';
   styleUrls: ['./explore-premium-package.component.css']
 })
 export class ExplorePremiumPackageComponent {
-  constructor(public enquiryModalService: EnquiryModalService) {}
-  sendEnquiry(packageName: string) {
-    console.log('Enquiry sent for package:', packageName);
-    this.enquiryModalService.openSuccessModal();
- }
+  constructor(private router: Router) {}
+  
   premiumPackage = {
     numberOfDays: 7,
     numberOfPersons: 2,
     price: 1500
   };
+  
   places = [
     {
       id: 1,
@@ -25,29 +23,15 @@ export class ExplorePremiumPackageComponent {
       numberOfDays: 5,
       price: 1000
     },
-    {
-      id: 1,
-      name: 'City A',
-      image: 'assets/images/places-image-1.jpg',
-      numberOfDays: 5,
-      price: 1000
-    },
-    {
-      id: 1,
-      name: 'City A',
-      image: 'assets/images/places-image-1.jpg',
-      numberOfDays: 5,
-      price: 1000
-    },
-    {
-      id: 1,
-      name: 'City A',
-      image: 'assets/images/places-image-1.jpg',
-      numberOfDays: 5,
-      price: 1000
-    },
-
-    
     // Add more places if needed
   ];
+
+  calculatePrice(numberOfPersons: number): number {
+    return numberOfPersons * this.premiumPackage.price;
+  }
+
+  navigateToUserData() {
+    this.router.navigate(['/user-data']); // Navigate to the UserDataCaptureComponent
+  }
+  
 }
