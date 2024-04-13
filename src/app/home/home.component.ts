@@ -1,4 +1,5 @@
 import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { EnquiryModalService } from '../services/enquiry-modal.service';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +14,12 @@ export class HomeComponent implements AfterViewInit {
   ngAfterViewInit() {
     this.setupVideoReplay();
   }
+  
+  constructor(public enquiryModalService: EnquiryModalService) {}
+  sendEnquiry(packageName: string) {
+    console.log('Enquiry sent for package:', packageName);
+    this.enquiryModalService.openSuccessModal();
+ }
 
   private setupVideoReplay() {
     const videoElement: HTMLVideoElement = this.myVideo.nativeElement;
