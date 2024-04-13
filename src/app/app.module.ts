@@ -27,6 +27,7 @@ import { MatCardModule} from '@angular/material/card';
 import { MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { InvoiceTemplateComponent } from './invoice-template/invoice-template.component';
 
 
 
@@ -46,6 +47,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
     ExploreComponent,
     HotelstayComponent,
     HotelsHoteltabComponent,
+    InvoiceTemplateComponent,
   ],
   imports: [
     BrowserModule,

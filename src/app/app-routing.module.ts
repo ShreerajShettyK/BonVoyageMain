@@ -14,6 +14,7 @@ import { ExploreDiamondPackageComponent } from './explore-diamond-package/explor
 import { ExploreComponent } from './explore/explore.component';
 import { HotelstayComponent } from './hotelstay/hotelstay.component';
 import { HotelsHoteltabComponent } from './hotels-hoteltab/hotels-hoteltab.component';
+import { InvoiceTemplateComponent } from './invoice-template/invoice-template.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/places', pathMatch: 'full' },
   { path: 'places', component: PlaceDetailComponent },
   { path: 'explore/:id', component: ExploreComponent },
-  { path: 'hotel-stay/:id', component:  HotelstayComponent }
+  { path: 'hotel-stay/:id', component:  HotelstayComponent },
+  { path: 'invoice', component: InvoiceTemplateComponent }
 ];
 
 @NgModule({
