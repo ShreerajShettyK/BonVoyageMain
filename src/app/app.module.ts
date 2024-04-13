@@ -28,8 +28,9 @@ import { MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { InvoiceTemplateComponent } from './invoice-template/invoice-template.component';
-
-
+import { ServiceComponent } from './service/service.component';
+import { FormComponent } from './form/form.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,8 @@ import { InvoiceTemplateComponent } from './invoice-template/invoice-template.co
     HotelstayComponent,
     HotelsHoteltabComponent,
     InvoiceTemplateComponent,
+    ServiceComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,8 @@ import { InvoiceTemplateComponent } from './invoice-template/invoice-template.co
     MatCardModule,
     MatSnackBarModule,
     MatTabsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent,]
