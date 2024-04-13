@@ -1,58 +1,119 @@
 <div class="package">
+
     <body>
 
         <!-- carousel -->
 
-        
-      <div class="row rows">
-        <div class="col-md-4">
-            <h2 class="card-title">Premium</h2>
-            <p class="card-text">Budget Friendly</p>
-          <div class="image-container">
-              <img src="../../assets/images/package-image-1.jpg" alt="Package 1">
-         </div>
-         <div class="row row-btn">
-            <div class="col-md-6">
-                <a routerLink="/Premium" class="btn btn-primary button-margin" matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+        <!-- <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Favorite food</mat-label>
+                <input matInput placeholder="Ex. Pizza" value="Sushi">
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+                <mat-label>Leave a comment</mat-label>
+                <textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+            </mat-form-field>
+
+            <h4>Basic mat-select</h4>
+            <mat-form-field appearance="fill">
+                <mat-label>Favorite food</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let food of foods" [value]="food.value">
+                        {{food.viewValue}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </form> -->
+        <!-- <div style="display: flex; justify-content: center;">
+            <mat-card style="width: 400px;height: 300px; border:1px solid black;">
+                <mat-card-header>
+                    Helllo Shady
+                </mat-card-header>
+                <img mat-card-image src="../../assets/img/burjkhlifa.jpg" alt="" style="overflow: hidden;margin-left: 10px;">
+                <mat-card-content>
+
+                </mat-card-content>
+                <mat-card-footer>
+                    <mat-card-actions>
+                        <button mat-button>Like</button>
+                    </mat-card-actions>
+                </mat-card-footer>
+            </mat-card>
+            <mat-card style="width: 400px;height: 300px; border:1px solid black;">
+                <mat-card-header>
+                    Helllo Shady
+                </mat-card-header>
+                <img mat-card-image src="../../assets/img/burjkhlifa.jpg" alt="" style="overflow: hidden;margin-left: 10px;">
+                <mat-card-content>
+
+                </mat-card-content>
+                <mat-card-footer>
+                    <mat-card-actions>
+                        <button mat-button>Like</button>
+                    </mat-card-actions>
+                </mat-card-footer>
+            </mat-card>
+        </div> -->
+
+
+
+
+        <!-- carousel -->
+        <div class="row rows">
+            <div class="col-md-4">
+                <h2 class="card-title">Premium</h2>
+                <p class="card-text">Budget Friendly</p>
+                <div class="image-container">
+                    <img mat-card-image src="../../assets/images/package-image-1.jpg" alt="Package 1">
+                </div>
+                <div class="row row-btn">
+                    <div class="col-md-6">
+                        <a routerLink="/Premium" class="btn btn-primary button-margin"
+                            matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
+                            matTooltip="Click on Book now , to Book Your Package">Book Now</a>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
-                   <a class="btn btn-primary" (click)="sendEnquiry('Premium')" matTooltip="Click on Book now , to Book Your Package">Book Now</a>
+            <div class="col-md-4">
+                <h2 class="card-title">Deluxe</h2>
+                <p class="card-text">Family Friendly</p>
+                <div class="image-container">
+                    <img src="../../assets/images/package-image-1.jpg" alt="Package 1">
+                </div>
+                <div class="row row-btn">
+                    <div class="col-md-6">
+                        <a routerLink="/Deluxe" class="btn btn-primary button-margin"
+                            matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-primary" (click)="sendEnquiry('Deluxe')"
+                            matTooltip="Click on Book now , to Book Your Package">Book Now</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <h2 class="card-title">Diamond</h2>
+                <p class="card-text">Luxury Package</p>
+                <div class="image-container">
+                    <img src="../../assets/images/package-image-1.jpg" alt="Package 1">
+                </div>
+
+                <div class="row row-btn">
+                    <div class="col-md-6">
+                        <a routerLink="/Diamond" class="btn btn-primary button-margin"
+                            matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                    </div>
+                    <div class="col-md-6">
+                        <a class="btn btn-primary" (click)="sendEnquiry('Diamond')"
+                            matTooltip="Click on Book now , to Book Your Package">Book Now</a>
+                    </div>
+                </div>
+
             </div>
         </div>
-        </div>
-        <div class="col-md-4">
-            <h2 class="card-title">Deluxe</h2>
-            <p class="card-text">Family Friendly</p>
-          <div class="image-container">
-              <img src="../../assets/images/package-image-1.jpg" alt="Package 1">
-         </div>
-         <div class="row row-btn">
-            <div class="col-md-6">
-                <a  routerLink="/Deluxe"  class="btn btn-primary button-margin" matTooltip="Click on Explore Now , to know about this Package" >Explore Now</a>
-            </div> 
-            <div class="col-md-6">
-                <a class="btn btn-primary" (click)="sendEnquiry('Deluxe')" matTooltip="Click on Book now , to Book Your Package">Book Now</a>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-4">
-            <h2 class="card-title">Diamond</h2>
-            <p class="card-text">Luxury Package</p>
-          <div class="image-container">
-              <img src="../../assets/images/package-image-1.jpg" alt="Package 1">
-         </div>
-  
-        <div class="row row-btn">
-            <div class="col-md-6">
-                <a routerLink="/Diamond" class="btn btn-primary button-margin" matTooltip="Click on Explore Now , to know about this Package" >Explore Now</a>
-            </div>
-            <div class="col-md-6">
-                <a  class="btn btn-primary" (click)="sendEnquiry('Diamond')" matTooltip="Click on Book now , to Book Your Package">Book Now</a>
-            </div>
-        </div>
-   
-        </div>
-         </div>
     </body>
-  </div>
-   
+</div>

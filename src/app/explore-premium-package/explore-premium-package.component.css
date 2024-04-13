@@ -83,17 +83,17 @@ a {
 a:hover {
   background-color: #0056b3;
 }
-@media (min-width:768px){
-  .places-container {
-    display: flex;
-    flex-wrap: nowrap; /* Ensure one row for desktop view */
-    justify-content: space-around;
-    align-items: stretch; /* Make items stretch vertically */
-  }
+
+/* .mat-tab{
+  margin: 10px 0px;
+} */
+
+.mat-mdc-form-field + .mat-mdc-form-field {
+  margin-left: 8px;
 }
-/* Media Query for tablet and phone screens */
-@media (max-width: 768px) {
-  .premium-package, .place-card {
-    max-width: 100%; /* Adjust styles for tablets and phones */
-  }
+
+.schedule{
+  display: flex;
+  justify-content: space-between;
 }
+

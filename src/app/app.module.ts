@@ -21,7 +21,12 @@ import { MatIconModule } from '@angular/material/icon';
 import { ExploreComponent } from './explore/explore.component';
 import { HotelstayComponent } from './hotelstay/hotelstay.component';
 import { HotelsHoteltabComponent } from './hotels-hoteltab/hotels-hoteltab.component';
-
+import { MatInputModule} from '@angular/material/input';
+import { MatSelectModule} from '@angular/material/select';
+import { MatCardModule} from '@angular/material/card';
+import { MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatTabsModule} from '@angular/material/tabs';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 
@@ -49,6 +54,12 @@ import { HotelsHoteltabComponent } from './hotels-hoteltab/hotels-hoteltab.compo
     MatDialogModule,
     MatTooltipModule,
     MatIconModule,
+    MatInputModule,
+    MatSelectModule,
+    MatCardModule,
+    MatSnackBarModule,
+    MatTabsModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent,]

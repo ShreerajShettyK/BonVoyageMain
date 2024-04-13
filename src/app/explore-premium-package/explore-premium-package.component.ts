@@ -7,6 +7,10 @@ import { EnquiryModalService } from '../services/enquiry-modal.service';
   styleUrls: ['./explore-premium-package.component.css']
 })
 export class ExplorePremiumPackageComponent {
+  //policies dropdown
+  cancelPanelOpenState = false;
+  tandcPanelOpenState = false;
+
   constructor(public enquiryModalService: EnquiryModalService) {}
   sendEnquiry(packageName: string) {
     console.log('Enquiry sent for package:', packageName);
