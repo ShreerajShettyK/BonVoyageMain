@@ -38,6 +38,8 @@ import { UserDataModalComponent } from './user-data-modal/user-data-modal.compon
 import { PaymentConfirmationPopupComponent } from './payment-confirmation-popup/payment-confirmation-popup.component';
 import { GoaDetailComponent } from './package-detail/goa-detail/goa-detail.component';
 import { environment } from 'src/environments/environment';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { environment } from 'src/environments/environment';
     FormComponent,
     UserDataModalComponent,
     PaymentConfirmationPopupComponent,
-    GoaDetailComponent
+    GoaDetailComponent,
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

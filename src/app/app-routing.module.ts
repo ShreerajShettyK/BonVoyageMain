@@ -1,5 +1,3 @@
-// app-routing.module.ts
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -16,7 +14,8 @@ import { HotelstayComponent } from './hotelstay/hotelstay.component';
 import { HotelsHoteltabComponent } from './hotels-hoteltab/hotels-hoteltab.component';
 import { InvoiceTemplateComponent } from './invoice-template/invoice-template.component';
 import { UserDataModalComponent } from './user-data-modal/user-data-modal.component';
-
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -33,7 +32,9 @@ const routes: Routes = [
   { path: 'hotel-stay/:id', component:  HotelstayComponent },
   { path: 'invoice', component: InvoiceTemplateComponent },
   { path: 'traveller', component:  UserDataModalComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' }
+  { path: 'register', component: RegisterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
