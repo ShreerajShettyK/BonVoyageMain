@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    overflow: hidden;
   }
   .rows {
     display: flex;
@@ -16,6 +17,11 @@ body {
     min-height: 400px ;
     overflow: auto;
   }
+  
+  .carousel {
+    margin-bottom: 10px;
+  }
+  
   
   .col-md-4 {
     box-sizing: border-box;
@@ -77,13 +83,4 @@ body {
   }
 
 
-  .example-form {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .example-full-width {
-    width: 100%;
-  }
   
