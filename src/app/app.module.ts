@@ -34,6 +34,7 @@ import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { UserDataModalComponent } from './user-data-modal/user-data-modal.component';
 import { PaymentConfirmationPopupComponent } from './payment-confirmation-popup/payment-confirmation-popup.component';
+import { GoaDetailComponent } from './package-detail/goa-detail/goa-detail.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { PaymentConfirmationPopupComponent } from './payment-confirmation-popup/
     ServiceComponent,
     FormComponent,
     UserDataModalComponent,
-    PaymentConfirmationPopupComponent
+    PaymentConfirmationPopupComponent,
+    GoaDetailComponent
   ],
   imports: [
     BrowserModule,

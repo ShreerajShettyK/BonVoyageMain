@@ -19,9 +19,10 @@ export class PackageDetailComponent {
   ];
    constructor(public enquiryModalService: EnquiryModalService) {}
 
-  sendEnquiry(packageName: string) {
-    console.log('Enquiry sent for package:', packageName);
-    this.enquiryModalService.openSuccessModal();
- }
+
+ sendEnquiry(packageName: string) {
+  console.log('Enquiry sent for package:', packageName);
+  this.enquiryModalService.openGallery();
+}
  
 }
