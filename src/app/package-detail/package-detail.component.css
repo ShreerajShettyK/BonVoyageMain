@@ -1,9 +1,12 @@
+.container{
+  
+  align-content: center;
+  margin-top: 25px;
+}
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
+  font-family: 'Poppins', sans-serif;
+}
+
   .rows {
     display: flex;
     justify-content: space-evenly;
@@ -30,13 +33,6 @@ body {
     margin: 1em 0;
   }
   
-  h2  {
-    text-align: center;
-    color: #333; /* Adjust text color based on your design */
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: large;
-    font-weight: 300;
-  }
 
   p{
     text-align: center;
@@ -55,9 +51,14 @@ body {
     display: block;
   }
   
+  .col{
+    width: 32%;
+  }
+
+
   img {
     height: 200px;
-    width: 350px;
+    width: 100%;
     border-radius: 8px;
     transition: transform 0.3s ease;
   }
@@ -76,6 +77,10 @@ body {
     color: #ffffff;
   }
 
+  /* .col{
+    width: 30%;
+  } */
+
   @media only screen and (max-width: 600px) {
     .button-margin {
       margin : 8px auto ;
@@ -83,4 +88,12 @@ body {
   }
 
 
-  
+h3 img{
+    width: 30px;
+    height: 30px;
+    margin-left: 5px ;
+ }
+ /* h3 img{
+    width: 100%;
+    height: 50%;
+ } */
