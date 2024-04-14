@@ -23,6 +23,18 @@ export class LoginComponent implements OnInit {
     });
   }
 
+    loginWithGoogle() {
+    this.authService.loginWithGoogle()
+      .then(() => {
+        // Login successful, navigate to a protected page
+        this.router.navigate(['/']);
+      })
+      .catch(error => {
+        // Handle login error
+        console.error('Google login error:', error);
+      });
+    }
+  
   ngOnInit() {
     // Initialization logic, if needed
   }
@@ -36,7 +48,7 @@ export class LoginComponent implements OnInit {
         this.authService.login(email, password)
           .then(() => {
             // Login successful, navigate to a dashboard or home page
-            this.router.navigate(['/dashboard']);
+            this.router.navigate(['']);
           })
           .catch(error => {
             // Handle login error

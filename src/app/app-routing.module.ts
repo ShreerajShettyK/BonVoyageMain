@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuardService } from './auth-guard.service';
 
 import { HomeComponent } from './home/home.component';
 import { PackageDetailComponent } from './package-detail/package-detail.component';
@@ -18,23 +19,23 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'package/:id', component: PackageDetailComponent },
-  { path: 'hotel/:id', component: HotelsHoteltabComponent },
-  { path: 'place/:id', component: PlaceDetailComponent },
-  { path: 'help/:id', component: HelpDetailComponent },
-  { path: 'Premium', component: ExplorePremiumPackageComponent },
-  { path: 'Deluxe', component:  ExplorePremiumPackageComponent },
-  { path: 'Diamond', component: ExplorePremiumPackageComponent},
-  { path: '', redirectTo: '/places', pathMatch: 'full' },
-  { path: 'places', component: PlaceDetailComponent },
-  { path: 'explore/:id', component: ExploreComponent },
-  { path: 'hotel-stay/:id', component:  HotelstayComponent },
-  { path: 'invoice', component: InvoiceTemplateComponent },
-  { path: 'traveller', component:  UserDataModalComponent },
+  { path: '', component: HomeComponent ,canActivate:[AuthGuardService]},
+  { path: 'package/:id', component: PackageDetailComponent ,canActivate:[AuthGuardService]},
+  { path: 'hotel/:id', component: HotelsHoteltabComponent ,canActivate:[AuthGuardService]},
+  { path: 'place/:id', component: PlaceDetailComponent ,canActivate:[AuthGuardService]},
+  { path: 'help/:id', component: HelpDetailComponent ,canActivate:[AuthGuardService]},
+  { path: 'Premium', component: ExplorePremiumPackageComponent ,canActivate:[AuthGuardService]},
+  { path: 'Deluxe', component:  ExplorePremiumPackageComponent ,canActivate:[AuthGuardService]},
+  { path: 'Diamond', component: ExplorePremiumPackageComponent,canActivate:[AuthGuardService]},
+  // { path: '', redirectTo: '/places', pathMatch: 'full' },
+  { path: 'places', component: PlaceDetailComponent ,canActivate:[AuthGuardService]},
+  { path: 'explore/:id', component: ExploreComponent ,canActivate:[AuthGuardService]},
+  { path: 'hotel-stay/:id', component:  HotelstayComponent ,canActivate:[AuthGuardService]},
+  { path: 'invoice', component: InvoiceTemplateComponent ,canActivate:[AuthGuardService]},
+  { path: 'traveller', component:  UserDataModalComponent ,canActivate:[AuthGuardService]},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
-  { path: '**', redirectTo: '', pathMatch: 'full' },
+  { path: '**', redirectTo: '', pathMatch: 'full' ,canActivate:[AuthGuardService]},
 ];
 
 @NgModule({
