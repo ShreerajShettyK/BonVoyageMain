@@ -15,6 +15,8 @@ import { ExploreComponent } from './explore/explore.component';
 import { HotelstayComponent } from './hotelstay/hotelstay.component';
 import { HotelsHoteltabComponent } from './hotels-hoteltab/hotels-hoteltab.component';
 import { InvoiceTemplateComponent } from './invoice-template/invoice-template.component';
+import { UserDataModalComponent } from './user-data-modal/user-data-modal.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -29,7 +31,9 @@ const routes: Routes = [
   { path: 'places', component: PlaceDetailComponent },
   { path: 'explore/:id', component: ExploreComponent },
   { path: 'hotel-stay/:id', component:  HotelstayComponent },
-  { path: 'invoice', component: InvoiceTemplateComponent }
+  { path: 'invoice', component: InvoiceTemplateComponent },
+  { path: 'traveller', component:  UserDataModalComponent },
+  { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 
 @NgModule({

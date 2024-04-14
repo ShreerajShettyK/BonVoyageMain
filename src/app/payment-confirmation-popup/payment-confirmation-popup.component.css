@@ -1,0 +1,38 @@
+.popup {
+    width: 70%; /* Adjust width as needed */
+    border-radius: 10px;
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Add padding for spacing */
+    text-align: center;
+    color: black;
+}
+
+.popup h1 {
+    margin-bottom: 20px; /* Add spacing below the heading */
+    color: #007bff; /* Highlight the heading */
+}
+
+.popup form {
+    display: inline-block; /* Ensure form elements are displayed inline */
+    text-align: left; /* Reset text alignment for form elements */
+}
+
+.popup .form-group {
+    text-align: left; /* Reset text alignment for form elements */
+    margin-bottom: 20px; /* Add spacing between form groups */
+}
+
+button {
+    margin: 10px; /* Add space around the buttons */
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: #fff;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

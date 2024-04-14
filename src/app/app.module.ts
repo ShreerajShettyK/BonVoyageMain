@@ -30,8 +30,10 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import { InvoiceTemplateComponent } from './invoice-template/invoice-template.component';
 import { ServiceComponent } from './service/service.component';
 import { FormComponent } from './form/form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
+import { UserDataModalComponent } from './user-data-modal/user-data-modal.component';
+import { PaymentConfirmationPopupComponent } from './payment-confirmation-popup/payment-confirmation-popup.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { MatSliderModule } from '@angular/material/slider';
     HotelsHoteltabComponent,
     InvoiceTemplateComponent,
     ServiceComponent,
-    FormComponent
+    FormComponent,
+    UserDataModalComponent,
+    PaymentConfirmationPopupComponent
   ],
   imports: [
     BrowserModule,
@@ -67,6 +71,7 @@ import { MatSliderModule } from '@angular/material/slider';
     MatTabsModule,
     MatExpansionModule,
     FormsModule,
+    ReactiveFormsModule,
     MatSliderModule
   ],
   providers: [],
