@@ -31,4 +31,12 @@ export class FormComponent {
   btnClick(taskForm: NgForm): void {
     this.sendservice.onSubmit(taskForm);
   }
+
+  formatLabel(value: number): string {
+    if (value >= 1000) {
+      return Math.round(value / 1000) + 'k';
+    }
+
+    return `${value}`;
+  }
 }

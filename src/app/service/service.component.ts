@@ -8,6 +8,7 @@ export interface Task {
   fromplace: string;
   toplace: string;
   date: Date;
+  travellerCount: number;
 }
 
 @Component({
@@ -35,6 +36,7 @@ export class ServiceComponent {
       fromplace: taskForm.value.fromplace,
       toplace: taskForm.value.toplace,
       date: new Date(taskForm.value.date),
+      travellerCount: taskForm.value.travellerCount
     });
     taskForm.resetForm();
     console.log(this.taskArray);

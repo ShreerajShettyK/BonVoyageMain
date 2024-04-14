@@ -1,72 +1,90 @@
 <div class="mid">
-      <div class="form-section">
-        <form (ngSubmit)="btnClick(taskForm)" #taskForm="ngForm">
-            <div class="form-group">
-                <label for="firstname">First Name</label>
-                <input type="text" class="form-control" id="firstname" [(ngModel)]="sendservice.selectedTask.firstname" name="firstname" required pattern="[A-Za-z\s]+"
-                       [readonly]="sendservice.editingIndex !== null">
-                <small *ngIf="taskForm.controls['firstname'].errors?.['required']">To place is required.</small>
-                <small *ngIf="taskForm.controls['firstname'].errors?.['pattern']">Please enter a valid name (no numbers or special characters).</small>
-              </div>
-        
-              <div class="form-group">
-                <label for="lastname">Last Name</label>
-                <input type="text" class="form-control" id="lastname" [(ngModel)]="sendservice.selectedTask.lastname" name="lastname" required pattern="[A-Za-z\s]+"
-                       [readonly]="sendservice.editingIndex !== null">
-                <small *ngIf="taskForm.controls['lastname'].errors?.['required']">To place is required.</small>
-                <small *ngIf="taskForm.controls['lastname'].errors?.['pattern']">Please enter a valid name (no numbers or special characters).</small>
-              </div>
-          
-          <!-- <div class="form-group">
+  <div class="form-section">
+    <form (ngSubmit)="btnClick(taskForm)" #taskForm="ngForm">
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" id="firstname" [(ngModel)]="sendservice.selectedTask.firstname"
+          name="firstname" required pattern="[A-Za-z\s]+" [readonly]="sendservice.editingIndex !== null">
+        <small *ngIf="taskForm.controls['firstname'].errors?.['required']">To place is required.</small>
+        <small *ngIf="taskForm.controls['firstname'].errors?.['pattern']">Please enter a valid name (no numbers or
+          special characters).</small>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" class="form-control" id="lastname" [(ngModel)]="sendservice.selectedTask.lastname"
+          name="lastname" required pattern="[A-Za-z\s]+" [readonly]="sendservice.editingIndex !== null">
+        <small *ngIf="taskForm.controls['lastname'].errors?.['required']">To place is required.</small>
+        <small *ngIf="taskForm.controls['lastname'].errors?.['pattern']">Please enter a valid name (no numbers or
+          special characters).</small>
+      </div>
+
+      <!-- <div class="form-group">
             <label for="email">Email id:</label>
             <input type="email" class="form-control" id="email"  [(ngModel)]="sendservice.selectedTask.email" name="email" required>
             <small *ngIf="taskForm.controls['email'].errors?.['required']">Email is required.</small>
             <small *ngIf="taskForm.controls['email'].errors?.['email']">Please enter a valid email address.</small>
           </div> -->
-          <div class="form-group">
-            <label for="email">Email id:</label>
-            <input type="email" class="form-control" id="email" [(ngModel)]="sendservice.selectedTask.email" name="email" required pattern="[A-Za-z\s]+@[A-Za-z\s]+\.com" #email="ngModel">
-            <small *ngIf="taskForm.controls['email'].errors?.['required']">Email is required.</small>
-            <small *ngIf="email.errors?.['pattern'] && email.dirty" class="text-danger">Please enter a valid email address that has '@' and '.com'</small>
-          </div>
-          
-          
-          
-          <div class="form-group">
-            <label for="phone">Phone Number:</label>
-            <input type="tel" class="form-control" id="phone"  [(ngModel)]="sendservice.selectedTask.phone" name="phone" required pattern="[1-9][0-9]{9}">
-            <small *ngIf="taskForm.controls['phone'].errors?.['required']">Phone number is required.</small>
-            <small *ngIf="taskForm.controls['phone'].errors?.['pattern']">Please enter a valid 10-digit phone number.</small>
-          </div>
-          
-          <div class="form-group">
-            <label for="fromplace">From</label>
-            <input type="text" class="form-control" id="fromplace" [(ngModel)]="sendservice.selectedTask.fromplace" name="fromplace" required pattern="[A-Za-z\s]+"
-                   [readonly]="sendservice.editingIndex !== null">
-            <small *ngIf="taskForm.controls['fromplace'].errors?.['required']">From place is required.</small>
-            <small *ngIf="taskForm.controls['fromplace'].errors?.['pattern']">Please enter a valid name (no numbers or special characters).</small>
-          </div>
-          
-          <div class="form-group">
-            <label for="toplace">To:</label>
-            <input type="text" class="form-control" id="toplace" [(ngModel)]="sendservice.selectedTask.toplace" name="toplace" required pattern="[A-Za-z\s]+"
-                   [readonly]="sendservice.editingIndex !== null">
-            <small *ngIf="taskForm.controls['toplace'].errors?.['required']">To place is required.</small>
-            <small *ngIf="taskForm.controls['toplace'].errors?.['pattern']">Please enter a valid name (no numbers or special characters).</small>
-          </div>
-          
-          
-          <div class="form-group">
-            <label for="date">Date:</label>
-            <input type="date" class="form-control" [(ngModel)]="sendservice.selectedTask.date" id="date" name="date" required
-                   (change)="validateDate($event)">
-            <small *ngIf="taskForm.controls['date'].errors?.['required']">Date is required.</small>
-            <small *ngIf="taskForm.controls['date'].errors?.['invalidDate']">Please enter a date after today.</small>
-          </div>
-          
-          <div class="button-group">
-            <button [disabled]="taskForm.invalid || sendservice.editingIndex !== null" type="submit" class="btn btn-primary" *ngIf="sendservice.isNewTask">Enquire</button>
-          </div>
-        </form>
+      <div class="form-group">
+        <label for="email">Email id:</label>
+        <input type="email" class="form-control" id="email" [(ngModel)]="sendservice.selectedTask.email" name="email"
+          required pattern="[A-Za-z\s]+@[A-Za-z\s]+\.com" #email="ngModel">
+        <small *ngIf="taskForm.controls['email'].errors?.['required']">Email is required.</small>
+        <small *ngIf="email.errors?.['pattern'] && email.dirty" class="text-danger">Please enter a valid email address
+          that has '@' and '.com'</small>
       </div>
+
+
+
+      <div class="form-group">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" class="form-control" id="phone" [(ngModel)]="sendservice.selectedTask.phone" name="phone"
+          required pattern="[1-9][0-9]{9}">
+        <small *ngIf="taskForm.controls['phone'].errors?.['required']">Phone number is required.</small>
+        <small *ngIf="taskForm.controls['phone'].errors?.['pattern']">Please enter a valid 10-digit phone
+          number.</small>
       </div>
+
+      <div class="form-group">
+        <label for="fromplace">From</label>
+        <input type="text" class="form-control" id="fromplace" [(ngModel)]="sendservice.selectedTask.fromplace"
+          name="fromplace" required pattern="[A-Za-z\s]+" [readonly]="sendservice.editingIndex !== null">
+        <small *ngIf="taskForm.controls['fromplace'].errors?.['required']">From place is required.</small>
+        <small *ngIf="taskForm.controls['fromplace'].errors?.['pattern']">Please enter a valid name (no numbers or
+          special characters).</small>
+      </div>
+
+      <div class="form-group">
+        <label for="toplace">To:</label>
+        <input type="text" class="form-control" id="toplace" [(ngModel)]="sendservice.selectedTask.toplace"
+          name="toplace" required pattern="[A-Za-z\s]+" [readonly]="sendservice.editingIndex !== null">
+        <small *ngIf="taskForm.controls['toplace'].errors?.['required']">To place is required.</small>
+        <small *ngIf="taskForm.controls['toplace'].errors?.['pattern']">Please enter a valid name (no numbers or special
+          characters).</small>
+      </div>
+
+
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input type="date" class="form-control" [(ngModel)]="sendservice.selectedTask.date" id="date" name="date"
+          required (change)="validateDate($event)">
+        <small *ngIf="taskForm.controls['date'].errors?.['required']">Date is required.</small>
+        <small *ngIf="taskForm.controls['date'].errors?.['invalidDate']">Please enter a date after today.</small>
+      </div>
+
+      <div class="form-group">
+        <label for="travellerCount">Travellers:</label>
+        <br>
+          <mat-slider min="1" max="15" showTickMarks discrete [displayWith]="formatLabel" style="width: 100%;">
+            <input matSliderThumb [(ngModel)]="sendservice.selectedTask.travellerCount" id="travellerCount" name="travellerCount"
+            required/>
+          </mat-slider>
+        </div>
+
+      <div class="button-group">
+        <button [disabled]="taskForm.invalid || sendservice.editingIndex !== null" type="submit" class="btn btn-primary"
+          *ngIf="sendservice.isNewTask">Enquire</button>
+      </div>
+    </form>
+  </div>
+</div>
