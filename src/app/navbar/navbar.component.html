@@ -7,7 +7,7 @@
     </div>
     <ul class="navbar-nav" style="margin-right: 7%;">
       <li class="nav-item">
-        <a class="nav-link" href="#home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        <a class="nav-link" [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/package/1']" routerLinkActive="active">Packages</a>
