@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireModule } from '@angular/fire/compat';
+import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -34,6 +36,7 @@ import { FormsModule,  ReactiveFormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { UserDataModalComponent } from './user-data-modal/user-data-modal.component';
 import { PaymentConfirmationPopupComponent } from './payment-confirmation-popup/payment-confirmation-popup.component';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -72,7 +75,9 @@ import { PaymentConfirmationPopupComponent } from './payment-confirmation-popup/
     MatExpansionModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSliderModule
+    MatSliderModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent,]
