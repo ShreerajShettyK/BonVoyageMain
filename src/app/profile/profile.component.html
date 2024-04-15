@@ -1,7 +1,13 @@
 <!-- profile.component.html -->
 <div class="profile-container">
   <div class="profile-header">
-    <img [src]="user.photoURL" alt="Profile Picture" class="profile-picture">
+    <div *ngIf="user.photoURL">
+      <img
+        [src]="user.photoURL"
+        alt="Profile Picture"
+        class="profile-picture"
+      />
+    </div>
     <h2 class="profile-name">{{ user.displayName }}</h2>
   </div>
   <div class="profile-details">
@@ -11,7 +17,7 @@
     </div>
     <div class="detail-row">
       <div class="detail-label">Email Verified:</div>
-      <div class="detail-value">{{ user.emailVerified ? 'Yes' : 'No' }}</div>
+      <div class="detail-value">{{ user.emailVerified ? "Yes" : "No" }}</div>
     </div>
     <div class="detail-row">
       <div class="detail-label">User ID:</div>
@@ -23,11 +29,15 @@
     </div>
     <div class="detail-row">
       <div class="detail-label">Last Sign-In:</div>
-      <div class="detail-value">{{ user.metadata.lastSignInTime | date:'medium' }}</div>
+      <div class="detail-value">
+        {{ user.metadata.lastSignInTime | date : "medium" }}
+      </div>
     </div>
     <div class="detail-row">
       <div class="detail-label">Creation Time:</div>
-      <div class="detail-value">{{ user.metadata.creationTime | date:'medium' }}</div>
+      <div class="detail-value">
+        {{ user.metadata.creationTime | date : "medium" }}
+      </div>
     </div>
   </div>
 </div>

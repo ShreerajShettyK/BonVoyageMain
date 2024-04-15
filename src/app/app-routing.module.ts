@@ -24,7 +24,7 @@ const routes: Routes = [
   { path: 'package/:id', component: PackageDetailComponent ,canActivate:[AuthGuardService]},
   { path: 'hotel/:id', component: HotelsHoteltabComponent ,canActivate:[AuthGuardService]},
   { path: 'place/:id', component: PlaceDetailComponent ,canActivate:[AuthGuardService]},
-  { path: 'help/:id', component: HelpDetailComponent ,canActivate:[AuthGuardService]},
+  { path: 'help/:id', component: HelpDetailComponent },
   { path: 'Premium', component: ExplorePremiumPackageComponent ,canActivate:[AuthGuardService]},
   { path: 'Deluxe', component:  ExplorePremiumPackageComponent ,canActivate:[AuthGuardService]},
   { path: 'Diamond', component: ExplorePremiumPackageComponent,canActivate:[AuthGuardService]},
