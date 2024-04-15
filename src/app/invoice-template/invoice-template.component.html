@@ -63,7 +63,8 @@
       <mat-card-footer>
         <mat-card-actions> 
             <!-- (click)="sendEnquiry('Premium')" -->
-            <button matTooltip="" style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 70%;height: 50px;">PAY NOW</button>
+            <button  type="button" (click)="openPaymentConfirmation()" [disabled]="personsData.length === 0" matTooltip="" style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 70%;height: 50px;">PAY NOW</button>
+            
         </mat-card-actions>
       </mat-card-footer>
     </mat-card>

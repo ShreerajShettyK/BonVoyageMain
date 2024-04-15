@@ -17,14 +17,15 @@
           <mat-tab label="SCHEDULE">
             <div class="schedule" style="margin-top: 15px;">
               <div class="row" style="width: 100%;">
-                <div class="col-2 border">
-                  <h5>Day Plan</h5>
+                <h5>Day Plan</h5>
+<div class="col-2 border">
+  <ng-container *ngFor="let date of generatedDates">
+    <p>{{ date }}</p>
+  </ng-container>
+</div>
 
-                  <p>26 Apr, Fri</p>
-                  <p>27 Apr, Sat</p>
-                  <p>28 Apr, Sun</p>
-                  <p>29 Apr, Mon</p>
-                </div>
+<!-- Your form for entering the date here, make sure to bind (change)="updateDates()" to the input -->
+
                 <div class="col-10 border">
                   <div class="vstack gap-3">
                     <div class="p-2">
@@ -211,7 +212,24 @@
       </div>
       <div class="col-12 col-md-3" >
 
-        <app-form></app-form>
+        <!--<app-form></app-form>-->
+        <form [formGroup]="packageForm" (submit)="submitPackageForm()">
+          <div class="form-group">
+            <label for="numberOfPersons">Number of Persons:</label>
+            <input type="number" id="numberOfPersons" formControlName="numberOfPersons">
+            <!-- Add error message if needed -->
+          </div>
+        <br>
+        <div class="form-group">
+          <label for="travelDate">Travel Date:</label>
+          <input type="date" id="travelDate" formControlName="travelDate" (change)="onTravelDateChange()">
+          <div *ngIf="packageForm.controls['travelDate'].errors?.['invalidDate']" class="error-message">Travel date must be from tomorrow onwards.</div>
+          <!-- Add error message if the date is invalid -->
+        </div>
+        
+        
+
+        </form>
 
         <mat-card>
           <mat-card-header style="background-color: #d0efff; display: flex; flex-direction: column;">
