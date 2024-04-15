@@ -13,8 +13,8 @@
   font-size: smaller; /* You can adjust the font size as needed */
 }
 .premium-package {
-  margin: 20px;
-  padding: 20px;
+  margin: 5px;
+  padding: 5px;
   border: 1px solid #ddd;
   border-radius: 8px;
   text-align: center;
@@ -115,3 +115,42 @@ a:hover {
   align-self: stretch;
 }
 
+.form-section {
+  border: 1px solid #d0d0d0;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
