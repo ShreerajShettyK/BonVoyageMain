@@ -17,7 +17,7 @@ export class AuthService {
     );
   }
 
-  register(email: string, password: string) {
+  register(email: string, password: string,displayName:string,dob:Date,mobileNumber:string) {
     return this.afAuth.createUserWithEmailAndPassword(email, password);
   }
 
