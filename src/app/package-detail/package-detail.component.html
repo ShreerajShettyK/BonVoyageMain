@@ -3,194 +3,91 @@
     <body>
 
         <!-- carousel -->
-      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/lakshadweep-slider.png"
-              class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/cruise-banner-home.png"
-              class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/SWITZERLAND-slider.png"
-              class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/kerala-slider.png?bh"
-              class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/EasternEuropeanWonder-slider.png"
-              class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/EXCLUSIVEEUROPE-slider.png"
-              class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/andaman-slider.png?k  "
-              class="d-block w-100" alt="...">
-          </div>
-  
+        <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/lakshadweep-slider.png"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/cruise-banner-home.png"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/SWITZERLAND-slider.png"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/kerala-slider.png?bh"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/EasternEuropeanWonder-slider.png"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/EXCLUSIVEEUROPE-slider.png"
+                        class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/andaman-slider.png?k  "
+                        class="d-block w-100" alt="...">
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-          data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-      </div>
 
 
-      <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-6 text-center">
-                <h2>TOP DESTINATIONS IN <span><h3>INDIA <img src="../../assets/icon/india.png" alt=""></h3></span></h2>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center">
+                    <h2>TOP DESTINATIONS IN <span>
+                            <h3>INDIA <img src="../../assets/icon/india.png" alt=""></h3>
+                        </span></h2>
+                </div>
+            </div>
+
+
+            <input type="text" placeholder="Filter by Destination" [(ngModel)]="filterText" (ngModelChange)="filterBoxes()">
+            
+            <div class="row row-cols-1 row-cols-md-3 g-4 cards"
+                style="display: flex;justify-content: space-between; margin: 0px 0px 30px 0px; align-content: center;">
+                
+                <div class="col" *ngFor="let place of filteredBoxes">
+                    <div class="card">
+                    <!-- <a (click)="sendEnquiry('Premium')" matTooltip="Click on Enquire Now to Enquire about Holiday Packages"> -->
+                    <img src={{place.imgSrc}} class="card-img-top" alt="{{ place.title }}">
+                  <!-- </a>  -->
+                        <div class="card-body">
+                            <h5 class="card-title">{{ place.title }}</h5>
+                            <p class="card-text">{{ place.description }}</p>
+                            <div class="button-container" style="display: flex; justify-content: space-between;">
+                                <div>
+                                    <a routerLink="/Premium" class="btn btn-primary button-margin"
+                                        matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                                </div>
+                                <div>
+                                    <!-- <a class="btn btn-primary" (click)="sendEnquiry('Premium')" matTooltip="Click on Book now , to Book Your Package">Book Now</a> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div *ngIf="filteredBoxes.length === 0">
+                    <h3 style="background-color: rgb(151, 151, 151);width:max-content;border-radius: 5px;color: white;align-items: center;">No destinations!</h3>
+                    <!-- <h4>Sorry, no destinations match your filter.</h4> -->
+                </div>
             </div>
         </div>
-            <!-- cards -->
-            <!--card-1-->
-            <div class="row row-cols-1 row-cols-md-3 g-4 cards" style="display: flex;justify-content: space-between; margin: 0px 0px 30px 0px; align-content: center;">
-                <div class="col">
-                <div class="card">
-                    <a (click)="sendEnquiry('Premium')" matTooltip="Click on Enquire Now to Enquire about Holiday Packages">
-                    <img src="https://i.pinimg.com/originals/88/b1/5c/88b15c085218dad18b673834563925b3.jpg" class="card-img-top"
-                    alt="..."></a>
-                    <div class="card-body">
-                    <h5 class="card-title">Goa</h5>
-                    <p class="card-text">Explore the golden beaches, vibrant culture, and historic architecture of Goa, India's
-                        coastal paradise.</p>
-                    <div class="button-container" style="display: flex; justify-content: space-between;">
-                        <div>
-                        <a routerLink="/Premium" class="btn btn-primary button-margin"
-                            matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
-                        </div>
-                        <div>
-                        <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
-                            matTooltip="Click on Book now , to Book Your Package">Book Now</a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <!--card-2-->
-                <div class="col">
-                <div class="card">
-                    <img src="https://wallpaperaccess.com/full/4136696.jpg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Darjeeling</h5>
-                    <p class="card-text">Discover the scenic tea plantations, stunning Himalayan views, and charming colonial
-                        heritage of Darjeeling.</p>
-                    <div class="button-container" style="display: flex; justify-content: space-between;">
-                        <div>
-                        <a routerLink="/Premium" class="btn btn-primary button-margin"
-                            matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
-                        </div>
-                        <div>
-                        <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
-                            matTooltip="Click on Book now , to Book Your Package">Book Now</a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-                <!--card-3-->
-                <div class="col">
-                <div class="card">
-                    <img src="https://s1.1zoom.me/b5545/524/India_Rivers_Riverboat_Alappuzha_Kerala_Palms_527898_2560x1440.jpg"
-                    class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5 class="card-title">Kerala</h5>
-                    <p class="card-text">Experience the lush greenery, tranquil backwaters, and vibrant cultural traditions of
-                        Kerala, India's "God's Own Country."</p>
-                    <div class="button-container" style="display: flex; justify-content: space-between;">
-                        <div>
-                        <a routerLink="/Premium" class="btn btn-primary button-margin"
-                            matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
-                        </div>
-                        <div>
-                        <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
-                            matTooltip="Click on Book now , to Book Your Package">Book Now</a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                </div>
-            </div>
-            <div class="row row-cols-1 row-cols-md-3 g-4 cards" style="display: flex;justify-content: space-between; margin: 30px 0; align-content: center;">
-              <div class="col">
-              <div class="card">
-                  <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/4308/House-boat.jpg" class="card-img-top"
-                  alt="...">
-                  <div class="card-body">
-                  <h5 class="card-title">Kashmir</h5>
-                  <p class="card-text">Experience the colourful culture of Kashmir on this vacation. Indulge in a relaxing houseboat 
-                    stay</p>
-                  <div class="button-container" style="display: flex; justify-content: space-between;">
-                      <div>
-                      <a routerLink="/Premium" class="btn btn-primary button-margin"
-                          matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
-                      </div>
-                      <div>
-                      <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
-                          matTooltip="Click on Book now , to Book Your Package">Book Now</a>
-                      </div>
-                  </div>
-                  </div>
-              </div>
-              </div>
-              <!--card-2-->
-              <div class="col">
-              <div class="card">
-                  <img src="https://media.easemytrip.com/media/Deal/DL638304132130813825/SightSeeing/SightSeeing36wZKy.jpg" class="card-img-top" alt="...">
-                  <div class="card-body">
-                  <h5 class="card-title">Coorg</h5>
-                  <p class="card-text">Discover the scenic tea plantations, stunning Coorg views, 
-                    and charming colonial
-                      heritage of Kodagu.</p>
-                  <div class="button-container" style="display: flex; justify-content: space-between;">
-                      <div>
-                      <a routerLink="/Premium" class="btn btn-primary button-margin"
-                          matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
-                      </div>
-                      <div>
-                      <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
-                          matTooltip="Click on Book now , to Book Your Package">Book Now</a>
-                      </div>
-                  </div>
-                  </div>
-              </div>
-              </div>
-              <!--card-3-->
-              <div class="col">
-              <div class="card">
-                  <img src="https://hldak.mmtcdn.com/prod-s3-hld-hpcmsadmin/holidays/images/cities/1208/Ship%20passing%20through%20Pamban%20bridge.jpg"
-                  class="card-img-top" alt="...">
-                  <div class="card-body">
-                  <h5 class="card-title">Kanyakumari</h5>
-                  <p class="card-text">Head to Kanyakumari and visit the famous Vivekananda Rock Memorial.</p>
-                  <div class="button-container" style="display: flex; justify-content: space-between;">
-                      <div>
-                      <a routerLink="/Premium" class="btn btn-primary button-margin"
-                          matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
-                      </div>
-                      <div>
-                      <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
-                          matTooltip="Click on Book now , to Book Your Package">Book Now</a>
-                      </div>
-                  </div>
-                  </div>
-              </div>
-              </div>
-          </div>
-      </div>
     </body>
 </div>
