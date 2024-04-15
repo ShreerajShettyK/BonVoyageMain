@@ -1,11 +1,145 @@
 <!-- places.component.html -->
 <div class="places-container">
-    <div *ngFor="let place of places" class="place-item">
-      <div class="image-container">
-        <img [src]="place.imageUrl" (click)="showHotels(place)">
-      </div>
-      <h3>{{ place.name }}</h3>
-      <button (click)="showHotels(place)">Hotels Here !</button>
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <h2>TOP HOTELS <span><h3><img src="https://static.vecteezy.com/system/resources/previews/000/402/548/original/illustration-of-global-icon-vector.jpg" alt=""></h3></span></h2>
+        </div>
     </div>
+        <!-- cards -->
+        <!--card-1-->
+        <div class="row row-cols-1 row-cols-md-3 g-4 cards" style="display: flex;justify-content: space-between; margin: 0px 0px 30px 0px; align-content: center;">
+            <div class="col">
+            <div class="card">
+                <a matTooltip="Click on Enquire Now to Enquire about Holiday Packages">
+                <img src="https://r1imghtlak.mmtcdn.com/oiagudp3c552l5d537as4us8001s.jpg?&downsize=573:*&crop=573:240;0,90&output-format=jpg" class="card-img-top"
+                alt="..."></a>
+                <div class="card-body">
+                <h5 class="card-title">Marriott Goa Resort</h5>
+                <p class="card-text">Explore the golden beaches, vibrant culture, and historic architecture of Goa, India's
+                    coastal paradise.</p>
+                <div class="button-container" style="display: flex; justify-content: space-between;">
+                    <div>
+                    <a href="https://www.marriott.com/default.mi?nst=paid&cid=PAI_GLB00050BU_GLE000BLRA_GLF000ONOU&ppc=ppc&pId=intbppc&gclid=129db5e701c5197a90fbd3fbb2f48aff&gclsrc=3p.ds&msclkid=129db5e701c5197a90fbd3fbb2f48aff&utm_source=bing&utm_medium=cpc&utm_campaign=SE~BNG_FS~TB_MB~SPG_KC~BC_DS~NSA_MK~IN_LG~EN_SC~Core&utm_term=Marriott%20Com&utm_content=CoreBrand_Marriott_Phrase" class="btn btn-primary button-margin"
+                        matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                    </div>
+                    <div>
+                    <!-- <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
+                        matTooltip="Click on Book now , to Book Your Package">Book Now</a> -->
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <!--card-2-->
+            <div class="col">
+            <div class="card">
+                <img src="https://dubaihotelvacancy.com/wp-content/uploads/2021/12/The-LaLiT-Grand-Palace-Srinagar1.jpeg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Lalit Grand Palace</h5>
+                <p class="card-text">Discover the scenic tea plantations, stunning Himalayan views, and charming colonial
+                    heritage of Darjeeling.</p>
+                <div class="button-container" style="display: flex; justify-content: space-between;">
+                    <div>
+                    <a href="https://www.heritagehotelsofindia.com/jammu-kashmir/the-lalit-grand-palace.html" class="btn btn-primary button-margin"
+                        matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                    </div>
+                    <div>
+                    <!-- <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
+                        matTooltip="Click on Book now , to Book Your Package">Book Now</a> -->
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <!--card-3-->
+            <div class="col">
+            <div class="card">
+                <img src="https://assets.hyatt.com/content/dam/hyatt/hyattdam/images/2018/07/02/1033/Grand-Hyatt-Kochi-Bolgatty-P058-Hotel-Facade.jpg/Grand-Hyatt-Kochi-Bolgatty-P058-Hotel-Facade.16x9.jpg?imwidth=1920"
+                class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">Grand Hyatt</h5>
+                <p class="card-text">Experience the lush greenery, tranquil backwaters, and vibrant cultural traditions of
+                    Kerala, India's "God's Own Country."</p>
+                <div class="button-container" style="display: flex; justify-content: space-between;">
+                    <div>
+                    <a href="https://www.hyatt.com/grand-hyatt/en-US/cokgh-grand-hyatt-kochi-bolgatty/rooms" class="btn btn-primary button-margin"
+                        matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                    </div>
+                    <div>
+                    <!-- <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
+                        matTooltip="Click on Book now , to Book Your Package">Book Now</a> -->
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4 cards" style="display: flex;justify-content: space-between; margin: 30px 0; align-content: center;">
+          <div class="col">
+          <div class="card">
+              <img src="https://www.todaystraveller.net/wp-content/uploads/2021/02/The-Leela-Palace-Jaipur-2048x1365.jpg" class="card-img-top"
+              alt="...">
+              <div class="card-body">
+              <h5 class="card-title">The Leela Palace</h5>
+              <p class="card-text">Experience the colourful culture of Kashmir on this vacation. Indulge in a relaxing houseboat
+                stay</p>
+              <div class="button-container" style="display: flex; justify-content: space-between;">
+                  <div>
+                  <a href="https://www.theleela.com/special-offers/blissful-escapes?utm_source=bing&utm_medium=cpc&utm_campaign=IA_Bing_Corporate_Brand_Neev_India&msclkid=2852c0006383110aa8a4a61cd5bedcf9&utm_term=leela%20palace&utm_content=Leela%20Hotels" class="btn btn-primary button-margin"
+                      matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                  </div>
+                  <div>
+                  <!-- <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
+                      matTooltip="Click on Book now , to Book Your Package">Book Now</a> -->
+                  </div>
+              </div>
+              </div>
+          </div>
+          </div>
+          <!--card-2-->
+          <div class="col">
+          <div class="card">
+              <img src="https://www.holidify.com/images/cmsuploads/compressed/Coorg-Cliffs010_20201202221833.jpg" class="card-img-top" alt="...">
+              <div class="card-body">
+              <h5 class="card-title">Cliff Hotels</h5>
+              <p class="card-text">Discover the scenic tea plantations, stunning Coorg views,
+                and charming colonial
+                  heritage of Kodagu.</p>
+              <div class="button-container" style="display: flex; justify-content: space-between;">
+                  <div>
+                  <a href="https://cliffshotelandspa.com/?gclid=0971142ce4b01e19a03b723052d41a01&gclsrc=3p.ds&&sjrncid=BI_482739382&sjrnaid=BI_77515761349633&gclid=0971142ce4b01e19a03b723052d41a01&gclsrc=3p.ds&" class="btn btn-primary button-margin"
+                      matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                  </div>
+                  <div>
+                  <!-- <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
+                      matTooltip="Click on Book now , to Book Your Package">Book Now</a> -->
+                  </div>
+              </div>
+              </div>
+          </div>
+          </div>
+          <!--card-3-->
+          <div class="col">
+          <div class="card">
+              <img src="https://th.bing.com/th/id/R.ee9ca076aca458a29142d3d7da705ce3?rik=lXpHYsLNEmLYvw&riu=http%3a%2f%2fwww.travelplusstyle.com%2fwp-content%2fgallery%2fthe-oberoi-amarvilas-agra%2famarvillas-agra.jpg&ehk=%2b7GKfG11IN9hnbQmk7WH%2bPeUYsHXSn%2fCl8HE05KNjCI%3d&risl=&pid=ImgRaw&r=0"
+              class="card-img-top" alt="...">
+              <div class="card-body">
+              <h5 class="card-title">Hotel Oberoi</h5>
+              <p class="card-text">Head to Kanyakumari and visit the famous Oberoi.</p>
+              <div class="button-container" style="display: flex; justify-content: space-between;">
+                  <div>
+                  <a href="https://www.oberoihotels.com/" class="btn btn-primary button-margin"
+                      matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                  </div>
+                  <div>
+                  <!-- <a class="btn btn-primary" (click)="sendEnquiry('Premium')"
+                      matTooltip="Click on Book now , to Book Your Package">Book Now</a> -->
+                  </div>
+              </div>
+              </div>
+          </div>
+          </div>
+      </div>
   </div>
-  
+  </div>
