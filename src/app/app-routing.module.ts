@@ -17,6 +17,7 @@ import { InvoiceTemplateComponent } from './invoice-template/invoice-template.co
 import { UserDataModalComponent } from './user-data-modal/user-data-modal.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent ,canActivate:[AuthGuardService]},
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'traveller', component:  UserDataModalComponent ,canActivate:[AuthGuardService]},
   { path: 'register', component: RegisterComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'profile', component: ProfileComponent ,canActivate:[AuthGuardService]},
   { path: '**', redirectTo: '', pathMatch: 'full' ,canActivate:[AuthGuardService]},
 ];
 
