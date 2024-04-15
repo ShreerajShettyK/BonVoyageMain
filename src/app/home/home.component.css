@@ -71,14 +71,21 @@ header .content::before {
 }
 
 header .content .cont_bx {
-    width: 500px;
+    width: 900px;
     height: auto;
     color: #fff;
     padding: 30px;
 }
-header .content .cont_bx h1{
+header .content .cont_bx h2{
     line-height: 40px;
     font-weight: 800;
+    
+    /* border: 1px solid #000; */
+}
+header .content .cont_bx h3{
+    line-height: 40px;
+    font-weight: 800;
+    width: 500px;
     /* border: 1px solid #000; */
 }
 header .content .cont_bx p{

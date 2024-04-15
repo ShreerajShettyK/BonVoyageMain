@@ -11,21 +11,39 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/package/1']" routerLinkActive="active">Packages</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" [routerLink]="['/place/1']" routerLinkActive="active">Places</a>
-      </li>
+      </li> -->
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/hotel/1']" routerLinkActive="active">Hotels</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/help/1']" routerLinkActive="active">Help</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a class="nav-link" [routerLink]="['profile']" routerLinkActive="active">Profile</a>
       </li>   
          <li class="nav-item">
         <a class="nav-link" (click)="logout()" style="cursor: pointer;">Logout</a>
-      </li>
+      </li> -->
+      <ng-container *ngIf="showProfileIcon; else elseBlock">
+        <li>
+          <button mat-button [matMenuTriggerFor]="userMenu" style="border: 0px solid white;background-color: white;">
+            <img width="35" height="35" class="profile-image-toolbar" [src]="user.photoURL ?? 'assets/images/image-placeholder.png'" />
+            {{ user.displayName }}
+            <mat-icon>expand_more</mat-icon>
+          </button>
+          <mat-menu #userMenu="matMenu">
+            <button mat-menu-item [routerLink]="['profile']" routerLinkActive="active">
+              <mat-icon>account_circle</mat-icon> Profile
+            </button>
+            <button mat-menu-item (click)="logout()" style="cursor: pointer;">
+              <mat-icon>logout</mat-icon> Logout
+            </button>
+          </mat-menu>
+        </li>
+      </ng-container>
+      <ng-template #elseBlock></ng-template>
     </ul>
   </div>
 </nav>

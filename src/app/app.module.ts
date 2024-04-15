@@ -41,6 +41,8 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { MatMenuModule} from '@angular/material/menu';
+
 
 @NgModule({
   declarations: [
@@ -86,6 +88,7 @@ import { ProfileComponent } from './profile/profile.component';
     MatSliderModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    MatMenuModule
   ],
   providers: [],
   bootstrap: [AppComponent,]
