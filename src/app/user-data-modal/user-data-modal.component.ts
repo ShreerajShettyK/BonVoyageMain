@@ -2,6 +2,7 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentConfirmationPopupComponent } from '../payment-confirmation-popup/payment-confirmation-popup.component';
 import { BookingDataService } from '../booking-data.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-user-data-modal',
@@ -24,6 +25,10 @@ export class UserDataModalComponent implements OnInit {
   discountAmount: number =0;
   gstAmount: number =0;
 
+  newPersonForm: FormGroup;
+
+
+
 
   // Define properties
   personsData: any[] = []; // Array to store user details
@@ -39,7 +44,7 @@ export class UserDataModalComponent implements OnInit {
   couponCode: string = '';
   @Output() userDataSubmitted: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dialog: MatDialog, private bookingDataService: BookingDataService) {}
+  constructor(private fb: FormBuilder, public dialog: MatDialog, private bookingDataService: BookingDataService) {}
   ngOnInit(): void {
     this.bookingData = this.bookingDataService.getBookingData();
     console.log(this.bookingData);
@@ -48,6 +53,11 @@ export class UserDataModalComponent implements OnInit {
     this.gstAmount = ( (this.bookingData.totalPrice * 5)/100 )
     this.finalAmountInclGst = this.bookingData.totalPrice + this.discountAmount - this.gstAmount;
     
+    this.newPersonForm = this.fb.group({
+      name: ['', Validators.required],
+      dob: ['', Validators.required],
+      gender: ['', Validators.required]
+    });
   
   }
 
@@ -75,13 +85,21 @@ export class UserDataModalComponent implements OnInit {
     });
   }
 
-  addPerson(): void {
-    // Add new person to the personsData array
-    this.personsData.push({ name: this.newPerson.name, dob: this.newPerson.dob, gender: this.newPerson.gender });
+  // addPerson(): void {
+  //   // Add new person to the personsData array
+  //   this.personsData.push({ name: this.newPerson.name, dob: this.newPerson.dob, gender: this.newPerson.gender });
     
-    // Clear newPerson object for the next entry
-    this.newPerson = { name: '', dob: null, gender: '' };
-}
+  //   // Clear newPerson object for the next entry
+  //   this.newPerson = { name: '', dob: null, gender: '' };
+  // }
+
+  addPerson(): void {
+    if (this.newPersonForm.valid) {
+      const newPerson = this.newPersonForm.value;
+      this.personsData.push({ name: this.newPerson.name, dob: this.newPerson.dob, gender: this.newPerson.gender });
+      // Add the new person to your data model
+    }
+  }
 
 
   removePerson(index: number): void {
