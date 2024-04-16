@@ -10,18 +10,16 @@ import { EnquiryModalService } from '../services/enquiry-modal.service';
 export class ExplorePremiumPackageComponent implements OnInit {
   cancelPanelOpenState = false;
   tandcPanelOpenState = false;
-  numberOfPersons!: number;
+  dontShowButton:boolean = false;
+  // numberOfPersons!: number;
   travelDate!: Date;
   packageForm!: FormGroup;
   enteredDate!: Date;
   generatedDates: string[] = [];
 
-  // Define premiumPackage object
-  premiumPackage = {
-    numberOfDays: 7,
-    numberOfPersons: 2,
-    price: 1500
-  };
+  readonly numberOfDays = 4;
+  readonly pricePerPerson = 20000;
+  numberOfTravellers: number = 1;
 
   constructor(
     public enquiryModalService: EnquiryModalService,
@@ -29,9 +27,17 @@ export class ExplorePremiumPackageComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    this.numberOfTravellers = 1;
+
     this.packageForm = this.fb.group({
-      numberOfPersons: [null, Validators.required],
+      numberOfTravellers: [this.numberOfTravellers, [Validators.required, this.travellerCountValidator()]],
       travelDate: [null, [Validators.required, this.futureDateValidator()]]
+    });
+
+    this.packageForm.valueChanges.subscribe(value => {
+      this.calculateTotalPrice();
+      this.calculateNumberOfTravellers();
+      this.dontShowButton = this.isInvalidTravellersCount();
     });
   }
 
@@ -70,6 +76,22 @@ export class ExplorePremiumPackageComponent implements OnInit {
     };
   }
 
+  calculateTotalPrice() {
+    const numberOfTravellers = this.packageForm.get('numberOfTravellers')?.value;
+    if (numberOfTravellers) {
+      this.totalPrice = numberOfTravellers * this.pricePerPerson;
+    } else {
+      this.totalPrice = 0;
+    }
+  }
+
+  totalPrice = this.pricePerPerson;;
+
+  calculateNumberOfTravellers() {
+    this.numberOfTravellers = this.packageForm.get('numberOfTravellers')?.value || 1; // Handle default 0 travellers
+  }
+
+
   sendEnquiry(packageName: string) {
     console.log('Enquiry sent for package:', packageName);
     this.enquiryModalService.openSuccessModal();
@@ -85,5 +107,28 @@ export class ExplorePremiumPackageComponent implements OnInit {
       // If the form is invalid, mark all fields as touched to display error messages
       this.packageForm.markAllAsTouched();
     }
+  }
+
+  travellerCountValidator() {
+    return (control: any): { [key: string]: any } | null => {
+      const travellers = control.value;
+
+      if (travellers === null || travellers === undefined) {
+        return { required: true }; // Handle missing input
+      }
+
+      if (travellers < 1) {
+        return { minTravellers: true }; // Minimum travellers should be 1
+      } else if (travellers > 15) {
+        return { maxTravellers: true }; // Maximum travellers should be 15
+      }
+
+      return null;
+    };
+  }
+
+  isInvalidTravellersCount(): boolean {
+    const travellers = this.packageForm.get('numberOfTravellers')?.value;
+    return (travellers < 1 || travellers > 15);
   }
 }
