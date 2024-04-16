@@ -40,12 +40,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     // Initialization logic, if needed
-    window.onbeforeunload = (event) => {
-      if (this.registerForm.dirty) {
-        event.preventDefault();
-        event.returnValue = 'Are you sure you want to leave? Your data may not be saved.';
-      }
-    };
   }
 
   onSubmit() {
