@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators,FormControl, EmailValidator, AbstractControl } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
@@ -18,25 +18,35 @@ export class RegisterComponent implements OnInit {
     private router: Router
   ) {
     this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, this.emailValidator]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(8),
+        Validators.pattern(/^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])/),
+      ]],
       confirmPassword: ['', [Validators.required]],
-      displayName: ['', [Validators.required]],
-      dob: ['', [Validators.required]],
-      mobileNumber: ['', [Validators.required, Validators.pattern(/^\d{10}$/)]]
-    }, {
-      validator: this.passwordMatchValidator
-    });
+      displayName: ['', [
+        Validators.required,
+        Validators.minLength(4),
+        Validators.pattern(/^[^0-9]/),
+      ]],
+      dob: ['', [Validators.required, this.dateValidator]],
+      mobileNumber: ['', [
+        Validators.required,
+        Validators.pattern(/^[1-9]\d{9}$/),
+      ]],
+    }, { validator: this.passwordMatchValidator });
   }
-ngOnInit() {
-  // Initialization logic, if needed
-  window.onbeforeunload = (event) => {
-    if (this.registerForm.dirty) {
-      event.preventDefault();
-      event.returnValue = 'Are you sure you want to leave? Your data may not be saved.';
-    }
-  };
-}
+
+  ngOnInit() {
+    // Initialization logic, if needed
+    window.onbeforeunload = (event) => {
+      if (this.registerForm.dirty) {
+        event.preventDefault();
+        event.returnValue = 'Are you sure you want to leave? Your data may not be saved.';
+      }
+    };
+  }
 
   onSubmit() {
     if (this.registerForm.valid) {
@@ -69,5 +79,25 @@ ngOnInit() {
     } else {
       formGroup.get('confirmPassword')?.setErrors(null);
     }
+  }
+
+  dateValidator(control: FormControl): { [key: string]: any } | null {
+    const selectedDate = new Date(control.value);
+    const currentDate = new Date();
+
+    if (selectedDate > currentDate) {
+      return { 'futureDate': true };
+    }
+    return null;
+  }
+  emailValidator(control:AbstractControl) {
+    const email = control.value;
+  // Regular expression pattern for email validation
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (email && !emailPattern.test(email)) {
+    return { 'invalidEmail': true };
+  }
+  return null;
   }
 }

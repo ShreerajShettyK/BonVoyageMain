@@ -2,9 +2,7 @@
   <div class="row justify-content-center">
     <div class="col-md-6">
       <div class="card">
-        <div class="card-header">
-          <h2 class="text-center">Register</h2>
-        </div>
+        <div class="card-header"><h2 class="text-center">Register</h2></div>
         <div class="card-body">
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <div class="mb-3">
@@ -23,7 +21,16 @@
                 "
                 class="text-danger"
               >
-                Please enter a valid email address.
+                <ng-container
+                  *ngIf="registerForm.get('email')?.errors?.['required']"
+                >
+                  Email is required.
+                </ng-container>
+                <ng-container
+                  *ngIf="registerForm.get('email')?.errors?.['invalidEmail']"
+                >
+                  Please enter a valid email address.
+                </ng-container>
               </div>
             </div>
             <div class="mb-3">
@@ -42,7 +49,8 @@
                 "
                 class="text-danger"
               >
-                Password must be at least 6 characters long.
+                Password must be at least 8 characters long and contain at least
+                one uppercase letter, one number, and one symbol.
               </div>
             </div>
             <div class="mb-3">
@@ -82,7 +90,8 @@
                 "
                 class="text-danger"
               >
-                Display name is required.
+                Display name must be at least 4 characters long and must not start with a
+                number.
               </div>
             </div>
             <div class="mb-3">
@@ -101,7 +110,7 @@
                 "
                 class="text-danger"
               >
-                Please enter a valid date of birth.
+                Please enter a valid date of birth that is not in the future.
               </div>
             </div>
             <div class="mb-3">
@@ -120,7 +129,8 @@
                 "
                 class="text-danger"
               >
-                Please enter a valid mobile number.
+                Please enter a valid 10-digit mobile number that starts with a
+                non-zero digit.
               </div>
             </div>
             <button
