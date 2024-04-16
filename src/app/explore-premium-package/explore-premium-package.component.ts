@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EnquiryModalService } from '../services/enquiry-modal.service';
+import { BookingDataService } from '../booking-data.service';
 
 @Component({
   selector: 'app-explore-premium-package',
@@ -23,7 +24,8 @@ export class ExplorePremiumPackageComponent implements OnInit {
 
   constructor(
     public enquiryModalService: EnquiryModalService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private bookingDataService: BookingDataService
   ) {}
 
   ngOnInit() {
@@ -100,6 +102,12 @@ export class ExplorePremiumPackageComponent implements OnInit {
   // Method for form submission
   submitPackageForm() {
     if (this.packageForm.valid) {
+      this.bookingDataService.setBookingData({
+        numberOfDays: this.numberOfDays,
+        numberOfTravellers: this.packageForm.get('numberOfTravellers')?.value,
+        totalPrice: this.totalPrice,
+        travelDate: this.packageForm.get('travelDate')?.value
+      });
       // Handle form submission logic here
       // For example, you can access the form data using this.packageForm.value
       console.log('Form submitted successfully:', this.packageForm.value);

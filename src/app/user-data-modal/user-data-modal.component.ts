@@ -1,13 +1,28 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentConfirmationPopupComponent } from '../payment-confirmation-popup/payment-confirmation-popup.component';
+import { BookingDataService } from '../booking-data.service';
 
 @Component({
   selector: 'app-user-data-modal',
   templateUrl: './user-data-modal.component.html',
   styleUrls: ['./user-data-modal.component.css']
 })
-export class UserDataModalComponent {
+export class UserDataModalComponent implements OnInit {
+  bookingData: {
+    numberOfDays: number;
+    numberOfTravellers: number;
+    totalPrice: number;
+    travelDate: Date
+  } = {
+    numberOfDays: 0,
+    numberOfTravellers: 0,
+    totalPrice: 0,
+    travelDate: new Date(),
+  };
+  finalAmountInclGst: number =0;
+  discountAmount: number =0;
+  gstAmount: number =0;
   // Define properties
   personsData: any[] = []; // Array to store user details
   showContactForm: boolean = false;
@@ -22,7 +37,17 @@ export class UserDataModalComponent {
   couponCode: string = '';
   @Output() userDataSubmitted: EventEmitter<any> = new EventEmitter();
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private bookingDataService: BookingDataService) {}
+  ngOnInit(): void {
+    this.bookingData = this.bookingDataService.getBookingData();
+    console.log(this.bookingData);
+
+    this.discountAmount = ( (this.bookingData.totalPrice * 25)/100 )
+    this.gstAmount = ( (this.bookingData.totalPrice * 5)/100 )
+    this.finalAmountInclGst = this.bookingData.totalPrice + this.discountAmount - this.gstAmount;
+    
+  
+  }
 
   // Other methods...
   applyCoupon(): void {
@@ -56,7 +81,7 @@ export class UserDataModalComponent {
   calculateTotalPrice(): number {
     // Calculate total price based on the number of persons added
     // For demonstration purposes, let's assume a fixed price per person
-    const pricePerPerson = 12506; // Replace this with your actual price calculation
+    const pricePerPerson = 20000; // Replace this with your actual price calculation
     return this.personsData.length * pricePerPerson;
   }
 

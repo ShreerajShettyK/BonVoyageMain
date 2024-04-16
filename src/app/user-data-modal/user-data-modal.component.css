@@ -188,7 +188,7 @@ table {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-image: url(../../assets/images/b4.webp);
+    /* background-image: url(../../assets/images/b4.webp); */
   }
   
   .inv {
@@ -199,3 +199,17 @@ table {
     margin-right: 20px; /* Adjust as needed */
   }
   
+  .vstack {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    align-self: stretch;
+  }
+  
+  
+  .hstack {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    align-self: stretch;
+  }
