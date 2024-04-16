@@ -14,12 +14,14 @@ export class PackageDetailComponent {
     {
       title: "Goa",
       description: "Explore the golden beaches, vibrant culture, and historic architecture of Goa, India's coastal paradise.",
-      imgSrc: "https://i.pinimg.com/originals/88/b1/5c/88b15c085218dad18b673834563925b3.jpg"
+      imgSrc: "https://i.pinimg.com/originals/88/b1/5c/88b15c085218dad18b673834563925b3.jpg",
+      path: "/Premium"
     },
     {
       title: "Darjeeling",
       description: "Discover the scenic tea plantations, stunning Himalayan views, and charming colonial heritage of Darjeeling.",
-      imgSrc: "https://wallpaperaccess.com/full/4136696.jpg"
+      imgSrc: "https://wallpaperaccess.com/full/4136696.jpg",
+      path: "/Diamond"
     },
     {
       title: "Kerala",
