@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: 'help/:id', component: HelpDetailComponent },
   { path: 'Premium', component: ExplorePremiumPackageComponent ,canActivate:[AuthGuardService]},
   { path: 'Deluxe', component:  ExplorePremiumPackageComponent ,canActivate:[AuthGuardService]},
-  { path: 'Diamond', component: ExplorePremiumPackageComponent,canActivate:[AuthGuardService]},
+  { path: 'Diamond', component: ExploreDiamondPackageComponent,canActivate:[AuthGuardService]},
   // { path: '', redirectTo: '/places', pathMatch: 'full' },
   { path: 'places', component: PlaceDetailComponent ,canActivate:[AuthGuardService]},
   { path: 'explore/:id', component: ExploreComponent ,canActivate:[AuthGuardService]},
