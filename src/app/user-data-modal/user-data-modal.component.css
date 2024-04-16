@@ -1,4 +1,8 @@
 /* user-data-modal.component.css */
+form{
+  background-color: white;
+}
+
 .form-group {
     margin-bottom: 20px;
   }
@@ -188,7 +192,7 @@ table {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    /* background-image: url(../../assets/images/b4.webp); */
+    background-image: url(../../assets/img/bg5.png);
   }
   
   .inv {
