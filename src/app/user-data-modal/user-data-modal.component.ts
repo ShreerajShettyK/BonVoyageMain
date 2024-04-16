@@ -23,6 +23,8 @@ export class UserDataModalComponent implements OnInit {
   finalAmountInclGst: number =0;
   discountAmount: number =0;
   gstAmount: number =0;
+
+
   // Define properties
   personsData: any[] = []; // Array to store user details
   showContactForm: boolean = false;
@@ -49,19 +51,12 @@ export class UserDataModalComponent implements OnInit {
   
   }
 
-  // Other methods...
-  applyCoupon(): void {
-    // Logic to apply the coupon code
-    console.log('Coupon code applied:', this.couponCode);
-
-    // Display an alert
-    window.alert('Coupon code applied successfully!');
-  }
-
   openPaymentConfirmation(): void {
     // Calculate total price and GST
-    const totalPrice = this.calculateTotalPrice();
-    const gst = this.calculateGST(totalPrice);
+    const totalPrice = this.bookingData.totalPrice;
+    const gst = this.gstAmount;
+    const couponDiscount = this.discountAmount;
+    const finalAmount = this.finalAmountInclGst;
 
     // Open payment confirmation dialog
     const dialogRef = this.dialog.open(PaymentConfirmationPopupComponent, {
@@ -69,7 +64,9 @@ export class UserDataModalComponent implements OnInit {
         fullName: this.fullName,
         contactNumber: this.contactNumber,
         totalPrice: totalPrice,
-        gst: gst
+        gst: gst,
+        couponDiscount: couponDiscount,
+        finalAmount: finalAmount
       }
     });
 
@@ -78,19 +75,6 @@ export class UserDataModalComponent implements OnInit {
     });
   }
 
-  calculateTotalPrice(): number {
-    // Calculate total price based on the number of persons added
-    // For demonstration purposes, let's assume a fixed price per person
-    const pricePerPerson = 20000; // Replace this with your actual price calculation
-    return this.personsData.length * pricePerPerson;
-  }
-
-  calculateGST(totalPrice: number): number {
-    // Calculate GST based on the total price
-    // For demonstration purposes, let's assume a fixed GST rate
-    const gstRate = 0.8; // 18% GST
-    return totalPrice * gstRate;
-  }
   addPerson(): void {
     // Add new person to the personsData array
     this.personsData.push({ name: this.newPerson.name, dob: this.newPerson.dob, gender: this.newPerson.gender });

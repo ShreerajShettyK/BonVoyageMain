@@ -9,6 +9,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class PaymentConfirmationPopupComponent {
   totalPrice: number;
   gst: number;
+  couponDiscount: number;
+  finalAmount: number;
 
   constructor(
     public dialogRef: MatDialogRef<PaymentConfirmationPopupComponent>,
@@ -16,11 +18,13 @@ export class PaymentConfirmationPopupComponent {
   ) { 
     this.totalPrice = data.totalPrice;
     this.gst = data.gst;
+    this.couponDiscount = data.couponDiscount;
+    this.finalAmount = data.finalAmount
   }
 
-  getTotalPayment(): number {
-    return this.totalPrice + this.gst;
-  }
+  // getTotalPayment(): number {
+  //   return this.totalPrice + this.gst;
+  // }
 
   onOK(): void {
     this.dialogRef.close();
