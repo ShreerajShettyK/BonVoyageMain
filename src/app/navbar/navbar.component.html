@@ -12,7 +12,7 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav" *ngIf="show else elseBlock">
+      <ul class="navbar-nav" *ngIf="show; else elseBlock">
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/']" routerLinkActive="active"
             [routerLinkActiveOptions]="{ exact: true }">Home</a>
@@ -29,12 +29,12 @@
         <li class="nav-item">
           <a class="nav-link" [routerLink]="['/help/1']" routerLinkActive="active">Help</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown abc">
           <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             <img width="35" height="35" class="profile-image-toolbar"
-              [src]="user.photoURL ?? 'assets/images/image-placeholder.png'" />
-            {{ user.displayName }}
+              [src]="user.photoURL || 'assets/images/image-placeholder.png'" />
+            <span [ngClass]="{'text-primary fw-bold': isProfilePage}" class="name">{{ user.displayName }}</span>
           </a>
           <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
             <li>
