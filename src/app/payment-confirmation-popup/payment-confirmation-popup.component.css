@@ -1,29 +1,88 @@
 .popup {
-    width: 70%; /* Adjust width as needed */
+    width: 80%;
+    /* Increase the width as needed */
+    height: 40%;
+    /* Increase the height as needed */
+    max-width: 800px;
+    /* Limit the maximum width if necessary */
+    max-height: 600px;
+    /* Limit the maximum height if necessary */
     border-radius: 10px;
-    margin: 0 auto; /* Center the container horizontally */
-    padding: 20px; /* Add padding for spacing */
+
+    /* Center the container horizontally and vertically */
+    padding: 20px;
     text-align: center;
     color: black;
+    display: flex;
+    flex-direction: column;
+
+    /* Adjust width as needed */
+
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    color: black;
+
+    background: rgb(238, 174, 202);
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(228, 232, 235, 1) 0%);
+    /* Add shadow effect */
+    cursor: pointer;
+    /* Change cursor style to indicate interactiveness */
+
+
 }
 
+
+
+
+
+
+
 .popup h1 {
-    margin-bottom: 20px; /* Add spacing below the heading */
-    color: #007bff; /* Highlight the heading */
+    margin-bottom: 20px;
+
+    /* Add spacing below the heading */
+    color: #007bff;
+    /* Highlight the heading */
 }
 
 .popup form {
-    display: inline-block; /* Ensure form elements are displayed inline */
-    text-align: left; /* Reset text alignment for form elements */
+    display: inline-block;
+    /* Ensure form elements are displayed inline */
+    text-align: left;
+    /* Reset text alignment for form elements */
 }
 
+.success-message {
+    text-align: center;
+}
+
+.par {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+
+}
+
+
+
+
+
+
+
 .popup .form-group {
-    text-align: left; /* Reset text alignment for form elements */
-    margin-bottom: 20px; /* Add spacing between form groups */
+    text-align: left;
+    /* Reset text alignment for form elements */
+    margin-bottom: 20px;
+    /* Add spacing between form groups */
 }
 
 button {
-    margin: 10px; /* Add space around the buttons */
+    margin: 10px;
+    /* Add space around the buttons */
     background-color: #007bff;
     border: none;
     border-radius: 5px;
@@ -34,5 +93,33 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: rgb(40, 40, 196);
+}
+
+.f {
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+
+}
+
+.haha {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 0px !important;
+
+}
+
+.close-button mat-icon {
+    font-size: 12px;
+    /* Decrease the font size */
+    color: rgb(40, 40, 196);
+}
+
+.haha button mat-icon {
+    font-size: 8px !important;
+    margin-top: 0%;
+    /* Decrease the font size and use !important */
+    color: rgb(40, 40, 196);
 }

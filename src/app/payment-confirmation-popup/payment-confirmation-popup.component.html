@@ -1,11 +1,70 @@
-<h1 mat-dialog-title>Payment Confirmation</h1>
-<div mat-dialog-content class="popup">
-    <p>Total Price based on no of travellers: {{ totalPrice }}</p>
-    <p>GST Amount: {{gst}}</p>
-    <p>Coupon Discount: {{ couponDiscount }}</p>
-    <p>Total Amount (including GST and Discount): {{ finalAmount }}</p>
-</div>
-<div mat-dialog-actions class="popup">
-    <button id="ok-button" mat-button (click)="onOK()">Pay Now</button>
-    <button id="cancel-button" mat-button (click)="onCancel()">Cancel</button>
+<div class="par">
+    <h1>Payment Confirmation</h1>
+
+    <!-- Close button -->
+    <!-- <div class="c1"> -->
+
+
+    <!-- <br> -->
+    <div mat-dialog-content class="popup" #dialogContent>
+        <button id="b1" mat-icon-button mat-dialog-close aria-label="Close" class="haha"
+            style="padding: 0; line-height: 1px; right:0px;">
+            <mat-icon>close</mat-icon>
+        </button>
+        <!-- Price details -->
+
+        <br>
+        <p>Total Price based on no of travellers: {{ totalPrice }}</p>
+        <p>GST Amount: {{ gst }}</p>
+        <p>Coupon Discount: {{ couponDiscount }}</p>
+        <p>Total Amount (including GST and Discount): {{ finalAmount}}</p>
+
+        <!-- Payment form -->
+        <form [formGroup]="newPersonForm" (ngSubmit)="submitForm()" class="f">
+            <h5>Enter Payment Details</h5>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" formControlName="name" required>
+                <!-- Display error message for name field -->
+                <div *ngIf="newPersonForm.get('name').errors && newPersonForm.get('name').dirty" style="color: red;">
+                    <div *ngIf="newPersonForm.get('name').hasError('required')">Name is required</div>
+                    <div *ngIf="newPersonForm.get('name').hasError('pattern')">Special characters not allowed</div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label for="phone">Phone Number:</label>
+                <input type="text" formControlName="phone" required>
+                <!-- Display error message for phone field -->
+                <div *ngIf="newPersonForm.get('phone').errors && newPersonForm.get('phone').dirty" style="color: red;">
+                    <div *ngIf="newPersonForm.get('phone').hasError('required')">Phone number is required</div>
+                    <div *ngIf="newPersonForm.get('phone').hasError('pattern')">Invalid phone number</div>
+                    <div *ngIf="newPersonForm.get('phone').hasError('minlength')">Phone number must have at least 10
+                        digits</div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label for="paymentMethod">Select Payment Method:</label>
+                <select id="paymentMethod" name="paymentMethod" [(ngModel)]="paymentMethod" required>
+                    <option value="CreditCard">Credit Card</option>
+                    <option value="DebitCard">Debit Card</option>
+                    <option value="Phonepay">Phonepay/Gpay</option>
+                </select>
+            </div>
+            <!-- Buttons -->
+            <div>
+                <button type="submit" [disabled]="newPersonForm.invalid" style="background-color:rgb(40, 40, 196)">Pay
+                    Now</button>
+                <button type="button" (click)="onCancel()" style="background-color:rgb(40, 40, 196)">Cancel</button>
+            </div>
+        </form>
+
+
+
+        <!-- Success message -->
+        <div *ngIf="paymentSuccess" class="success-message">
+            <h2 style="color: green;">Payment Successful &#10004;</h2>
+        </div>
+    </div>
 </div>

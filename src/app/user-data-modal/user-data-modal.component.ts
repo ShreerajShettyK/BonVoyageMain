@@ -16,14 +16,14 @@ export class UserDataModalComponent implements OnInit {
     totalPrice: number;
     travelDate: Date
   } = {
-    numberOfDays: 0,
-    numberOfTravellers: 0,
-    totalPrice: 0,
-    travelDate: new Date(),
-  };
-  finalAmountInclGst: number =0;
-  discountAmount: number =0;
-  gstAmount: number =0;
+      numberOfDays: 0,
+      numberOfTravellers: 0,
+      totalPrice: 0,
+      travelDate: new Date(),
+    };
+  finalAmountInclGst: number = 0;
+  discountAmount: number = 0;
+  gstAmount: number = 0;
 
   newPersonForm: FormGroup;
 
@@ -33,7 +33,7 @@ export class UserDataModalComponent implements OnInit {
   // Define properties
   personsData: any[] = []; // Array to store user details
   showContactForm: boolean = false;
- 
+
   confirmCheckbox: boolean = false;
   newPerson: any = { name: '', dob: null, gender: '' };
   submitted: boolean = false;
@@ -44,22 +44,27 @@ export class UserDataModalComponent implements OnInit {
   couponCode: string = '';
   @Output() userDataSubmitted: EventEmitter<any> = new EventEmitter();
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog, private bookingDataService: BookingDataService) {}
+  constructor(private fb: FormBuilder, public dialog: MatDialog, private bookingDataService: BookingDataService) { }
   ngOnInit(): void {
     this.bookingData = this.bookingDataService.getBookingData();
     console.log(this.bookingData);
 
-    this.discountAmount = ( (this.bookingData.totalPrice * 25)/100 )
-    this.gstAmount = ( (this.bookingData.totalPrice * 5)/100 )
-    this.finalAmountInclGst = this.bookingData.totalPrice + this.discountAmount - this.gstAmount;
-    
+    // Calculate discount amount (25% off)
+    this.discountAmount = (this.bookingData.totalPrice * 25) / 100;
+
+    // Calculate GST amount (5% of the original total price)
+    this.gstAmount = (this.bookingData.totalPrice * 5) / 100;
+
+    // Calculate final amount including discount and GST
+    this.finalAmountInclGst = this.bookingData.totalPrice - this.discountAmount + this.gstAmount;
+
     this.newPersonForm = this.fb.group({
       name: ['', Validators.required],
       dob: ['', Validators.required],
       gender: ['', Validators.required]
-    });
-  
+    })
   }
+
 
   openPaymentConfirmation(): void {
     // Calculate total price and GST
@@ -88,7 +93,7 @@ export class UserDataModalComponent implements OnInit {
   // addPerson(): void {
   //   // Add new person to the personsData array
   //   this.personsData.push({ name: this.newPerson.name, dob: this.newPerson.dob, gender: this.newPerson.gender });
-    
+
   //   // Clear newPerson object for the next entry
   //   this.newPerson = { name: '', dob: null, gender: '' };
   // }
@@ -109,7 +114,7 @@ export class UserDataModalComponent implements OnInit {
   editPerson(index: number): void {
     // Set newPerson object to the values of the person being edited
     this.newPerson = { ...this.personsData[index] };
-    
+
     // Remove the person being edited from the personsData array
     this.personsData.splice(index, 1);
   }
