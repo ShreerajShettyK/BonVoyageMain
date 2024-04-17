@@ -2,7 +2,7 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentConfirmationPopupComponent } from '../payment-confirmation-popup/payment-confirmation-popup.component';
 import { BookingDataService } from '../booking-data.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 
 @Component({
   selector: 'app-user-data-modal',
@@ -26,14 +26,8 @@ export class UserDataModalComponent implements OnInit {
   gstAmount: number = 0;
 
   newPersonForm: FormGroup;
-
-
-
-
-  // Define properties
-  personsData: any[] = []; // Array to store user details
+  personsData: any[] = [];
   showContactForm: boolean = false;
-
   confirmCheckbox: boolean = false;
   newPerson: any = { name: '', dob: null, gender: '' };
   submitted: boolean = false;
@@ -45,6 +39,7 @@ export class UserDataModalComponent implements OnInit {
   @Output() userDataSubmitted: EventEmitter<any> = new EventEmitter();
 
   constructor(private fb: FormBuilder, public dialog: MatDialog, private bookingDataService: BookingDataService) { }
+
   ngOnInit(): void {
     this.bookingData = this.bookingDataService.getBookingData();
     console.log(this.bookingData);
@@ -55,16 +50,28 @@ export class UserDataModalComponent implements OnInit {
     // Calculate GST amount (5% of the original total price)
     this.gstAmount = (this.bookingData.totalPrice * 5) / 100;
 
+    // Initialize the form group with validators for all form controls
+    this.newPersonForm = this.fb.group({
+      name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]], // Only letters and spaces allowed
+      dob: ['', [Validators.required, this.notAfterToday]], // Date not after today
+      gender: ['', Validators.required]
+    });
+
     // Calculate final amount including discount and GST
     this.finalAmountInclGst = this.bookingData.totalPrice - this.discountAmount + this.gstAmount;
-
-    this.newPersonForm = this.fb.group({
-      name: ['', Validators.required],
-      dob: ['', Validators.required],
-      gender: ['', Validators.required]
-    })
   }
 
+  // Custom validator to check if the date is not after today
+  notAfterToday(control: AbstractControl): { [key: string]: boolean } | null {
+    const selectedDate = new Date(control.value);
+    const today = new Date();
+
+    if (selectedDate > today) {
+      return { 'invalidDate': true }; // Return an error if the date is after today
+    }
+
+    return null; // Return null if the date is valid
+  }
 
   openPaymentConfirmation(): void {
     // Calculate total price and GST
@@ -90,22 +97,13 @@ export class UserDataModalComponent implements OnInit {
     });
   }
 
-  // addPerson(): void {
-  //   // Add new person to the personsData array
-  //   this.personsData.push({ name: this.newPerson.name, dob: this.newPerson.dob, gender: this.newPerson.gender });
-
-  //   // Clear newPerson object for the next entry
-  //   this.newPerson = { name: '', dob: null, gender: '' };
-  // }
-
   addPerson(): void {
     if (this.newPersonForm.valid) {
       const newPerson = this.newPersonForm.value;
-      this.personsData.push({ name: this.newPerson.name, dob: this.newPerson.dob, gender: this.newPerson.gender });
+      this.personsData.push({ name: newPerson.name, dob: newPerson.dob, gender: newPerson.gender });
       // Add the new person to your data model
     }
   }
-
 
   removePerson(index: number): void {
     this.personsData.splice(index, 1);
