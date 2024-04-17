@@ -284,15 +284,15 @@
           <mat-card-header style="background-color: #d0efff; display: flex; flex-direction: column;">
             <div style="display: flex; justify-content: space-between;">
               <div>
-                <p style="text-decoration: line-through; font-size: smaller;color: grey;margin-top: 10px;">₹40,000 </p>
+                <p style="text-decoration: line-through; font-size: smaller;color: grey;margin-top: 10px;">₹90,000 </p>
               </div>
               <div
                 style="background-color: red; color: white; padding: 5px; height: 35px; font-weight: 600; font-size: smaller; border-radius: 5px;">
-                50% OFF</div>
+                20% OFF</div>
             </div>
 
             <div class="row">
-              <h3 style="font-weight: 700;">₹20,000 <span style="font-size: x-small;color: grey;">per person*</span>
+              <h3 style="font-weight: 700;">₹72,000 <span style="font-size: x-small;color: grey;">per person*</span>
               </h3>
             </div>
 
@@ -301,11 +301,7 @@
 
           <mat-card-content>
             <div class="premium-package">
-              <h4>Number of Days: {{ numberOfDays }}</h4>
-              <div *ngIf="packageForm.get('numberOfTravellers')?.valid">
-                <p>Number of Travellers: {{ numberOfTravellers }}</p>
-                <p>Price: ₹{{ totalPrice }}</p>
-              </div>
+              <h5>Number of Days: {{ numberOfDays }}</h5>
             </div>
           </mat-card-content>
           <mat-card-footer>
@@ -318,7 +314,7 @@
           </mat-card-footer>
         </mat-card>
 
-        <div class="form-section">
+        <!-- <div class="form-section">
           <form [formGroup]="packageForm" (submit)="submitPackageForm()">
             <div class="form-group">
               <label for="numberOfTravellers">Number of Travellers:</label>
@@ -339,27 +335,10 @@
               <input type="date" id="travelDate" formControlName="travelDate" (change)="onTravelDateChange()">
               <div *ngIf="packageForm.controls['travelDate'].errors?.['invalidDate']" class="error-message">Travel date
                 must be from tomorrow onwards.</div>
-              <!-- Add error message if the date is invalid -->
             </div>
           </form>
-        </div>
+        </div> -->
       </div>
     </div>
   </div>
-
-
-  <!-- <div class="places-container">
-        <div *ngFor="let place of places" class="place-card">
-          <img [src]="place.image" alt="{{ place.name }}" class="place-image">
-          <div class="place-details">
-            <h3>{{ place.name }}</h3>
-            <p>Number of Days: {{ place.numberOfDays }}</p>
-            <p>Price: {{ place.price }}</p>
-            <a [routerLink]="['/place', place.id]">Know about place</a>
-            <a [routerLink]="['/hotel', place.id]">Your hotel stay</a>
-          </div>
-        </div>
-      </div> -->
-  <!-- <a class="btn" style="background-color: rgb(40, 40, 196);" (click)="sendEnquiry('Premium')" matTooltip="Click on Book now , to Book Your Package">Book
-      Now</a> -->
 </div>
