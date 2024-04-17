@@ -42,6 +42,8 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatMenuModule} from '@angular/material/menu';
+import { LightgalleryModule } from 'lightgallery/angular';
+
 
 
 @NgModule({
@@ -88,7 +90,8 @@ import { MatMenuModule} from '@angular/material/menu';
     MatSliderModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    MatMenuModule
+    MatMenuModule,
+    LightgalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent,]

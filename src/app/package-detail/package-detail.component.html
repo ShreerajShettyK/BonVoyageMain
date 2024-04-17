@@ -65,9 +65,9 @@
                 
                 <div class="col" *ngFor="let place of filteredBoxes">
                     <div class="card">
-                    <!-- <a (click)="sendEnquiry('Premium')" matTooltip="Click on Enquire Now to Enquire about Holiday Packages"> -->
+                   <a (click)="sendEnquiry(place)" matTooltip="Click on Enquire Now to Enquire about Holiday Packages"> 
                     <img src={{place.imgSrc}} class="card-img-top" alt="{{ place.title }}">
-                  <!-- </a>  -->
+                  </a>
                         <div class="card-body">
                             <h5 class="card-title">{{ place.title }}</h5>
                             <p class="card-text">{{ place.description }}</p>

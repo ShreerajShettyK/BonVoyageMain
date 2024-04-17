@@ -19,11 +19,12 @@ export class EnquiryModalService {
     });
   }
 
-  openGallery() {
+  openGallery(place:any) {
+    console.log(place);
     this.dialog.open(GoaDetailComponent, {
       width: '600px',
       disableClose: true,
-      data: {}, // Pass an empty object as data
+      data: {place}, // Pass an empty object as data
     });
   }
 }
