@@ -1,15 +1,9 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild,
-  AfterViewInit,
-  OnInit,
-} from '@angular/core';
-import { EnquiryModalService } from '../services/enquiry-modal.service';
+import { Component, ViewChild, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup,Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { NgForm, FormControl, Validators } from '@angular/forms';
+import { EnquiryModalService } from '../services/enquiry-modal.service';
 import { ServiceComponent } from '../service/service.component';
-
+// import {futureDateValidator,isInvalidTravelersCount} from "./validation"
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,22 +11,32 @@ import { ServiceComponent } from '../service/service.component';
 })
 export class HomeComponent implements OnInit {
   user!: any;
-  @ViewChild('taskForm', { static: true }) taskForm!: NgForm;
-  emailControl: FormControl;
+  taskForm: FormGroup;
 
   constructor(
     public sendservice: ServiceComponent,
     public enquiryModalService: EnquiryModalService,
-    private afAuth: AngularFireAuth
+    private afAuth: AngularFireAuth,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit() {
     this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.user = user;
-        console.log(user);
+        // console.log(user);
       }
     });
+
+    this.taskForm = this.fb.group({
+      toplace: [1,[Validators.required]],
+      travellerCount: [0, [Validators.required,this.isInvalidTravellersCount]],
+      date: [new Date(), [Validators.required,this.futureDateValidator]],
+    });
+
+  }
+  travellerCountValidator(): any {
+    throw new Error('Method not implemented.');
   }
 
   sendEnquiry(packageName: string) {
@@ -40,18 +44,32 @@ export class HomeComponent implements OnInit {
     this.enquiryModalService.openSuccessModal();
   }
 
-  btnClick(taskForm: NgForm): void {
-    this.sendservice.onSubmit(taskForm);
-  }
-
-  validateDate(event: any) {
-    const selectedDate = new Date(event.target.value);
-    const currentDate = new Date();
-
-    if (selectedDate < currentDate) {
-      this.taskForm.controls['date'].setErrors({ invalidDate: true });
+  btnClick(): void {
+    if (this.taskForm.valid) {
+      // console.log('Form submitted successfully:', this.taskForm.value);
+      window.location.href="testing/"+this.taskForm.value.toplace+"/"+this.taskForm.value.date+"/"+this.taskForm.value.travellerCount
     } else {
-      this.taskForm.controls['date'].setErrors(null);
+      // If the form is invalid, mark all fields as touched to display error messages
+      // this.markAllAsTouched(this.taskForm);
     }
   }
+  futureDateValidator(control:any) {
+      const selectedDate = new Date(control.value);
+      const currentDate = new Date();
+      currentDate.setDate(currentDate.getDate() + 1); // Tomorrow's date
+      if (selectedDate < currentDate) {
+        return { invalidDate: true };
+      }
+      return null;
+    };
+
+  isInvalidTravellersCount(control:any) {
+    const travellers = control.value;
+    if (travellers < 1 || travellers > 15) {
+      return { minTravellers: true };
+    }
+    return null;
+  }
+ 
 }
+

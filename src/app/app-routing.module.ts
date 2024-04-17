@@ -21,6 +21,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { CanDeactivateGuard } from './can-deactivate.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { TravelComponent } from './travel/travel.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
@@ -96,6 +97,11 @@ const routes: Routes = [
     path: 'razor',
     component: CheckoutComponent,
     canActivate: [AuthGuardService],
+  },
+  {
+    path: 'testing/:place/:date/:count',
+    component: TravelComponent,
+    // canActivate: [AuthGuardService],
   },
   {
     path: '**',

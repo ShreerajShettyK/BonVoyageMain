@@ -51,6 +51,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { PaymentFailedComponent } from './payment-failed/payment-failed.component';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+import { TravelComponent } from './travel/travel.component';
 
 
 
@@ -87,7 +88,8 @@ import { PaymentSuccessComponent } from './payment-success/payment-success.compo
     PageNotFoundComponent,
     PaymentFailedComponent,
  
-    PaymentSuccessComponent
+    PaymentSuccessComponent,
+       TravelComponent
   ],
   imports: [
     BrowserModule,
