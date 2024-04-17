@@ -1,34 +1,43 @@
-<!-- profile.component.html -->
-<div class="profile-container">
-  <div class="profile-header">
-    <div *ngIf="user.photoURL">
-      <img
-        [src]="user.photoURL"
-        alt="Profile Picture"
-        class="profile-picture"
-      />
-    </div>
-    <h2 class="profile-name">{{ user.displayName }}</h2>
-  </div>
-  <div class="profile-details">
-    <div class="detail-row">
-      <div class="detail-label">Email:</div>
-      <div class="detail-value">{{ user.email }}</div>
-    </div>
-    <div class="detail-row">
-      <div class="detail-label">Provider:</div>
-      <div class="detail-value">{{ user.providerData[0].providerId }}</div>
-    </div>
-    <div class="detail-row">
-      <div class="detail-label">Last Sign-In:</div>
-      <div class="detail-value">
-        {{ user.metadata.lastSignInTime | date : "medium" }}
-      </div>
-    </div>
-    <div class="detail-row">
-      <div class="detail-label">Creation Time:</div>
-      <div class="detail-value">
-        {{ user.metadata.creationTime | date : "medium" }}
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card profile-container">
+        <div class="card-body">
+          <div class="profile-header">
+            <div class="profile-picture-container">
+              <div *ngIf="userData.photoURL; else elseBlock">
+                <img [src]="userData.photoURL" alt="Profile Picture" class="profile-picture img-fluid rounded-circle">
+              </div>
+              <ng-template #elseBlock>
+                <img src="../../assets/images/image-placeholder.png" alt="Profile Picture"
+                  class="profile-picture img-fluid rounded-circle">
+              </ng-template>
+            </div>
+            <h2 class="profile-name">{{ userData.displayName }}</h2>
+          </div>
+          <div class="profile-details">
+            <div class="detail-row" *ngIf="userData.email">
+              <div class="detail-label"><i class="bi bi-envelope-fill me-2"></i>Email:</div>
+              <div class="detail-value">{{ userData.email }}</div>
+            </div>
+            <div class="detail-row" *ngIf="userData.dob">
+              <div class="detail-label"><i class="bi bi-calendar-fill me-2"></i>DoB:</div>
+              <div class="detail-value">{{ userData.dob }}</div>
+            </div>
+            <div class="detail-row" *ngIf="userData.phoneNumber">
+              <div class="detail-label"><i class="bi bi-phone-fill me-2"></i>Phone Number:</div>
+              <div class="detail-value">{{ userData.phoneNumber }}</div>
+            </div>
+            <div class="detail-row" *ngIf="userData.metadata && userData.metadata.lastSignInTime">
+              <div class="detail-label"><i class="bi bi-clock-fill me-2"></i>Last Sign-In:</div>
+              <div class="detail-value">{{ userData.metadata.lastSignInTime | date : "medium" }}</div>
+            </div>
+            <div class="detail-row" *ngIf="userData.metadata && userData.metadata.creationTime">
+              <div class="detail-label"><i class="bi bi-calendar-check-fill me-2"></i>Creation Time:</div>
+              <div class="detail-value">{{ userData.metadata.creationTime | date : "medium" }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

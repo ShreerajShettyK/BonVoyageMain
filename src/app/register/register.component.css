@@ -1,0 +1,36 @@
+ body {
+    background: linear-gradient(45deg, #007bff, #6c757d);
+    min-height: 100vh;
+  }
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  .card-header {
+    background: linear-gradient(45deg, #007bff, #6c757d);
+  }
+  .input-group-text {
+    background-color: #f8f9fa;
+  }
+  .form-control {
+    border-left: none;
+  }
+  .form-control:focus {
+    box-shadow: none;
+    border-color: #007bff;
+  }
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+  }
+  .text-danger {
+    font-size: 14px;
+  }
+
+  .a{
+    padding: 24px 0;
+  }

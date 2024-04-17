@@ -1,0 +1,72 @@
+.footer-container {
+    background-color: #000;
+    padding: 30px;
+    text-align: center;
+    line-height: 24px;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .about-section {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  h3 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  p {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: #ffc107;
+    text-decoration: underline;
+  }
+
+  .social-icons {
+    margin-top: 20px;
+  }
+
+  .social-icons a {
+    display: inline-block;
+    margin-right: 15px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    padding: 10px;
+    transition: background-color 0.3s ease;
+  }
+
+  .social-icons a:hover {
+    background-color: #ffc107;
+  }
+
+  .social-icons mat-icon,
+  .social-icons i {
+    font-size: 24px;
+    color: #000;
+  }
+
+  .social-icons a:hover mat-icon,
+  .social-icons a:hover i {
+    color: #000000;
+  }
+
+  .carousel-indicators {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+  }
+
+  .card {
+    background-color: rgba(112, 112, 112, 0.5);
+  }
