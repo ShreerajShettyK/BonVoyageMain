@@ -24,7 +24,7 @@
               <button class="btn" style="background-color: rgb(0, 0, 0); color: white;" (click)="sendEnquiry('Premium')" matTooltip="Click on Enquire Now to Enquire about Holiday Packages">Enquire
                 Now</button>
           </div> -->
-        <div class="search_bx" style="height: max-content; width: max-content">
+        <div class="search_bx" style="height: 60px; width: max-content">
           <form (ngSubmit)="btnClick(taskForm)" #taskForm="ngForm" class="row">
             <div class="card1">
               <label for="toplace">Location<i class="bi bi-caret-down-fill"></i></label>
@@ -54,7 +54,7 @@
                 *ngIf="taskForm.controls['travellerCount'].errors?.['min'] || taskForm.controls['travellersCount'].errors?.['max']">Number
                 of travellers must be between 1 and 15.</small>
             </div>
-            <div>
+            <div class="card1">
               <button [disabled]="taskForm.invalid || sendservice.editingIndex !== null" type="submit"
                 class="btn btn-primary" *ngIf="sendservice.isNewTask" class="btn"
                 style="background-color: rgb(0, 0, 0); color: white;">Search</button>
