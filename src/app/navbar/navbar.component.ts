@@ -9,14 +9,14 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 })
 export class NavbarComponent implements OnInit{
   user!:any;
-  showProfileIcon: Boolean = false;
+  show: Boolean = false;
   constructor(private router: Router, private afAuth: AngularFireAuth) {}
   ngOnInit() {
     this.afAuth.authState.subscribe(user => {
       if (user) {
         this.user = user;
         console.log(user);
-        this.showProfileIcon = true;
+        this.show = true;
       }
     });
   }
@@ -31,7 +31,7 @@ export class NavbarComponent implements OnInit{
       
       // Redirect the user to the login page or any other appropriate page
        await this.router.navigate(['/login']);
-       this.showProfileIcon = false;
+       this.show = false;
     } catch (error) {
       console.error('Logout error:', error);
     }

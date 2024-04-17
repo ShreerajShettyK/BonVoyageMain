@@ -44,6 +44,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { LightgalleryModule } from 'lightgallery/angular';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -71,7 +72,8 @@ import { LightgalleryModule } from 'lightgallery/angular';
     GoaDetailComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
