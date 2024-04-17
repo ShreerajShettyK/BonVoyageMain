@@ -48,10 +48,14 @@
               <div class="row" style="width: 100%;">
                 <!-- <h5>Day Plan</h5> -->
                 <div class="col-2 border">
-                  <h5>DAY PLAN</h5>
+                  <h5 style="color: navy;font-weight: 800;margin-top: 10px;background-color: white;padding: 10px 0px;">DAY PLAN</h5>
                   <ng-container *ngFor="let date of generatedDates">
-                    <p>{{ date }}</p>
+                    <p style="font-weight: 700;"><img width="25" height="25" src="https://img.icons8.com/ios/50/right--v1.png" alt="right--v1"/>{{ date }}</p>
                   </ng-container>
+                  <p *ngIf="generatedDates.length === 0" style="color: navy;font-weight: 400; background-color: #d0efff; border-radius: 7px;border: 1px solid red; margin-top: 15px;">
+                    SELECT DATE
+                    <img width="20" height="20" src="https://img.icons8.com/ios/100/right--v1.png" alt="right--v1"/>
+                  </p>
                 </div>
 
                 <!-- Your form for entering the date here, make sure to bind (change)="updateDates()" to the input -->
@@ -303,7 +307,7 @@
           </mat-card-content>
           <mat-card-footer>
             <mat-card-actions>
-              <button class="bookOnline" routerLink="/traveller" matTooltip="Click on Book now, to Book Your Package"
+              <button class="bookOnline" routerLink="/traveller" matTooltip="Click to proceed further"
                 [disabled]="dontShowButton" (click)="submitPackageForm()">
                 Proceed to Book Online
               </button>
