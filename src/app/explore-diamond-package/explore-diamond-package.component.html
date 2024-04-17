@@ -1,349 +1,354 @@
 <!-- landing-page.component.html -->
 
 <div class="landing-page">
-    <h2>Darjeeling - All-Inclusive 4D/3N Holiday - Flights, Sightseeing & Transfers</h2>
-    <p>A package ideal for families looking to relax on the beach with transfers, hotels and sight seeing included.</p>
-  
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active" style="height: 400px;">
-          <img src="../../assets/img/Dar1.png" class="d-block img-fluid" alt="..." style="object-fit: cover;">
-        </div>
-        <div class="carousel-item" style="height: 400px;">
-          <img src="../../assets/img/Dar2.png" class="d-block img-fluid" alt="..." style="object-fit: cover;">
-        </div>
-        <div class="carousel-item" style="height: 400px;">
-          <img src="../../assets/img/Dar3.jpg" class="d-block img-fluid" alt="..." style="object-fit: cover;">
-        </div>
-        <div class="carousel-item" style="height: 400px;">
-          <img src="../../assets/img/Dar4.png" class="d-block img-fluid" alt="..." style="object-fit: cover;">
-        </div>
-        <!-- <div class="carousel-item" style="height: 400px;">
+  <h2>Darjeeling - All-Inclusive 4D/3N Holiday - Flights, Sightseeing & Transfers</h2>
+  <p>A package ideal for families looking to relax on the beach with transfers, hotels and sight seeing included.</p>
+
+  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" style="height: 400px;">
+        <img src="../../assets/img/dar111.jpg" class="d-block img-fluid" alt="..." style="object-fit: cover;">
+      </div>
+      <div class="carousel-item" style="height: 400px;">
+        <img src="../../assets/img/dar114.jpg" class="d-block img-fluid" alt="..." style="object-fit: cover;">
+      </div>
+      <div class="carousel-item" style="height: 400px;">
+        <img src="../../assets/img/dar112.jpg" class="d-block img-fluid" alt="..." style="object-fit: cover;">
+      </div>
+      <div class="carousel-item" style="height: 400px;">
+        <img src="../../assets/img/dar113.jpg" class="d-block img-fluid" alt="..." style="object-fit: cover;">
+      </div>
+      <!-- <div class="carousel-item" style="height: 400px;">
           <img src="../../assets/img/Goa5.jpg" class="d-block img-fluid" alt="..." style="object-fit: cover;">
         </div> -->
-        <div class="carousel-item" style="height: 400px;">
-          <img src="../../assets/img/Dar5.png" class="d-block img-fluid" alt="..." style="object-fit: cover;">
-        </div>
-        <!-- <div class="carousel-item" style="height: 400px;">
+      <div class="carousel-item" style="height: 400px;">
+        <img src="../../assets/img/dar115.webp" class="d-block img-fluid" alt="..." style="object-fit: cover;">
+      </div>
+      <!-- <div class="carousel-item" style="height: 400px;">
           <img src="https://www.easemytrip.com/holidays/Content/customize/search-home/img/offer/andaman-slider.png?k  " class="d-block img-fluid" alt="..." style="object-fit: cover;">
         </div> -->
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
-        data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-  
-  
-    <div style="display: flex; justify-content: center;width: 100%;">
-      <div class="row" style="width: 100%;">
-        <div class="col-12 col-md-9 border">
-          <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" animationDuration="1000ms">
-            <mat-tab label="SCHEDULE">
-              <div class="schedule" style="margin-top: 15px;">
-                <div class="row" style="width: 100%;">
-                  <!-- <h5>Day Plan</h5> -->
-                  <div class="col-2 border">
-                    <h5>DAY PLAN</h5>
-                    <ng-container *ngFor="let date of generatedDates">
-                      <p>{{ date }}</p>
-                    </ng-container>
-                  </div>
-  
-                  <!-- Your form for entering the date here, make sure to bind (change)="updateDates()" to the input -->
-  
-                  <div class="col-10 border" style="background-color: white;">
-                    <div class="vstack gap-3">
-                      <div class="p-2">
-                        <span class="badge" style="background-color: rgb(40, 40, 196); font-size: medium;">Day 1 - Arrival
-                          in Darjeeling - Bagdogra Airport</span>
-                        <p class="float-end" style="font-size: small;">INCLUDED: <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4klEQVR4nO3UMUpDQRDG8R8xoCjY24hHsBILLxBEPIJdruAV0lraBbvUnsLKSiwDSbpUEdIlPFkYQdaXxRBfkzjwwTLz9v89dmaXXYprTDBGpwmDMarQqAmDKtO/wRYd0QmeagyecboJuIUuZjXwL81xj7114ed4KYBzveLiN+BD9LBYA16FlnjE8Sr4bdzQfOMHBjX5QdTy/ChYP+L7R9No7A32C1PUxhUe4p0qTtl7HM9lNLj0A1VNvRV7e8HaoYvWuMFBNDE3SENw9BcGb4XZT7WNY4g+7nAWSuuUS7Utj0+wzoaLy+LyBwAAAABJRU5ErkJggg==">1
-                          Flight |
-                          <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/hotel-star.png"
-                            alt="hotel-star" />1 Hotel |
-                          <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/car--v1.png"
-                            alt="car--v1" />1 Transfer
-                        </p>
-  
-                        <span class="badge text-bg-secondary"><img width="30" height="30"
-                            src="https://img.icons8.com/ios-filled/50/FFFFFF/airport.png" alt="airport" /> Flight
-                          from Bengaluru to Darjeeling - Dabolim Airport 01h 10m</span>
-                        <hr class="hr" />
-                        <span class="badge text-bg-dark">Airport to hotel in Darjeeling 1 hrs</span>
-                        <div class="hstack gap-3">
-                          <div class="p-2">
-                            <img width="200px" height="120px"
-                              src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/TRF212788_3.jpg"
-                              alt="">
-                          </div>
-                          <div class="p-2 ms-auto">
-                            <h6>Private Transfer</h6>
-                            <p style="font-size: smaller;">Travel comfortably in a private vehicle from Darjeeling
-                              Airport/Railway Station (Thivim, Karmali and Madgaon) to your hotel in Darjeeling. Note: There will
-                              be non stop-overs allowed during this transfer.
-                            </p>
-                          </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying"
+      data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+  <div style="display: flex; justify-content: center;width: 100%;">
+    <div class="row" style="width: 100%;">
+      <div class="col-12 col-md-9 border">
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" animationDuration="1000ms">
+          <mat-tab label="SCHEDULE">
+            <div class="schedule" style="margin-top: 15px;">
+              <div class="row" style="width: 100%;">
+                <!-- <h5>Day Plan</h5> -->
+                <div class="col-2 border">
+                  <h5>DAY PLAN</h5>
+                  <ng-container *ngFor="let date of generatedDates">
+                    <p>{{ date }}</p>
+                  </ng-container>
+                </div>
+
+                <!-- Your form for entering the date here, make sure to bind (change)="updateDates()" to the input -->
+
+                <div class="col-10 border" style="background-color: white;">
+                  <div class="vstack gap-3">
+                    <div class="p-2">
+                      <span class="badge" style="background-color: rgb(40, 40, 196); font-size: medium;">Day 1 - Arrival
+                        in Darjeeling - Bagdogra Airport</span>
+                      <p class="float-end" style="font-size: small;">INCLUDED: <img
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4klEQVR4nO3UMUpDQRDG8R8xoCjY24hHsBILLxBEPIJdruAV0lraBbvUnsLKSiwDSbpUEdIlPFkYQdaXxRBfkzjwwTLz9v89dmaXXYprTDBGpwmDMarQqAmDKtO/wRYd0QmeagyecboJuIUuZjXwL81xj7114ed4KYBzveLiN+BD9LBYA16FlnjE8Sr4bdzQfOMHBjX5QdTy/ChYP+L7R9No7A32C1PUxhUe4p0qTtl7HM9lNLj0A1VNvRV7e8HaoYvWuMFBNDE3SENw9BcGb4XZT7WNY4g+7nAWSuuUS7Utj0+wzoaLy+LyBwAAAABJRU5ErkJggg==">1
+                        Flight |
+                        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/hotel-star.png"
+                          alt="hotel-star" />1 Hotel |
+                        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/car--v1.png"
+                          alt="car--v1" />1 Transfer
+                      </p>
+
+                      <span class="badge text-bg-secondary"><img width="30" height="30"
+                          src="https://img.icons8.com/ios-filled/50/FFFFFF/airport.png" alt="airport" /> Flight
+                        from Bengaluru to Darjeeling - Dabolim Airport 01h 10m</span>
+                      <hr class="hr" />
+                      <span class="badge text-bg-dark">Airport to hotel in Darjeeling 1 hrs</span>
+                      <div class="hstack gap-3">
+                        <div class="p-2">
+                          <img width="200px" height="120px"
+                            src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/TRF212788_3.jpg"
+                            alt="">
                         </div>
-                        <hr class="hr" />
-                        <span class="badge text-bg-dark">Check-in to Hotel in The new luk hotels  - 1 PM</span>
-                        <div class="hstack gap-3">
-                          <div class="p-2">
-                            <img width="200px" height="120px"
-                              src="https://r1imghtlak.mmtcdn.com/0e20474ec7a311e88d830224510f5e5b.jpg?&downsize=900:675&crop=900:675;35,0&output-format=jpg"
-                              alt="">
-                          </div>
-                          <div class="p-2 ms-auto">
-                            <h6 class="float-start">
-                              Turtle Beach Resort - Morjim </h6>
-                            <p class="float-start" style="font-size: smaller;">Morjim (3-4 minutes walk from Morjim Beach)
-                            </p>
-                          </div>
+                        <div class="p-2 ms-auto">
+                          <h6>Private Transfer</h6>
+                          <p style="font-size: smaller;">Travel comfortably in a private vehicle from Darjeeling
+                            Airport/Railway Station (Thivim, Karmali and Madgaon) to your hotel in Darjeeling. Note:
+                            There will
+                            be non stop-overs allowed during this transfer.
+                          </p>
                         </div>
-                        <div style="background-color: #d0efff;width: 100%;height: 40px; text-align: center;padding: 5px;">
-                          End Of Day - Spend time at Leisure or add an activity to your day</div>
                       </div>
-                      <div class="p-2">
-                        <span class="badge" style="background-color: rgb(40, 40, 196); font-size: medium;">Day 2 -
-                          Darjeeling</span>
-                        <br>
-                        <span class="badge text-bg-dark">Activity in Darjeeling 1 Hr</span>
-                        <div class="hstack gap-3">
-                          <div class="p-2">
-                            <img width="200px" height="120px"
-                              src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/ACT495799_4.PNG"
-                              alt="">
-                          </div>
-                          <div class="p-2 ms-auto">
-                            <h6 class="float-start">
-                              Photoshoot in North Darjeeling</h6>
-                            <p class="float-start" style="font-size: smaller;">Darjeeling, India
-                              Capture beautiful moments of your holiday with a romantic photoshoot in North Goa.
-                            </p>
-                          </div>
+                      <hr class="hr" />
+                      <span class="badge text-bg-dark">Check-in to Hotel in The new luk hotels - 1 PM</span>
+                      <div class="hstack gap-3">
+                        <div class="p-2">
+                          <img width="200px" height="120px"
+                            src="https://r1imghtlak.mmtcdn.com/0e20474ec7a311e88d830224510f5e5b.jpg?&downsize=900:675&crop=900:675;35,0&output-format=jpg"
+                            alt="">
                         </div>
-                        <hr class="hr" />
-                        <span class="badge text-bg-dark">Activity in Darjeeling 9 Hrs</span>
-                        <div class="hstack gap-3">
-                          <div class="p-2">
-                            <img width="200px" height="120px"
-                              src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/ACT10000000009994_2.jpg"
-                              alt="">
-                          </div>
-                          <div class="p-2 ms-auto">
-                            <h6 class="float-start">
-                              North Darjeeling Sightseeing (Private Transfers) Darjeeling, India</h6>
-                            <p class="float-start" style="font-size: smaller;">Spend the day visiting happening markets
-                              and beaches in North Darjeeling . Visit beautiful attractions like Fort Aguada, Sinquerim Beach,
-                              Calangute Beach, Baga Beach, Anjuna, Vagator Beach and Chapora Fort.
-                            </p>
-                          </div>
+                        <div class="p-2 ms-auto">
+                          <h6 class="float-start">
+                            Turtle Beach Resort - Morjim </h6>
+                          <p class="float-start" style="font-size: smaller;">Morjim (3-4 minutes walk from Morjim Beach)
+                          </p>
                         </div>
-  
-                        <div style="background-color: #d0efff;width: 100%;height: 40px; text-align: center;padding: 5px;">
-                          End Of Day - Spend time at Leisure or add an activity to your day</div>
-  
                       </div>
-                      <div class="p-2">
-                        <span class="badge" style="background-color: rgb(40, 40, 196); font-size: medium;">Day 3 -
+                      <div style="background-color: #d0efff;width: 100%;height: 40px; text-align: center;padding: 5px;">
+                        End Of Day - Spend time at Leisure or add an activity to your day</div>
+                    </div>
+                    <div class="p-2">
+                      <span class="badge" style="background-color: rgb(40, 40, 196); font-size: medium;">Day 2 -
                         Darjeeling</span>
-                        <br>
-                        <span class="badge text-bg-dark">Activity in Darjeeling 9 Hrs</span>
-                        <div class="hstack gap-3">
-                          <div class="p-2">
-                            <img width="200px" height="120px"
-                              src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/ACT10000000009994_2.jpg"
-                              alt="">
-                          </div>
-                          <div class="p-2 ms-auto">
-                            <h6 class="float-start">
-                              South Darjeeling Sightseeing (Private Transfers)</h6>
-                            <p class="float-start" style="font-size: smaller;">
-                              Pristine beaches, Portuguese architecture, shopping and the old world charm - South Goa
-                              offers it all Visit Shree Manguesh Temple, Old Darjeeling Churches - Ce Cathedral and Basilica of
-                              Bom Jesus.
-                            </p>
-                          </div>
+                      <br>
+                      <span class="badge text-bg-dark">Activity in Darjeeling 1 Hr</span>
+                      <div class="hstack gap-3">
+                        <div class="p-2">
+                          <img width="200px" height="120px"
+                            src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/ACT495799_4.PNG"
+                            alt="">
                         </div>
-                        <div style="background-color: #d0efff;width: 100%;height: 40px; text-align: center;padding: 5px;">
-                          End Of Day - Spend time at Leisure or add an activity to your day</div>
-  
-                      </div>
-                      <div class="p-2">
-                        <span class="badge" style="background-color: rgb(40, 40, 196); font-size: medium;">Day 4 -
-                          Departure from Darjeeling (North)</span>
-                        <p class="float-end" style="font-size: small;">INCLUDED: <img
-                            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4klEQVR4nO3UMUpDQRDG8R8xoCjY24hHsBILLxBEPIJdruAV0lraBbvUnsLKSiwDSbpUEdIlPFkYQdaXxRBfkzjwwTLz9v89dmaXXYprTDBGpwmDMarQqAmDKtO/wRYd0QmeagyecboJuIUuZjXwL81xj7114ed4KYBzveLiN+BD9LBYA16FlnjE8Sr4bdzQfOMHBjX5QdTy/ChYP+L7R9No7A32C1PUxhUe4p0qTtl7HM9lNLj0A1VNvRV7e8HaoYvWuMFBNDE3SENw9BcGb4XZT7WNY4g+7nAWSuuUS7Utj0+wzoaLy+LyBwAAAABJRU5ErkJggg==">1
-                          Flight |
-                          <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/car--v1.png"
-                            alt="car--v1" />1 Transfer
-                        </p>
-                        <p><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/hotel-star.png"
-                            alt="hotel-star" /> Checkout from Hotel in Darjeeling</p>
-                        <span class="badge text-bg-dark">Hotel in Darjeeling to Airport in 1 hrs</span>
-                        <div class="hstack gap-3">
-                          <div class="p-2">
-                            <img width="200px" height="120px"
-                              src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/TRF212788_3.jpg"
-                              alt="">
-                          </div>
-                          <div class="p-2 ms-auto">
-                            <h6>Private Transfer</h6>
-                            <p style="font-size: smaller;">Travel comfortably in a private vehicle from Darjeeling
-                              Airport/Railway Station (Thivim, Karmali and Madgaon) to your hotel in Darjeeling. Note: There will
-                              be non stop-overs allowed during this transfer.
-                            </p>
-                          </div>
+                        <div class="p-2 ms-auto">
+                          <h6 class="float-start">
+                            Photoshoot in North Darjeeling</h6>
+                          <p class="float-start" style="font-size: smaller;">Darjeeling, India
+                            Capture beautiful moments of your holiday with a romantic photoshoot in North Goa.
+                          </p>
                         </div>
-  
-                        <span class="badge text-bg-secondary"><img width="30" height="30"
-                            src="https://img.icons8.com/ios-filled/50/FFFFFF/airport.png" alt="airport" /> Flight from Darjeeling
-                          (North) to Bengaluru 01h 10m</span>
                       </div>
+                      <hr class="hr" />
+                      <span class="badge text-bg-dark">Activity in Darjeeling 9 Hrs</span>
+                      <div class="hstack gap-3">
+                        <div class="p-2">
+                          <img width="200px" height="120px"
+                            src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/ACT10000000009994_2.jpg"
+                            alt="">
+                        </div>
+                        <div class="p-2 ms-auto">
+                          <h6 class="float-start">
+                            North Darjeeling Sightseeing (Private Transfers) Darjeeling, India</h6>
+                          <p class="float-start" style="font-size: smaller;">Spend the day visiting happening markets
+                            and beaches in North Darjeeling . Visit beautiful attractions like Fort Aguada, Sinquerim
+                            Beach,
+                            Calangute Beach, Baga Beach, Anjuna, Vagator Beach and Chapora Fort.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div style="background-color: #d0efff;width: 100%;height: 40px; text-align: center;padding: 5px;">
+                        End Of Day - Spend time at Leisure or add an activity to your day</div>
+
+                    </div>
+                    <div class="p-2">
+                      <span class="badge" style="background-color: rgb(40, 40, 196); font-size: medium;">Day 3 -
+                        Darjeeling</span>
+                      <br>
+                      <span class="badge text-bg-dark">Activity in Darjeeling 9 Hrs</span>
+                      <div class="hstack gap-3">
+                        <div class="p-2">
+                          <img width="200px" height="120px"
+                            src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/ACT10000000009994_2.jpg"
+                            alt="">
+                        </div>
+                        <div class="p-2 ms-auto">
+                          <h6 class="float-start">
+                            South Darjeeling Sightseeing (Private Transfers)</h6>
+                          <p class="float-start" style="font-size: smaller;">
+                            Pristine beaches, Portuguese architecture, shopping and the old world charm - South Goa
+                            offers it all Visit Shree Manguesh Temple, Old Darjeeling Churches - Ce Cathedral and
+                            Basilica of
+                            Bom Jesus.
+                          </p>
+                        </div>
+                      </div>
+                      <div style="background-color: #d0efff;width: 100%;height: 40px; text-align: center;padding: 5px;">
+                        End Of Day - Spend time at Leisure or add an activity to your day</div>
+
+                    </div>
+                    <div class="p-2">
+                      <span class="badge" style="background-color: rgb(40, 40, 196); font-size: medium;">Day 4 -
+                        Departure from Darjeeling (North)</span>
+                      <p class="float-end" style="font-size: small;">INCLUDED: <img
+                          src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA4klEQVR4nO3UMUpDQRDG8R8xoCjY24hHsBILLxBEPIJdruAV0lraBbvUnsLKSiwDSbpUEdIlPFkYQdaXxRBfkzjwwTLz9v89dmaXXYprTDBGpwmDMarQqAmDKtO/wRYd0QmeagyecboJuIUuZjXwL81xj7114ed4KYBzveLiN+BD9LBYA16FlnjE8Sr4bdzQfOMHBjX5QdTy/ChYP+L7R9No7A32C1PUxhUe4p0qTtl7HM9lNLj0A1VNvRV7e8HaoYvWuMFBNDE3SENw9BcGb4XZT7WNY4g+7nAWSuuUS7Utj0+wzoaLy+LyBwAAAABJRU5ErkJggg==">1
+                        Flight |
+                        <img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/car--v1.png"
+                          alt="car--v1" />1 Transfer
+                      </p>
+                      <p><img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/hotel-star.png"
+                          alt="hotel-star" /> Checkout from Hotel in Darjeeling</p>
+                      <span class="badge text-bg-dark">Hotel in Darjeeling to Airport in 1 hrs</span>
+                      <div class="hstack gap-3">
+                        <div class="p-2">
+                          <img width="200px" height="120px"
+                            src="https://hldak.mmtcdn.com/prod-s3-activity-templates/activitiesImagesFinal/activity/GOI/TRF212788_3.jpg"
+                            alt="">
+                        </div>
+                        <div class="p-2 ms-auto">
+                          <h6>Private Transfer</h6>
+                          <p style="font-size: smaller;">Travel comfortably in a private vehicle from Darjeeling
+                            Airport/Railway Station (Thivim, Karmali and Madgaon) to your hotel in Darjeeling. Note:
+                            There will
+                            be non stop-overs allowed during this transfer.
+                          </p>
+                        </div>
+                      </div>
+
+                      <span class="badge text-bg-secondary"><img width="30" height="30"
+                          src="https://img.icons8.com/ios-filled/50/FFFFFF/airport.png" alt="airport" /> Flight from
+                        Darjeeling
+                        (North) to Bengaluru 01h 10m</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </mat-tab>
-            <mat-tab label="POLICIES">
-              <div class="policies" style="margin-top: 18px;">
-                <mat-accordion>
-                  <mat-expansion-panel (opened)="cancelPanelOpenState = true" (closed)="cancelPanelOpenState = false">
-                    <mat-expansion-panel-header>
-                      <h5><mat-panel-title>
-                          Cancellation & Date Change
-                        </mat-panel-title></h5>
-                    </mat-expansion-panel-header>
-                    <h6>Package Cancellation Policy</h6>
-                    <p style="color: red;">Cancellation not possible after booking</p>
-                    <br>
-                    <h6>Package Date Change Policy</h6>
-                    <p style="color: red;">Date Change not possible after booking</p>
-                  </mat-expansion-panel>
-                  <mat-expansion-panel (opened)="tandcPanelOpenState = true" (closed)="tandcPanelOpenState = false">
-                    <mat-expansion-panel-header>
-                      <h5><mat-panel-title>
-                          Terms and Conditions
-                        </mat-panel-title></h5>
-                    </mat-expansion-panel-header>
-                    <p>Exclusions</p>
-                    <ul>
-                      <li>Expenses of personal nature
-                      </li>
-                      <li>Mentioned cost is not valid between 6 pm and 8 am</li>
-                      <li>Anything not mentioned under inclusions
-                      </li>
-                      <li>Package price does not include Gala dinner charges applicable on Christmas and New Year's Eve
-                      </li>
-                    </ul>
-  
-                    <br>
-                    <p>Terms and Conditions</p>
-                    <ul>
-                      <li>Standard check-in time at the hotel is normally 2:00 pm and check-out is 11:00 am. An early
-                        check-in, or a late check-out is solely based on the discretion of the hotel.
-                      </li>
-                      <li>A maximum of 3 adults are allowed in one room. The third occupant shall be provided a
-                        mattress/rollaway bed.</li>
-                      <li>Also, for any activity which is complimentary and not charged to MMT & guest, no refund will be
-                        processed.
-                      </li>
-                      <li>AC will not be functional anywhere in cool or hilly areas.</li>
-                      <li>Entrance fee, parking and guide charges are not included in the packages.
-                      </li>
-                      <li>Booking rates are subject to change without prior notice.
-                      </li>
-                      <li>Airline seats and hotel rooms are subject to availability at the time of booking.
-                      </li>
-                      <li>In case of unavailability in the listed hotels, arrangement for an alternate accommodation will
-                        be
-                        made in a hotel of similar standard.
-                      </li>
-                    </ul>
-  
-                  </mat-expansion-panel>
-                </mat-accordion>
-              </div>
-            </mat-tab>
-            <!-- <mat-tab label="SUMMARY">Content 3</mat-tab> -->
-          </mat-tab-group>
-        </div>
-        <div class="col-12 col-md-3">
-          <mat-card>
-            <mat-card-header style="background-color: #d0efff; display: flex; flex-direction: column;">
-              <div style="display: flex; justify-content: space-between;">
-                <div>
-                  <p style="text-decoration: line-through; font-size: smaller;color: grey;margin-top: 10px;">₹40,000 </p>
-                </div>
-                <div
-                  style="background-color: red; color: white; padding: 5px; height: 35px; font-weight: 600; font-size: smaller; border-radius: 5px;">
-                  50% OFF</div>
-              </div>
-  
-              <div class="row">
-                <h3 style="font-weight: 700;">₹20,000 <span style="font-size: x-small;color: grey;">per person*</span>
-                </h3>
-              </div>
-  
-              <p style="color:grey">*Excluding applicable taxes</p>
-            </mat-card-header>
-  
-            <mat-card-content>
-              <div class="premium-package">
-                <h4>Number of Days: {{ numberOfDays }}</h4>
-                <div *ngIf="packageForm.get('numberOfTravellers')?.valid">
-                  <p>Number of Travellers: {{ numberOfTravellers }}</p>
-                  <p>Price: ₹{{ totalPrice }}</p>
-                </div>
-              </div>
-            </mat-card-content>
-            <mat-card-footer>
-              <mat-card-actions>
-                <button class="bookOnline" routerLink="/traveller" matTooltip="Click on Book now, to Book Your Package"
-                   [disabled]="dontShowButton" (click)="submitPackageForm()">
-                  Proceed to Book Online
-                </button>
-              </mat-card-actions>
-            </mat-card-footer>
-          </mat-card>
-  
-          <div class="form-section">
-            <form [formGroup]="packageForm" (submit)="submitPackageForm()">
-              <div class="form-group">
-                <label for="numberOfTravellers">Number of Travellers:</label>
-                <input type="number" id="numberOfTravellers" formControlName="numberOfTravellers" min="0" max="15">
-                <div *ngIf="packageForm.get('numberOfTravellers')?.errors" class="error-message">
-                  <ul style="list-style-type: none;">
-                    <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['required']">Number of travellers is
-                      required.</li>
-                    <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['minTravellers']">Minimum travellers should
-                      be 1.</li>
-                    <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['maxTravellers']">Maximum travellers should
-                      be 15.</li>
+            </div>
+          </mat-tab>
+          <mat-tab label="POLICIES">
+            <div class="policies" style="margin-top: 18px;">
+              <mat-accordion>
+                <mat-expansion-panel (opened)="cancelPanelOpenState = true" (closed)="cancelPanelOpenState = false">
+                  <mat-expansion-panel-header>
+                    <h5><mat-panel-title>
+                        Cancellation & Date Change
+                      </mat-panel-title></h5>
+                  </mat-expansion-panel-header>
+                  <h6>Package Cancellation Policy</h6>
+                  <p style="color: red;">Cancellation not possible after booking</p>
+                  <br>
+                  <h6>Package Date Change Policy</h6>
+                  <p style="color: red;">Date Change not possible after booking</p>
+                </mat-expansion-panel>
+                <mat-expansion-panel (opened)="tandcPanelOpenState = true" (closed)="tandcPanelOpenState = false">
+                  <mat-expansion-panel-header>
+                    <h5><mat-panel-title>
+                        Terms and Conditions
+                      </mat-panel-title></h5>
+                  </mat-expansion-panel-header>
+                  <p>Exclusions</p>
+                  <ul>
+                    <li>Expenses of personal nature
+                    </li>
+                    <li>Mentioned cost is not valid between 6 pm and 8 am</li>
+                    <li>Anything not mentioned under inclusions
+                    </li>
+                    <li>Package price does not include Gala dinner charges applicable on Christmas and New Year's Eve
+                    </li>
                   </ul>
-                </div>
+
+                  <br>
+                  <p>Terms and Conditions</p>
+                  <ul>
+                    <li>Standard check-in time at the hotel is normally 2:00 pm and check-out is 11:00 am. An early
+                      check-in, or a late check-out is solely based on the discretion of the hotel.
+                    </li>
+                    <li>A maximum of 3 adults are allowed in one room. The third occupant shall be provided a
+                      mattress/rollaway bed.</li>
+                    <li>Also, for any activity which is complimentary and not charged to MMT & guest, no refund will be
+                      processed.
+                    </li>
+                    <li>AC will not be functional anywhere in cool or hilly areas.</li>
+                    <li>Entrance fee, parking and guide charges are not included in the packages.
+                    </li>
+                    <li>Booking rates are subject to change without prior notice.
+                    </li>
+                    <li>Airline seats and hotel rooms are subject to availability at the time of booking.
+                    </li>
+                    <li>In case of unavailability in the listed hotels, arrangement for an alternate accommodation will
+                      be
+                      made in a hotel of similar standard.
+                    </li>
+                  </ul>
+
+                </mat-expansion-panel>
+              </mat-accordion>
+            </div>
+          </mat-tab>
+          <!-- <mat-tab label="SUMMARY">Content 3</mat-tab> -->
+        </mat-tab-group>
+      </div>
+      <div class="col-12 col-md-3">
+        <mat-card>
+          <mat-card-header style="background-color: #d0efff; display: flex; flex-direction: column;">
+            <div style="display: flex; justify-content: space-between;">
+              <div>
+                <p style="text-decoration: line-through; font-size: smaller;color: grey;margin-top: 10px;">₹40,000 </p>
               </div>
-              <div class="form-group">
-                <label for="travelDate">Travel Date:</label>
-                <input type="date" id="travelDate" formControlName="travelDate" (change)="onTravelDateChange()">
-                <div *ngIf="packageForm.controls['travelDate'].errors?.['invalidDate']" class="error-message">Travel date
-                  must be from tomorrow onwards.</div>
-                <!-- Add error message if the date is invalid -->
+              <div
+                style="background-color: red; color: white; padding: 5px; height: 35px; font-weight: 600; font-size: smaller; border-radius: 5px;">
+                50% OFF</div>
+            </div>
+
+            <div class="row">
+              <h3 style="font-weight: 700;">₹20,000 <span style="font-size: x-small;color: grey;">per person*</span>
+              </h3>
+            </div>
+
+            <p style="color:grey">*Excluding applicable taxes</p>
+          </mat-card-header>
+
+          <mat-card-content>
+            <div class="premium-package">
+              <h4>Number of Days: {{ numberOfDays }}</h4>
+              <div *ngIf="packageForm.get('numberOfTravellers')?.valid">
+                <p>Number of Travellers: {{ numberOfTravellers }}</p>
+                <p>Price: ₹{{ totalPrice }}</p>
               </div>
-            </form>
-          </div>
+            </div>
+          </mat-card-content>
+          <mat-card-footer>
+            <mat-card-actions>
+              <button class="bookOnline" routerLink="/traveller" matTooltip="Click on Book now, to Book Your Package"
+                [disabled]="dontShowButton" (click)="submitPackageForm()">
+                Proceed to Book Online
+              </button>
+            </mat-card-actions>
+          </mat-card-footer>
+        </mat-card>
+
+        <div class="form-section">
+          <form [formGroup]="packageForm" (submit)="submitPackageForm()">
+            <div class="form-group">
+              <label for="numberOfTravellers">Number of Travellers:</label>
+              <input type="number" id="numberOfTravellers" formControlName="numberOfTravellers" min="0" max="15">
+              <div *ngIf="packageForm.get('numberOfTravellers')?.errors" class="error-message">
+                <ul style="list-style-type: none;">
+                  <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['required']">Number of travellers is
+                    required.</li>
+                  <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['minTravellers']">Minimum travellers should
+                    be 1.</li>
+                  <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['maxTravellers']">Maximum travellers should
+                    be 15.</li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="travelDate">Travel Date:</label>
+              <input type="date" id="travelDate" formControlName="travelDate" (change)="onTravelDateChange()">
+              <div *ngIf="packageForm.controls['travelDate'].errors?.['invalidDate']" class="error-message">Travel date
+                must be from tomorrow onwards.</div>
+              <!-- Add error message if the date is invalid -->
+            </div>
+          </form>
         </div>
       </div>
     </div>
-  
-  
-    <!-- <div class="places-container">
+  </div>
+
+
+  <!-- <div class="places-container">
         <div *ngFor="let place of places" class="place-card">
           <img [src]="place.image" alt="{{ place.name }}" class="place-image">
           <div class="place-details">
@@ -355,6 +360,6 @@
           </div>
         </div>
       </div> -->
-    <!-- <a class="btn" style="background-color: rgb(40, 40, 196);" (click)="sendEnquiry('Premium')" matTooltip="Click on Book now , to Book Your Package">Book
+  <!-- <a class="btn" style="background-color: rgb(40, 40, 196);" (click)="sendEnquiry('Premium')" matTooltip="Click on Book now , to Book Your Package">Book
       Now</a> -->
-  </div>
+</div>

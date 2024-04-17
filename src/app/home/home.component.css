@@ -764,3 +764,8 @@ footer ul li h6 {
         margin-top: 15px;
     }
 }
+
+.card{
+    background-color: rgba(69, 68, 68, 0.3);
+    border: none;
+  }

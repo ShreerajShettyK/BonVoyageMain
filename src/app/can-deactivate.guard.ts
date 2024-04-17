@@ -1,13 +1,18 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
-import { RegisterComponent } from './register/register.component'
+import { RegisterComponent } from './register/register.component';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CanDeactivateGuard implements CanDeactivate<RegisterComponent> {
   canDeactivate(component: RegisterComponent): boolean {
+    if (component.isSubmitting) {
+      return true;
+    }
     if (component.registerForm.dirty) {
-      return confirm('You have unsaved changes. Are you sure you want to leave?');
+      return confirm(
+        'You have unsaved changes. Are you sure you want to leave?'
+      );
     }
     return true;
   }

@@ -1,80 +1,97 @@
-/* help.component.css */
+.outerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 80px 0;
+}
+
+.helpimg {
+  display: flex;
+  text-align: center;
+  /* margin-bottom: 30px;
+  align-self: flex-start;
+  margin-left: 18%;
+  margin-top: 32px; */
+  flex-direction: row;
+  align-items: center;
+  margin: 24px 0;
+}
+
+.helpimg img {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+}
 
 h1 {
-    text-align: center;
-    margin: 20px auto;
-    font-size: 24px;
-    font-weight: bold;
-    color: #11276e; /* Adjust the color as needed */
-    max-width: 400px;
-    border-radius: 15px;
-    padding-top: 5px;
-  }
-  .outerContainer{
-      display: flex;
-      flex-direction: row;
-      align-items:start;
-      margin: 45px 0px 80px 0px;
-      margin-top: 7%;
-  }
+  /* position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  font-size: 36px;
+  font-weight: bold;
+  color: #11276e;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
 
-  .help-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 8px;
-    /* margin-left: 20%; */
-  }
-  
-  .emergency-section,
-  .harassment-section,
-  .scam-section {
-    margin-bottom: 15px;
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #87CEEB; /* Light background color, close to cream */
-    transition: background-color 0.3s ease-in-out; /* Add a smooth background color transition */
-  }
-  
-  .emergency-section:hover,
-  .harassment-section:hover,
-  .scam-section:hover {
-    background-color: #FFFAF0; /* Lighter background color on hover */
-  }
-  
-  .emergency-section p,
-  .harassment-section p,
-  .scam-section p {
-    margin: 5px 0;
-  }
-  
-  /* Styling for icons */
-  .fa-phone,
-  .fa-envelope,
-  .fa-map-marker-alt {
-    margin-right: 5px;
-    color: #000000;
-  }
-  
-  /* Animation for icon on hover */
-  .fa-phone:hover,
-  .fa-envelope:hover,
-  .fa-map-marker-alt:hover {
-    transform: rotate(360deg);
-    transition: transform 0.3s ease-in-out;
-  }
+.help-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 800px;
+}
 
-  /* .helpimg img{
-    margin-top: 70px;
-    margin-left: 30%;
-  } */
+.emergency-section,
+.harassment-section,
+.scam-section {
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #f0f8ff;
+  transition: background-color 0.3s ease-in-out;
+}
 
-  .greybox{
-    width: 80%;
-    height: 100px;
-    color: #FFFAF0;
-  }
-  
+.emergency-section:hover,
+.harassment-section:hover,
+.scam-section:hover {
+  background-color: #e0ffff;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #11276e;
+}
+
+p {
+  margin: 10px 0;
+}
+
+.fa-phone,
+.fa-envelope {
+  margin-right: 5px;
+  color: #000000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-phone:hover,
+.fa-envelope:hover {
+  transform: rotate(360deg);
+}
+
+a {
+  color: #0000ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

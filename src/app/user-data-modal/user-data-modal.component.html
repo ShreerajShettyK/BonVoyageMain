@@ -4,7 +4,10 @@
         <div class="center">
             <h1 style="color:white;">Travellers Details - Let's Go</h1>
         </div>
-        <div class="user-details">
+        <div class="user-details" style="display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;">
 
             <!-- <form (submit)="submitUserData()">
                 <div class="cont">
@@ -64,32 +67,47 @@
 
             <form [formGroup]="newPersonForm" (submit)="submitUserData()">
                 <div class="cont">
-                  <div class="c1">
-                    <div *ngIf="showNewPersonForm" class="form-group">
-                      <label for="name" class="form-label">Full Name:</label>
-                      <input type="text" [(ngModel)]="newPerson.name" id="name" class="form-input" formControlName="name" required>
-                      <br><br>
-                      <label for="dob" class="form-label date-label">Date of Birth:</label>
-                      <input type="date" [(ngModel)]="newPerson.dob" formControlName="dob" required>
-                      <br><br>
-                      <label for="gender" class="form-label gender-label">Gender:</label>
-                      <select [(ngModel)]="newPerson.gender" formControlName="gender" required>
-                        <option value="" disabled selected>Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                      </select>
-                      <br><br>
-                    </div>
-                    <div class="buttons-container">
-                      <!-- Add Person button -->
-                      <button type="button" id="add" (click)="addPerson()" [disabled]="newPersonForm.invalid">Add Person</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+                    <div class="c1">
+                        <div *ngIf="showNewPersonForm" class="form-group">
+                            <label for="name">Full Name:</label>
+                            <input type="text" [(ngModel)]="newPerson.name" id="name" class="form-input"
+                                formControlName="name" required>
+                            <!-- Display error message for name field -->
+                            <div *ngIf="newPersonForm.get('name').errors && newPersonForm.get('name').dirty"
+                                style="color: red;">
+                                <div *ngIf="newPersonForm.get('name').hasError('required')">Name is required</div>
+                                <div *ngIf="newPersonForm.get('name').hasError('pattern')">Only letters and spaces are
+                                    allowed</div>
+                            </div>
 
-              <table *ngIf="personsData.length > 0">
-                        
+                            <label for="dob" class="form-label date-label">Date of Birth:</label>
+                            <input type="date" [(ngModel)]="newPerson.dob" formControlName="dob" required>
+                            <div *ngIf="newPersonForm.get('dob').errors && newPersonForm.get('dob').dirty"
+                                style="color: red;">
+                                <div *ngIf="newPersonForm.get('dob').hasError('required')">Date of Birth is required
+                                </div>
+                                <div *ngIf="newPersonForm.get('dob').hasError('invalidDate')">Ivalid date</div>
+                            </div>
+
+
+                            <label for="gender" class="form-label gender-label">Gender:</label>
+                            <select [(ngModel)]="newPerson.gender" formControlName="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="buttons-container">
+                            <!-- Add Person button -->
+                            <button type="button" id="add" (click)="addPerson()" [disabled]="newPersonForm.invalid">Add
+                                Person</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <table class="row" *ngIf="personsData.length > 0">
+
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -98,28 +116,30 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                
+
                 <tbody>
                     <tr *ngFor="let person of personsData; let i = index">
-                        
+
                         <td>{{ person.name }}</td>
                         <td>{{ person.dob }}</td>
                         <td>{{ person.gender }}</td>
-                        <td>
-                            <button type="button" (click)="editPerson(i)">Edit</button>
-                            <button type="button" (click)="removePerson(i)">Remove</button>
+                        <td style="display: flex;justify-content: space-between;">
+                            <!-- (dblClick)="editAppointment(appointment.id)" -->
+                            <button class="btn" matTooltip=""
+                            style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 100%;height: 50px;"
+                            (click)="editPerson(i)"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0,0,256,256">
+                                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(3.2,3.2)"><path d="M63.07422,10.00391c-1.53906,0 -3.07812,0.58594 -4.24609,1.75391l-7.24219,7.24219l-36.44531,36.44141l-5.88281,15.29688l15.30078,-5.87891l0.14844,-0.15234l43.53516,-43.53516c2.33594,-2.33594 2.33594,-6.15234 0,-8.48437l-0.92969,-0.92969c-1.16406,-1.16797 -2.70312,-1.75391 -4.23828,-1.75391zM63.07422,11.99219c1.01953,0 2.03906,0.39453 2.82813,1.17969l0.92578,0.92578c1.57031,1.57422 1.57031,4.08984 0,5.66016l-0.82812,0.82813l-6.58594,-6.58594l0.82813,-0.82812c0.78516,-0.78516 1.80859,-1.17969 2.83203,-1.17969zM58,15.41406l6.58594,6.58594l-3.58594,3.58594l-6.58594,-6.58594zM53,20.41406l6.58594,6.58594l-34.92969,34.92969c-0.17578,-0.55078 -0.44922,-1.13672 -0.94922,-1.63672c-0.73437,-0.73437 -1.66016,-1.00391 -2.38672,-1.14844c-0.23047,-0.04687 -0.23047,-0.02344 -0.41797,-0.04687c-0.02344,-0.1875 0,-0.1875 -0.04687,-0.41797c-0.14453,-0.72656 -0.41406,-1.65234 -1.14844,-2.38672c-0.5,-0.5 -1.08594,-0.77344 -1.63672,-0.94922zM53,23c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM50,26c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM47,29c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM44,32c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM41,35c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM38,38c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM35,41c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM32,44c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM29,47c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM26,50c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM23,53c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1c0.55078,0 1,-0.44922 1,-1c0,-0.55078 -0.44922,-1 -1,-1zM16.66016,57.06641c0.09375,0.01563 0.16406,0.01953 0.26953,0.03906c0.52344,0.10547 1.09766,0.33594 1.36328,0.60156c0.26563,0.26563 0.49609,0.83984 0.60156,1.36328c0.10547,0.52344 0.10547,0.92969 0.10547,0.92969v1h1c0,0 0.40625,0 0.92969,0.10547c0.52344,0.10547 1.09766,0.33594 1.36328,0.60156c0.26563,0.26563 0.49609,0.83984 0.60156,1.36328c0.01953,0.10547 0.02344,0.17578 0.03906,0.26953l-6.92969,2.66406l-2.00781,-2.00781z"></path></g></g>
+                                </svg></button>
+                            <button class="btn" (click)="removePerson(i)" matTooltip=""
+                            style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 100%;height: 50px;"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40" viewBox="0,0,300,150">
+                                <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M42,5h-10v-2c0,-1.65234 -1.34766,-3 -3,-3h-8c-1.65234,0 -3,1.34766 -3,3v2h-10c-0.55078,0 -1,0.44922 -1,1c0,0.55078 0.44922,1 1,1h1.08594l3.60938,40.51563c0.125,1.39063 1.30859,2.48438 2.69531,2.48438h19.21484c1.38672,0 2.57031,-1.09375 2.69531,-2.48437l3.61328,-40.51562h1.08594c0.55469,0 1,-0.44922 1,-1c0,-0.55078 -0.44531,-1 -1,-1zM20,44c0,0.55469 -0.44922,1 -1,1c-0.55078,0 -1,-0.44531 -1,-1v-33c0,-0.55078 0.44922,-1 1,-1c0.55078,0 1,0.44922 1,1zM20,3c0,-0.55078 0.44922,-1 1,-1h8c0.55078,0 1,0.44922 1,1v2h-10zM26,44c0,0.55469 -0.44922,1 -1,1c-0.55078,0 -1,-0.44531 -1,-1v-33c0,-0.55078 0.44922,-1 1,-1c0.55078,0 1,0.44922 1,1zM32,44c0,0.55469 -0.44531,1 -1,1c-0.55469,0 -1,-0.44531 -1,-1v-33c0,-0.55078 0.44531,-1 1,-1c0.55469,0 1,0.44922 1,1z"></path></g></g>
+                                </svg></button>
                         </td>
                     </tr>
                 </tbody>
             </table>
 
         </div>
-        <!-- Submit button -->
-        <div class="button-container1">
-            <button type="button" (click)="submitUserData()" [disabled]="personsData.length === 0">Submit</button>
-        </div>
-
-
     </div>
     <div class="inv">
         <mat-card>

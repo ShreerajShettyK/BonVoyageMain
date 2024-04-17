@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -43,6 +44,8 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { LightgalleryModule } from 'lightgallery/angular';
+import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -70,7 +73,9 @@ import { LightgalleryModule } from 'lightgallery/angular';
     GoaDetailComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    PageNotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -92,6 +97,8 @@ import { LightgalleryModule } from 'lightgallery/angular';
     AngularFireAuthModule,
     MatMenuModule,
     LightgalleryModule,
+    AngularFirestoreModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent,]

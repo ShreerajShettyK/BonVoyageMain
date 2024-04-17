@@ -27,139 +27,74 @@
         <div class="search_bx" style="height: max-content; width: max-content">
           <form (ngSubmit)="btnClick(taskForm)" #taskForm="ngForm" class="row">
             <div class="card1">
-              <label for="toplace"
-                >Location<i class="bi bi-caret-down-fill"></i
-              ></label>
-              <input
-                type="text"
-                class="form-control"
-                id="toplace"
-                [(ngModel)]="sendservice.selectedTask.toplace"
-                name="toplace"
-                required
-                pattern="[A-Za-z\s]+"
-                [readonly]="sendservice.editingIndex !== null"
-              />
-              <small *ngIf="taskForm.controls['toplace'].errors?.['required']"
-                >To place is required.</small
-              >
-              <small *ngIf="taskForm.controls['toplace'].errors?.['pattern']"
-                >Please enter a valid name (no numbers or special
-                characters).</small
-              >
+              <label for="toplace">Location<i class="bi bi-caret-down-fill"></i></label>
+              <input type="text" class="form-control" id="toplace" [(ngModel)]="sendservice.selectedTask.toplace"
+                name="toplace" required pattern="[A-Za-z\s]+" [readonly]="sendservice.editingIndex !== null">
+              <small *ngIf="taskForm.controls['toplace'].errors?.['required']">To place is required.</small>
+              <small *ngIf="taskForm.controls['toplace'].errors?.['pattern']">Please enter a valid name (no numbers or
+                special characters).</small>
             </div>
 
             <div class="card1">
-              <label for="date"
-                >Date<i class="bi bi-caret-down-fill"></i
-              ></label>
-              <input
-                type="date"
-                class="form-control"
-                [(ngModel)]="sendservice.selectedTask.date"
-                id="date"
-                name="date"
-                required
-                (change)="validateDate($event)"
-              />
-              <!-- <small *ngIf="taskForm.controls['date'].errors?.['required']"
-                >Date is required.</small
-              >
-              <small *ngIf="taskForm.controls['date'].errors?.['invalidDate']"
-                >Please enter a date after today.</small
-              > -->
+              <label for="date">Date<i class="bi bi-caret-down-fill"></i></label>
+              <input type="date" class="form-control" [(ngModel)]="sendservice.selectedTask.date" id="date" name="date"
+                required (change)="validateDate($event)">
+              <small *ngIf="taskForm.controls['date'].errors?.['required']">Date is required.</small>
+              <small *ngIf="taskForm.controls['date'].errors?.['invalidDate']">Please enter a date after
+                today.</small>
             </div>
 
             <div class="card1">
-              <label for="travellerCount"
-                >People<i class="bi bi-caret-down-fill"></i
-              ></label>
-              <input
-                type="number"
-                class="form-control"
-                id="travellerCount"
-                [(ngModel)]="sendservice.selectedTask.travellerCount"
-                name="travellerCount"
-                min="1"
-                max="15"
-                required
-              />
-              <!-- <small
-                *ngIf="taskForm.controls['travellerCount'].errors?.['required']"
-                >Number of travellers is required.</small
-              >
+              <label for="travellerCount">People<i class="bi bi-caret-down-fill"></i></label>
+              <input type="number" class="form-control" id="travellerCount"
+                [(ngModel)]="sendservice.selectedTask.travellerCount" name="travellerCount" min="1" max="15" required>
+              <small *ngIf="taskForm.controls['travellerCount'].errors?.['required']">Number of travellers is
+                required.</small>
               <small
-                *ngIf="taskForm.controls['travellerCount'].errors?.['min'] || taskForm.controls['travellersCount'].errors?.['max']"
-                >Number of travellers must be between 1 and 15.</small
-              > -->
+                *ngIf="taskForm.controls['travellerCount'].errors?.['min'] || taskForm.controls['travellersCount'].errors?.['max']">Number
+                of travellers must be between 1 and 15.</small>
             </div>
             <div>
-              <button
-                [disabled]="
-                  taskForm.invalid || sendservice.editingIndex !== null
-                "
-                type="submit"
-                class="btn btn-primary"
-                *ngIf="sendservice.isNewTask"
-                class="btn"
-                style="background-color: rgb(0, 0, 0); color: white"
-              >
-                Search
-              </button>
+              <button [disabled]="taskForm.invalid || sendservice.editingIndex !== null" type="submit"
+                class="btn btn-primary" *ngIf="sendservice.isNewTask" class="btn"
+                style="background-color: rgb(0, 0, 0); color: white;">Search</button>
             </div>
           </form>
         </div>
 
         <div class="travel_bx">
-          <h4 style="font-weight: 700">Countries to travel</h4>
+          <h4 style="font-weight: 700;">Countries to travel</h4>
           <div class="cards">
             <div class="card1">
-              <h3>INDIA <img src="../../assets/icon/india.png" alt="" /></h3>
-              <img src="../../assets/img/Mumbai-India-at-night.jpg" alt="" />
+              <h3>INDIA <img src="../../assets/icon/india.png" alt=""></h3>
+              <img src="../../assets/img/Mumbai-India-at-night.jpg" alt="">
               <div class="btn_city">
-                <a [routerLink]="['/package/1']" routerLinkActive="active"
-                  >Read Now</a
-                >
-                <h5>
-                  Mumbai Central <br />
-                  <span>₹460</span>
-                </h5>
+                <a [routerLink]="['/package/1']" routerLinkActive="active">Read Now</a>
+                <h5>Mumbai Central <br> <span>₹460</span></h5>
               </div>
             </div>
             <div class="card1">
-              <h3>
-                UNITED STATES
-                <img src="../../assets/icon/united-states.png" alt="" />
-              </h3>
-              <img src="../../assets/img/newyork.webp" alt="" />
+              <h3>UNITED STATES <img src="../../assets/icon/united-states.png" alt=""></h3>
+              <img src="../../assets/img/newyork.webp" alt="">
               <div class="btn_city">
                 <a href="">Read Now</a>
-                <h5>
-                  New York <br />
-                  <span>₹870</span>
-                </h5>
+                <h5>New York <br> <span>₹870</span></h5>
               </div>
             </div>
             <div class="card1">
-              <h3>RUSSIA <img src="../../assets/icon/russia.png" alt="" /></h3>
-              <img src="../../assets/img/sanpitersburg.jpg" alt="" />
+              <h3>RUSSIA <img src="../../assets/icon/russia.png" alt=""></h3>
+              <img src="../../assets/img/sanpitersburg.jpg" alt="">
               <div class="btn_city">
                 <a href="">Read Now</a>
-                <h5>
-                  Saint Petersburg <br />
-                  <span>₹660</span>
-                </h5>
+                <h5>Saint Petersburg <br> <span>₹660</span></h5>
               </div>
             </div>
             <div class="card1">
-              <h3>SPAIN <img src="../../assets/icon/spain.png" alt="" /></h3>
-              <img src="../../assets/img/barcelona.jpg" alt="" />
+              <h3>SPAIN <img src="../../assets/icon/spain.png" alt=""></h3>
+              <img src="../../assets/img/barcelona.jpg" alt="">
               <div class="btn_city">
                 <a href="">Read Now</a>
-                <h5>
-                  Barcelona <br />
-                  <span>₹730</span>
-                </h5>
+                <h5>Barcelona <br> <span>₹730</span></h5>
               </div>
             </div>
           </div>
@@ -174,10 +109,8 @@
       <div class="card1">
         <h3>Baga Beach - Goa</h3>
         <div class="img_text">
-          <img src="../../assets/img/Goa4.jpg" alt="" />
-          <h4>
-            Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer
-          </h4>
+          <img src="../../assets/img/Goa4.jpg" alt="">
+          <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
         </div>
         <div class="cont_bx">
           <div class="price">
@@ -186,29 +119,18 @@
               <i class="bi bi-chat-fill"><span>4586</span></i>
             </div>
             <div class="info_price">
-              <a [routerLink]="['/Premium']" routerLinkActive="active"
-                >More Info</a
-              >
+              <a [routerLink]="['/Premium']" routerLinkActive="active">More Info</a>
               <h4>₹2648</h4>
             </div>
           </div>
-          <div
-            class="dayes"
-            [routerLink]="['/Premium']"
-            routerLinkActive="active"
-          >
-            4 Days <br />
-            India
-          </div>
+          <div class="dayes" [routerLink]="['/Premium']" routerLinkActive="active">4 Days <br> India</div>
         </div>
       </div>
       <div class="card1">
         <h3>Burj Khalifa-DXB</h3>
         <div class="img_text">
-          <img src="../../assets/img/burjkhlifa.jpg" alt="" />
-          <h4>
-            Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer
-          </h4>
+          <img src="../../assets/img/burjkhlifa.jpg" alt="">
+          <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
         </div>
         <div class="cont_bx">
           <div class="price">
@@ -221,19 +143,14 @@
               <h4>₹2648</h4>
             </div>
           </div>
-          <div class="dayes">
-            5 Days <br />
-            Dubai
-          </div>
+          <div class="dayes">5 Days <br> Dubai</div>
         </div>
       </div>
       <div class="card1">
         <h3>Darjeeling - Bengal</h3>
         <div class="img_text">
-          <img src="../../assets/img/Dar1.png" alt="" />
-          <h4>
-            Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer
-          </h4>
+          <img src="../../assets/img/Dar1.png" alt="">
+          <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
         </div>
         <div class="cont_bx">
           <div class="price">
@@ -242,29 +159,18 @@
               <i class="bi bi-chat-fill"><span>4586</span></i>
             </div>
             <div class="info_price">
-              <a [routerLink]="['/Diamond']" routerLinkActive="active"
-                >More Info</a
-              >
+              <a [routerLink]="['/Diamond']" routerLinkActive="active">More Info</a>
               <h4>₹2648</h4>
             </div>
           </div>
-          <div
-            class="dayes"
-            [routerLink]="['/Diamond']"
-            routerLinkActive="active"
-          >
-            4 Days <br />
-            India
-          </div>
+          <div class="dayes" [routerLink]="['/Diamond']" routerLinkActive="active">4 Days <br> India</div>
         </div>
       </div>
       <div class="card1">
         <h3>Pyramids-Egypt</h3>
         <div class="img_text">
-          <img src="../../assets/img/piramids.jpg" alt="" />
-          <h4>
-            Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer
-          </h4>
+          <img src="../../assets/img/piramids.jpg" alt="">
+          <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
         </div>
         <div class="cont_bx">
           <div class="price">
@@ -277,15 +183,12 @@
               <h4>₹2648</h4>
             </div>
           </div>
-          <div class="dayes">
-            7 Days <br />
-            Egypt
-          </div>
+          <div class="dayes">7 Days <br> Egypt</div>
         </div>
       </div>
     </div>
   </div>
-  <div class="destination" style="margin-bottom: 30px">
+  <div class="destination" style="margin-bottom: 30px;">
     <div class="des_bx">
       <h4>Our Destination</h4>
       <p>choose your next Destination</p>
@@ -299,9 +202,9 @@
       <!-- <button>MORE INFO</button> -->
     </div>
     <div class="img_bx">
-      <img src="../../assets/img/Main_plan.png" alt="" />
+      <img src="../../assets/img/Main_plan.png" alt="">
       <div class="msg">
-        <img src="../../assets/icon/round_india_flag.png" alt="" />
+        <img src="../../assets/icon/round_india_flag.png" alt="">
         <div class="cont">
           <h4>India</h4>
           <div class="icon">
@@ -311,7 +214,7 @@
         </div>
       </div>
       <div class="msg">
-        <img src="../../assets/icon/united-states.png" alt="" />
+        <img src="../../assets/icon/united-states.png" alt="">
         <div class="cont">
           <h4>United States</h4>
           <div class="icon">
@@ -321,5 +224,135 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="review">
+
+    <section class="gradient-custom">
+      <div class="container my-5 py-5">
+        <div class="row d-flex justify-content-center">
+          <div class="col-md-12">
+            <div class="text-center mb-4 pb-2">
+              <i class="fas fa-quote-left fa-3x text-black"></i>
+            </div>
+
+            <div class="card">
+              <div class="card-body px-4 py-5">
+                <!-- Carousel wrapper -->
+                <div id="carouselDarkVariant" data-bs-carousel-init class="carousel slide carousel-dark"
+                  data-bs-ride="carousel">
+                  <!-- Inner -->
+                  <div class="carousel-inner pb-5">
+                    <!-- Single item -->
+                    <div class="carousel-item active">
+                      <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10 col-xl-8">
+                          <div class="row">
+                            <div class="col-lg-4 d-flex justify-content-center">
+                              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(1).webp"
+                                class="rounded-circle shadow-1 mb-4 mb-lg-0" alt="woman avatar" width="150"
+                                height="150" />
+                            </div>
+                            <div class="col-9 col-md-9 col-lg-7 col-xl-8 text-center text-lg-start mx-auto mx-lg-0">
+                              <h4 class="mb-4">
+                                Maria Smantha - Web Developer
+                              </h4>
+                              <p class="mb-0 pb-3">
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipisicing elit. A aliquam amet animi
+                                blanditiis consequatur debitis dicta distinctio,
+                                enim error eum iste libero modi nam natus
+                                perferendis possimus quasi sint sit tempora
+                                voluptatem. Est, exercitationem id ipsa ipsum
+                                laboriosam perferendis.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Single item -->
+                    <div class="carousel-item">
+                      <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10 col-xl-8">
+                          <div class="row">
+                            <div class="col-lg-4 d-flex justify-content-center">
+                              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(2).webp"
+                                class="rounded-circle shadow-1 mb-4 mb-lg-0" alt="woman avatar" width="150"
+                                height="150" />
+                            </div>
+                            <div class="col-9 col-md-9 col-lg-7 col-xl-8 text-center text-lg-start mx-auto mx-lg-0">
+                              <h4 class="mb-4">
+                                Lisa Cudrow - Graphic Designer
+                              </h4>
+                              <p class="mb-0 pb-3">
+                                Sed ut perspiciatis unde omnis iste natus error
+                                sit voluptatem accusantium doloremque
+                                laudantium, totam rem aperiam, eaque ipsa quae
+                                ab illo inventore veritatis et quasi architecto
+                                beatae vitae dicta sunt explicabo. Nemo enim
+                                ipsam voluptatem quia voluptas sit aspernatur.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Single item -->
+                    <div class="carousel-item">
+                      <div class="row d-flex justify-content-center">
+                        <div class="col-lg-10 col-xl-8">
+                          <div class="row">
+                            <div class="col-lg-4 d-flex justify-content-center">
+                              <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
+                                class="rounded-circle shadow-1 mb-4 mb-lg-0" alt="woman avatar" width="150"
+                                height="150" />
+                            </div>
+                            <div class="col-9 col-md-9 col-lg-7 col-xl-8 text-center text-lg-start mx-auto mx-lg-0">
+                              <h4 class="mb-4">
+                                John Smith - Marketing Specialist
+                              </h4>
+                              <p class="mb-0 pb-3">
+                                At vero eos et accusamus et iusto odio
+                                dignissimos qui blanditiis praesentium
+                                voluptatum deleniti atque corrupti quos dolores
+                                et quas molestias excepturi sint occaecati
+                                cupiditate non provident, similique sunt in
+                                culpa qui officia mollitia animi id laborum et
+                                dolorum fuga.
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Inner -->
+
+                  <!-- Controls -->
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselDarkVariant"
+                    data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselDarkVariant"
+                    data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+                <!-- Carousel wrapper -->
+              </div>
+            </div>
+
+            <div class="text-center mt-4 pt-2">
+              <i class="fas fa-quote-right fa-3x text-black"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </div>
