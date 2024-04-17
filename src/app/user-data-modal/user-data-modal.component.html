@@ -64,32 +64,47 @@
 
             <form [formGroup]="newPersonForm" (submit)="submitUserData()">
                 <div class="cont">
-                  <div class="c1">
-                    <div *ngIf="showNewPersonForm" class="form-group">
-                      <label for="name" class="form-label">Full Name:</label>
-                      <input type="text" [(ngModel)]="newPerson.name" id="name" class="form-input" formControlName="name" required>
-                      <br><br>
-                      <label for="dob" class="form-label date-label">Date of Birth:</label>
-                      <input type="date" [(ngModel)]="newPerson.dob" formControlName="dob" required>
-                      <br><br>
-                      <label for="gender" class="form-label gender-label">Gender:</label>
-                      <select [(ngModel)]="newPerson.gender" formControlName="gender" required>
-                        <option value="" disabled selected>Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                      </select>
-                      <br><br>
-                    </div>
-                    <div class="buttons-container">
-                      <!-- Add Person button -->
-                      <button type="button" id="add" (click)="addPerson()" [disabled]="newPersonForm.invalid">Add Person</button>
-                    </div>
-                  </div>
-                </div>
-              </form>
+                    <div class="c1">
+                        <div *ngIf="showNewPersonForm" class="form-group">
+                            <label for="name">Full Name:</label>
+                            <input type="text" [(ngModel)]="newPerson.name" id="name" class="form-input"
+                                formControlName="name" required>
+                            <!-- Display error message for name field -->
+                            <div *ngIf="newPersonForm.get('name').errors && newPersonForm.get('name').dirty"
+                                style="color: red;">
+                                <div *ngIf="newPersonForm.get('name').hasError('required')">Name is required</div>
+                                <div *ngIf="newPersonForm.get('name').hasError('pattern')">Only letters and spaces are
+                                    allowed</div>
+                            </div>
 
-              <table *ngIf="personsData.length > 0">
-                        
+                            <label for="dob" class="form-label date-label">Date of Birth:</label>
+                            <input type="date" [(ngModel)]="newPerson.dob" formControlName="dob" required>
+                            <div *ngIf="newPersonForm.get('dob').errors && newPersonForm.get('dob').dirty"
+                                style="color: red;">
+                                <div *ngIf="newPersonForm.get('dob').hasError('required')">Date of Birth is required
+                                </div>
+                                <div *ngIf="newPersonForm.get('dob').hasError('invalidDate')">Ivalid date</div>
+                            </div>
+
+
+                            <label for="gender" class="form-label gender-label">Gender:</label>
+                            <select [(ngModel)]="newPerson.gender" formControlName="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="buttons-container">
+                            <!-- Add Person button -->
+                            <button type="button" id="add" (click)="addPerson()" [disabled]="newPersonForm.invalid">Add
+                                Person</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <table *ngIf="personsData.length > 0">
+
                 <thead>
                     <tr>
                         <th>Name</th>
@@ -98,10 +113,10 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                
+
                 <tbody>
                     <tr *ngFor="let person of personsData; let i = index">
-                        
+
                         <td>{{ person.name }}</td>
                         <td>{{ person.dob }}</td>
                         <td>{{ person.gender }}</td>
