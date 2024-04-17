@@ -91,7 +91,7 @@ import { LightgalleryModule } from 'lightgallery/angular';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     MatMenuModule,
-    LightgalleryModule
+    LightgalleryModule,
   ],
   providers: [],
   bootstrap: [AppComponent,]

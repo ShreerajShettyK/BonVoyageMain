@@ -116,7 +116,7 @@ header .trip_bx {
     margin: auto;
     /* border: 1px solid #000; */
 }
-header .trip_bx .search_bx{
+header .trip_bx .search_bx form{
     position: absolute;
     top: 0;
     left: 0;
@@ -132,29 +132,32 @@ header .trip_bx .search_bx{
     padding: 10px 20px;
 }
 
-header .trip_bx .search_bx .card1 {
+header .trip_bx .search_bx form .card1 {
     width: 200px;
     height: 100%;
     /* border: 1px solid #000; */
 }
-header .trip_bx .search_bx .card1 h4{
+header .trip_bx .search_bx form .card1 label{
     font-size: 15px;
     margin: 0;
     font-weight: 700;
 }
-header .trip_bx .search_bx .card1 h4 .bi{
+header .trip_bx .search_bx form .card1 h4 .bi{
     position: absolute;
     font-size: 13px;
     margin: 2px 0px 0px 5px;
     transition: .3s linear;
 }
-header .trip_bx .search_bx .card1 input{
+header .trip_bx .search_bx form .card1 input{
     margin-top: 3px;
     padding: 5px 0px;
     border: none;
     outline: none;
     font-size: 13px;
 }
+header .trip_bx .search_bx form .card1 small {
+    color: red;
+  }
 header .trip_bx .search_bx input[type="button"]{
     background: #000;
     color: #fff;

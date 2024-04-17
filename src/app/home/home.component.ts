@@ -1,6 +1,9 @@
 import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { EnquiryModalService } from '../services/enquiry-modal.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { NgForm,FormControl, Validators } from '@angular/forms';
+import { ServiceComponent } from "../service/service.component";
+
 
 @Component({
   selector: 'app-home',
@@ -9,15 +12,12 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   
 })
 export class HomeComponent implements OnInit {
+
   user!:any;
+  @ViewChild('taskForm', { static: true }) taskForm!: NgForm;
+  emailControl: FormControl;
 
-  @ViewChild('myVideo') myVideo!: ElementRef;
-
-  // ngAfterViewInit() {
-  //   this.setupVideoReplay();
-  // }
-  
-  constructor(public enquiryModalService: EnquiryModalService, private afAuth: AngularFireAuth) {}
+  constructor(public sendservice: ServiceComponent,public enquiryModalService: EnquiryModalService, private afAuth: AngularFireAuth) {}
 
   ngOnInit() {
     this.afAuth.authState.subscribe(user => {
@@ -33,13 +33,19 @@ export class HomeComponent implements OnInit {
     this.enquiryModalService.openSuccessModal();
  }
 
-  private setupVideoReplay() {
-    const videoElement: HTMLVideoElement = this.myVideo.nativeElement;
+  btnClick(taskForm: NgForm): void {
+    this.sendservice.onSubmit(taskForm);
+  }
 
-    videoElement.addEventListener('ended', () => {
-      videoElement.currentTime = 0;
-      videoElement.play();
-    });
+  validateDate(event: any) {
+    const selectedDate = new Date(event.target.value);
+    const currentDate = new Date();
+
+    if (selectedDate < currentDate) {
+      this.taskForm.controls['date'].setErrors({ invalidDate: true });
+    } else {
+      this.taskForm.controls['date'].setErrors(null);
+    }
   }
   
 }
