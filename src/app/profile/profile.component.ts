@@ -30,7 +30,8 @@ export class ProfileComponent implements OnInit {
               email: user.email,
               metadata: user.metadata,
             };
-            console.log(this.userData);
+            if (!this.userData.displayName)
+              this.userData.displayName = user.displayName;
           });
       }
     });
