@@ -6,22 +6,28 @@
 }
 
 .helpimg {
-  position: relative;
+  display: flex;
   text-align: center;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px;
+  align-self: flex-start;
+  margin-left: 18%;
+  margin-top: 32px; */
+  flex-direction: row;
+  align-items: center;
+  margin: 24px 0;
 }
 
 .helpimg img {
   width: 100%;
-  max-width: 600px;
+  max-width: 300px;
   height: auto;
 }
 
 h1 {
-  position: absolute;
+  /* position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); */
   font-size: 36px;
   font-weight: bold;
   color: #11276e;
