@@ -75,6 +75,7 @@ header .content .cont_bx {
     height: auto;
     color: #fff;
     padding: 30px;
+    margin-top: 24px;
 }
 header .content .cont_bx h2{
     line-height: 40px;
