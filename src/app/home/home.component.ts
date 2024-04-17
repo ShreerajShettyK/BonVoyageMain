@@ -1,26 +1,33 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  OnInit,
+} from '@angular/core';
 import { EnquiryModalService } from '../services/enquiry-modal.service';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { NgForm,FormControl, Validators } from '@angular/forms';
-import { ServiceComponent } from "../service/service.component";
-
+import { NgForm, FormControl, Validators } from '@angular/forms';
+import { ServiceComponent } from '../service/service.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
-  
+  styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-
-  user!:any;
+  user!: any;
   @ViewChild('taskForm', { static: true }) taskForm!: NgForm;
   emailControl: FormControl;
 
-  constructor(public sendservice: ServiceComponent,public enquiryModalService: EnquiryModalService, private afAuth: AngularFireAuth) {}
+  constructor(
+    public sendservice: ServiceComponent,
+    public enquiryModalService: EnquiryModalService,
+    private afAuth: AngularFireAuth
+  ) {}
 
   ngOnInit() {
-    this.afAuth.authState.subscribe(user => {
+    this.afAuth.authState.subscribe((user) => {
       if (user) {
         this.user = user;
         console.log(user);
@@ -31,7 +38,7 @@ export class HomeComponent implements OnInit {
   sendEnquiry(packageName: string) {
     console.log('Enquiry sent for package:', packageName);
     this.enquiryModalService.openSuccessModal();
- }
+  }
 
   btnClick(taskForm: NgForm): void {
     this.sendservice.onSubmit(taskForm);
@@ -47,5 +54,4 @@ export class HomeComponent implements OnInit {
       this.taskForm.controls['date'].setErrors(null);
     }
   }
-  
 }
