@@ -54,7 +54,7 @@
             </div>
             <!-- Buttons -->
             <div>
-                <button type="submit" [disabled]="newPersonForm.invalid" style="background-color:rgb(40, 40, 196)">Pay
+                <button type="button"  id="rzp-button1" (click)="payNow()" [disabled]="newPersonForm.invalid" style="background-color:rgb(40, 40, 196)">Pay
                     Now</button>
                 <button type="button" (click)="onCancel()" style="background-color:rgb(40, 40, 196)">Cancel</button>
             </div>
@@ -63,8 +63,8 @@
 
 
         <!-- Success message -->
-        <div *ngIf="paymentSuccess" class="success-message">
+        <!-- <div *ngIf="paymentSuccess" class="success-message">
             <h2 style="color: green;">Payment Successful &#10004;</h2>
-        </div>
+        </div> -->
     </div>
 </div>

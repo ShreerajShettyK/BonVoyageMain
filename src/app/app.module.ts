@@ -2,8 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+<<<<<<< Updated upstream
 import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
+=======
+import {IonicModule} from '@ionic/angular'
+import { HttpClientModule } from '@angular/common/http';
+>>>>>>> Stashed changes
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
@@ -44,8 +49,16 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { MatMenuModule} from '@angular/material/menu';
 import { LightgalleryModule } from 'lightgallery/angular';
+<<<<<<< Updated upstream
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+=======
+import { CheckoutComponent } from './checkout/checkout.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PaymentFailedComponent } from './payment-failed/payment-failed.component';
+import { PaymentSuccessComponent } from './payment-success/payment-success.component';
+
+>>>>>>> Stashed changes
 
 
 
@@ -74,8 +87,17 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
+<<<<<<< Updated upstream
     PageNotFoundComponent,
     FooterComponent
+=======
+ 
+    CheckoutComponent,
+    PageNotFoundComponent,
+    PaymentFailedComponent,
+ 
+    PaymentSuccessComponent
+>>>>>>> Stashed changes
   ],
   imports: [
     BrowserModule,
@@ -91,6 +113,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatTabsModule,
     MatExpansionModule,
     FormsModule,
+    IonicModule.forRoot(),
+    HttpClientModule,
     ReactiveFormsModule,
     MatSliderModule,
     AngularFireModule.initializeApp(environment.firebase),

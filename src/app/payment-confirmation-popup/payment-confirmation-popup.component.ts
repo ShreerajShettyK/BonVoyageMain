@@ -1,7 +1,7 @@
 import { Component, Inject, ViewChild, ElementRef, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-payment-confirmation-popup',
@@ -15,7 +15,7 @@ export class PaymentConfirmationPopupComponent implements OnInit {
   gst: number;
   couponDiscount: number;
   finalAmount: number;
-
+  razorPayKey: any;
   // Payment form fields
   name: string = '';
   phone: string = '';
@@ -41,7 +41,8 @@ export class PaymentConfirmationPopupComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<PaymentConfirmationPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.totalPrice = data.totalPrice;
     this.gst = data.gst;
@@ -52,6 +53,45 @@ export class PaymentConfirmationPopupComponent implements OnInit {
   onCancel(): void {
     this.dialogRef.close(); // Close the dialog without performing any action
   }
+
+  payNow() {
+    // Replace 'YOUR_RAZORPAY_KEY' with your actual Razorpay key
+    const razorPayKey = 'rzp_test_zb9ghgx1yx2Jma';
+
+    const options: any = {
+      key: razorPayKey,
+      amount: 10000, // Default amount in paise (e.g., Rs. 100)
+      currency: 'INR',
+      name: 'BonVoyage', // company name or product name
+      description: '', // product description
+      image: './../../assets/images/bon.jpg', // company logo or product image
+      modal: {
+        // We should prevent closing of the form when esc key is pressed.
+        escape: false,
+      },
+      notes: {
+        // include notes if any
+      },
+    };
+    options.handler = (response: any, error: any) => {
+      options.response = response;
+      if (error) {
+        this.router.navigateByUrl('/paymentfailed');
+      } else {
+        // Handle successful payment
+        console.log(response);
+        this.router.navigateByUrl('paymentsuccess');
+      }
+    };
+    options.modal.ondismiss = () => {
+      // handle the case when user closes the form while transaction is in progress
+      alert('Transaction has been cancelled.');
+      this.router.navigateByUrl('');
+    };
+    const rzp = new (window as any).Razorpay(options);
+    rzp.open();
+  }
+
 
   submitForm() {
     // Simulate payment processing (you would replace this with actual payment processing logic)
