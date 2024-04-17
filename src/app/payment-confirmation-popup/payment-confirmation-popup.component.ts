@@ -2,6 +2,7 @@ import { Component, Inject, ViewChild, ElementRef, OnInit } from '@angular/core'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+declare var Razorpay : any;
 
 @Component({
   selector: 'app-payment-confirmation-popup',
@@ -88,7 +89,7 @@ export class PaymentConfirmationPopupComponent implements OnInit {
       alert('Transaction has been cancelled.');
       this.router.navigateByUrl('');
     };
-    const rzp = new (window as any).Razorpay(options);
+    const rzp = new Razorpay(options);
     rzp.open();
   }
 

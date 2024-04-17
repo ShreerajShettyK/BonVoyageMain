@@ -20,6 +20,7 @@ import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CanDeactivateGuard } from './can-deactivate.guard';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
@@ -89,6 +90,11 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'razor',
+    component: CheckoutComponent,
     canActivate: [AuthGuardService],
   },
   {
