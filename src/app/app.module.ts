@@ -74,7 +74,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -97,6 +98,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatMenuModule,
     LightgalleryModule,
     AngularFirestoreModule,
+  
   ],
   providers: [],
   bootstrap: [AppComponent,]
