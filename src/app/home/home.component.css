@@ -124,7 +124,7 @@ header .trip_bx .search_bx form {
   top: 0;
   left: 0;
   width: 80%;
-  height: 85px;
+  height: 120px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -154,11 +154,12 @@ header .trip_bx .search_bx form .card1 h4 .bi {
 header .trip_bx .search_bx form .card1 input {
   margin-top: 3px;
   padding: 5px 0px;
-  border: none;
+  border: 0.1px solid rgb(212, 212, 212);
   outline: none;
   font-size: 13px;
 }
 header .trip_bx .search_bx form .card1 small {
+  font-size:x-small;
   color: red;
 }
 header .trip_bx .search_bx input[type="button"] {

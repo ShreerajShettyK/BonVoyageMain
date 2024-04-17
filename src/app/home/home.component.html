@@ -4,8 +4,12 @@
       <div class="cont_bx" style="margin-bottom: 34px">
         <h2>Hello {{ user.displayName }}!</h2>
         <h3>The right destination for you and your family</h3>
-        <p></p>
-        <button>Start your search</button>
+        <div style="background: transparent;">
+          <br>
+          <br>
+          <br>
+        </div>
+        <!-- <button>Start your search</button> -->
       </div>
       <div class="trip_bx">
 
@@ -54,7 +58,7 @@
               <!-- [disabled]="taskForm.invalid || sendservice.editingIndex !== null" -->
               <button type="submit"
                 class="btn btn-primary"  class="btn"
-                style="background-color: rgb(0, 0, 0); color: white;" (click)="btnClick()">Search</button>
+                style="background-color: rgb(0, 0, 0); color: white; margin-top: 30px;border-radius: 18px;" (click)="btnClick()">Start your search</button>
             </div>
             <!-- *ngIf="sendservice.isNewTask" -->
           </form>
