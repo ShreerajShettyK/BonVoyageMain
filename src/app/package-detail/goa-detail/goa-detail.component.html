@@ -1,14 +1,17 @@
-<h2 mat-dialog-title>Explore Goa</h2>
+<h2 mat-dialog-title>Explore {{ place.title }} <img width="37" height="37" src="https://img.icons8.com/glyph-neue/64/gallery.png" alt="gallery"/></h2>
 <div mat-dialog-content>
     <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
-      <a data-lg-size="1400-1400" class="gallery-item" href = {{place.imgSrc1}}>
-        <img src={{place.imgSrc1}} />
+      <a data-lg-size="1400-1400"  href = {{place.imgSrc}}>
+        <img  class="gallery-item" src={{place.imgSrc}} />
       </a>
-      <a data-lg-size="1400-1400" class="gallery-item" data-src="https://images.unsplash.com/photo-1588093413519-17cec3f64e40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80">
-        <img class="img-fluid" src="https://images.unsplash.com/photo-1588093413519-17cec3f64e40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80" />
+      <a data-lg-size="1400-1400" class="gallery-item" href = {{place.imgScr1}}>
+        <img class="gallery-item" src={{place.imgScr1}} />
       </a>
-      <a data-lg-size="1400-1400" class="gallery-item" data-src="https://images.unsplash.com/photo-1588093413519-17cec3f64e40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1400&q=80">
-        <img class="img-fluid" src="https://images.unsplash.com/photo-1588093413519-17cec3f64e40?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=240&q=80" />
+      <a data-lg-size="1400-1400" class="gallery-item" href = {{place.imgScr2}}>
+        <img class="gallery-item" src={{place.imgScr2}} />
+      </a>
+      <a data-lg-size="1400-1400" class="gallery-item" href = {{place.imgScr3}}>
+        <img class="gallery-item" src={{place.imgScr3}} />
       </a>
     </lightgallery>
 </div>

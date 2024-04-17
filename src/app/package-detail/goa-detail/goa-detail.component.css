@@ -4,5 +4,7 @@ body {
   margin: 0;
 }
 .gallery-item {
-  margin: 5px;
+  width: 250px;
+  height: 250px;
 }
+
