@@ -18,30 +18,88 @@ import { UserDataModalComponent } from './user-data-modal/user-data-modal.compon
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
+import { CanDeactivateGuard } from './can-deactivate.guard';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent ,canActivate:[AuthGuardService]},
-  { path: 'package/:id', component: PackageDetailComponent ,canActivate:[AuthGuardService]},
-  { path: 'hotel/:id', component: HotelsHoteltabComponent ,canActivate:[AuthGuardService]},
-  { path: 'place/:id', component: PlaceDetailComponent ,canActivate:[AuthGuardService]},
+  { path: '', component: HomeComponent, canActivate: [AuthGuardService] },
+  {
+    path: 'package/:id',
+    component: PackageDetailComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'hotel/:id',
+    component: HotelsHoteltabComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'place/:id',
+    component: PlaceDetailComponent,
+    canActivate: [AuthGuardService],
+  },
   { path: 'help/:id', component: HelpDetailComponent },
-  { path: 'Premium', component: ExplorePremiumPackageComponent ,canActivate:[AuthGuardService]},
-  { path: 'Deluxe', component:  ExplorePremiumPackageComponent ,canActivate:[AuthGuardService]},
-  { path: 'Diamond', component: ExploreDiamondPackageComponent,canActivate:[AuthGuardService]},
+  {
+    path: 'Premium',
+    component: ExplorePremiumPackageComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'Deluxe',
+    component: ExplorePremiumPackageComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'Diamond',
+    component: ExploreDiamondPackageComponent,
+    canActivate: [AuthGuardService],
+  },
   // { path: '', redirectTo: '/places', pathMatch: 'full' },
-  { path: 'places', component: PlaceDetailComponent ,canActivate:[AuthGuardService]},
-  { path: 'explore/:id', component: ExploreComponent ,canActivate:[AuthGuardService]},
-  { path: 'hotel-stay/:id', component:  HotelstayComponent ,canActivate:[AuthGuardService]},
-  { path: 'invoice', component: InvoiceTemplateComponent ,canActivate:[AuthGuardService]},
-  { path: 'traveller', component:  UserDataModalComponent ,canActivate:[AuthGuardService]},
-  { path: 'register', component: RegisterComponent },
+  {
+    path: 'places',
+    component: PlaceDetailComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'explore/:id',
+    component: ExploreComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'hotel-stay/:id',
+    component: HotelstayComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'invoice',
+    component: InvoiceTemplateComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'traveller',
+    component: UserDataModalComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    canDeactivate: [CanDeactivateGuard],
+  },
   { path: 'login', component: LoginComponent },
-  { path: 'profile', component: ProfileComponent ,canActivate:[AuthGuardService]},
-  { path: '**', redirectTo: '', pathMatch: 'full' ,canActivate:[AuthGuardService]},
+  {
+    path: 'profile',
+    component: ProfileComponent,
+    canActivate: [AuthGuardService],
+  },
+  {
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
+    canActivate: [AuthGuardService],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
