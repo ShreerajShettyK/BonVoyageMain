@@ -1,15 +1,15 @@
 <div class="home">
-<header>
-  <div class="content">
-      <div class="cont_bx" style="margin-bottom: 34px;">
-        
-        <h2>Hello {{ user.displayName }}!</h2>
-          <h3>The right destination for you and your family</h3>
-          <p></p>
+    <header>
+        <div class="content">
+            <div class="cont_bx" style="margin-bottom: 34px;">
+
+                <h2>Hello {{ user.displayName }}!</h2>
+                <h3>The right destination for you and your family</h3>
+                <p></p>
           <button>Start your search</button>
-      </div>
-      <div class="trip_bx">
-          <div class="search_bx" style="height: max-content; width: max-content;">
+            </div>
+            <div class="trip_bx">
+                <!-- <div class="search_bx" style="height: max-content; width: max-content;">
               <div class="card1">
                   <h4>Location<i class="bi bi-caret-down-fill"></i></h4>
                   <input type="text" placeholder="Enter your destination">
@@ -24,168 +24,199 @@
               </div>
               <button class="btn" style="background-color: rgb(0, 0, 0); color: white;" (click)="sendEnquiry('Premium')" matTooltip="Click on Enquire Now to Enquire about Holiday Packages">Enquire
                 Now</button>
-          </div>
-          <div class="travel_bx">
-              <h4 style="font-weight: 700;">Countries to travel</h4>
-              <div class="cards">
-                  <div class="card1">
-                      <h3>INDIA <img src="../../assets/icon/india.png" alt=""></h3>
-                      <img src="../../assets/img/Mumbai-India-at-night.jpg" alt="">
-                      <div class="btn_city">
-                          <a [routerLink]="['/package/1']" routerLinkActive="active">Read Now</a>
-                          <h5>Mumbai Central <br> <span>₹460</span></h5>
-                      </div>
-                  </div>
-                  <div class="card1">
-                      <h3>UNITED STATES <img src="../../assets/icon/united-states.png" alt=""></h3>
-                      <img src="../../assets/img/newyork.webp" alt="">
-                      <div class="btn_city">
-                          <a href="">Read Now</a>
-                          <h5>New York <br> <span>₹870</span></h5>
-                      </div>
-                  </div>
-                  <div class="card1">
-                      <h3>RUSSIA <img src="../../assets/icon/russia.png" alt=""></h3>
-                      <img src="../../assets/img/sanpitersburg.jpg" alt="">
-                      <div class="btn_city">
-                          <a href="">Read Now</a>
-                          <h5>Saint Petersburg <br> <span>₹660</span></h5>
-                      </div>
-                  </div>
-                  <div class="card1">
-                      <h3>SPAIN <img src="../../assets/icon/spain.png" alt=""></h3>
-                      <img src="../../assets/img/barcelona.jpg" alt="">
-                      <div class="btn_city">
-                          <a href="">Read Now</a>
-                          <h5>Barcelona <br> <span>₹730</span></h5>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-</header>
-<div class="offers">
-  <h1>Best tour Package offers for You</h1>
-  <p>choose your next destination</p>
-  <div class="cards">
-      <div class="card1">
-          <h3>Baga Beach - Goa</h3>
-          <div class="img_text">
-              <img src="../../assets/img/Goa4.jpg" alt="">
-              <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
-          </div>
-          <div class="cont_bx">
-              <div class="price">
-                  <div class="heart_chat">
-                      <i class="bi bi-heart-fill"><span>86415</span></i>
-                      <i class="bi bi-chat-fill"><span>4586</span></i>
-                  </div>
-                  <div class="info_price">
-                    <a [routerLink]="['/Premium']" routerLinkActive="active">More Info</a>
-                      <h4>₹2648</h4>
-                  </div>
-              </div>
-              <div class="dayes" [routerLink]="['/Premium']" routerLinkActive="active">4 Days <br> India</div>
-          </div>
-      </div>
-      <div class="card1">
-          <h3>Burj Khalifa-DXB</h3>
-          <div class="img_text">
-              <img src="../../assets/img/burjkhlifa.jpg" alt="">
-              <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
-          </div>
-          <div class="cont_bx">
-              <div class="price">
-                  <div class="heart_chat">
-                      <i class="bi bi-heart-fill"><span>86415</span></i>
-                      <i class="bi bi-chat-fill"><span>4586</span></i>
-                  </div>
-                  <div class="info_price">
-                      <a>More Info</a>
-                      <h4>₹2648</h4>
-                  </div>
-              </div>
-              <div class="dayes">5 Days <br> Dubai</div>
-          </div>
-      </div>
-      <div class="card1">
-          <h3>Darjeeling - Bengal</h3>
-          <div class="img_text">
-              <img src="../../assets/img/Dar1.png" alt="">
-              <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
-          </div>
-          <div class="cont_bx">
-              <div class="price">
-                  <div class="heart_chat">
-                      <i class="bi bi-heart-fill"><span>86415</span></i>
-                      <i class="bi bi-chat-fill"><span>4586</span></i>
-                  </div>
-                  <div class="info_price">
-                    <a [routerLink]="['/Diamond']" routerLinkActive="active">More Info</a>
-                      <h4>₹2648</h4>
-                  </div>
-              </div>
-              <div class="dayes" [routerLink]="['/Diamond']" routerLinkActive="active">4 Days <br> India</div>
-          </div>
-      </div>
-      <div class="card1">
-          <h3>Pyramids-Egypt</h3>
-          <div class="img_text">
-              <img src="../../assets/img/piramids.jpg" alt="">
-              <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
-          </div>
-          <div class="cont_bx">
-              <div class="price">
-                  <div class="heart_chat">
-                      <i class="bi bi-heart-fill"><span>86415</span></i>
-                      <i class="bi bi-chat-fill"><span>4586</span></i>
-                  </div>
-                  <div class="info_price">
-                      <a>More Info</a>
-                      <h4>₹2648</h4>
-                  </div>
-              </div>
-              <div class="dayes">7 Days <br> Egypt</div>
-          </div>
-      </div>
-  </div>
-</div>
-<div class="destination" style="margin-bottom: 30px;">
-  <div class="des_bx">
-      <h4>Our Destination</h4>
-      <p>choose your next Destination</p>
-      <li>India</li>
-      <li>Dubai</li>
-      <li>USA</li>
-      <li>Vietnam</li>
-      <li>Russia</li>
-      <li>Brazil</li>
-      <h6>Included: Air ticket, Hotel, Breakfast, Tours, Airport transfer</h6>
-      <!-- <button>MORE INFO</button> -->
-  </div>
-  <div class="img_bx">
-      <img src="../../assets/img/Main_plan.png" alt="">
-      <div class="msg">
-          <img src="../../assets/icon/round_india_flag.png" alt="">
-          <div class="cont">
-              <h4>India</h4>
-              <div class="icon">
-                  <i class="bi bi-heart-fill"><span>86415</span></i>
-                  <i class="bi bi-chat-fill"><span>4586</span></i>
-              </div>
-          </div>
-      </div>
-      <div class="msg">
-          <img src="../../assets/icon/united-states.png" alt="">
-          <div class="cont">
-              <h4>United States</h4>
-              <div class="icon">
-                  <i class="bi bi-heart-fill"><span>86415</span></i>
-                  <i class="bi bi-chat-fill"><span>4586</span></i>
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
+          </div> -->
+          <div class="search_bx" style="height: max-content; width: max-content">
+                    <form (ngSubmit)="btnClick(taskForm)" #taskForm="ngForm" class="row">
+                        <div class="card1">
+                            <label for="toplace">Location<i class="bi bi-caret-down-fill"></i></label>
+                            <input type="text" class="form-control" id="toplace" [(ngModel)]="sendservice.selectedTask.toplace" name="toplace" required pattern="[A-Za-z\s]+"
+                                   [readonly]="sendservice.editingIndex !== null">
+                            <small *ngIf="taskForm.controls['toplace'].errors?.['required']">To place is required.</small>
+                            <small *ngIf="taskForm.controls['toplace'].errors?.['pattern']">Please enter a valid name (no numbers or special characters).</small>
+                          </div>
+                
+                        <div class="card1">
+                            <label for="date">Date<i class="bi bi-caret-down-fill"></i></label>
+                            <input type="date" class="form-control" [(ngModel)]="sendservice.selectedTask.date"
+                                id="date" name="date" required (change)="validateDate($event)">
+                            <small *ngIf="taskForm.controls['date'].errors?.['required']">Date is required.</small>
+                            <small *ngIf="taskForm.controls['date'].errors?.['invalidDate']">Please enter a date after
+                                today.</small>
+                        </div>
+                        
+                        <div class="card1">
+                            <label for="travellerCount">People<i class="bi bi-caret-down-fill"></i></label>
+                            <input type="number" class="form-control" id="travellerCount" [(ngModel)]="sendservice.selectedTask.travellerCount" name="travellerCount" min="1" max="15" required>
+                            <small *ngIf="taskForm.controls['travellerCount'].errors?.['required']">Number of travellers is required.</small>
+                            <small *ngIf="taskForm.controls['travellerCount'].errors?.['min'] || taskForm.controls['travellersCount'].errors?.['max']">Number of travellers must be between 1 and 15.</small>
+                          </div>
+                            <div>
+                            <button [disabled]="taskForm.invalid || sendservice.editingIndex !== null" type="submit" class="btn btn-primary" *ngIf="sendservice.isNewTask" class="btn" style="background-color: rgb(0, 0, 0); color: white;">Search</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="travel_bx">
+                    <h4 style="font-weight: 700;">Countries to travel</h4>
+                    <div class="cards">
+                        <div class="card1">
+                            <h3>INDIA <img src="../../assets/icon/india.png" alt=""></h3>
+                            <img src="../../assets/img/Mumbai-India-at-night.jpg" alt="">
+                            <div class="btn_city">
+                                <a [routerLink]="['/package/1']" routerLinkActive="active">Read Now</a>
+                                <h5>Mumbai Central <br> <span>₹460</span></h5>
+                            </div>
+                        </div>
+                        <div class="card1">
+                            <h3>UNITED STATES <img src="../../assets/icon/united-states.png" alt=""></h3>
+                            <img src="../../assets/img/newyork.webp" alt="">
+                            <div class="btn_city">
+                                <a href="">Read Now</a>
+                                <h5>New York <br> <span>₹870</span></h5>
+                            </div>
+                        </div>
+                        <div class="card1">
+                            <h3>RUSSIA <img src="../../assets/icon/russia.png" alt=""></h3>
+                            <img src="../../assets/img/sanpitersburg.jpg" alt="">
+                            <div class="btn_city">
+                                <a href="">Read Now</a>
+                                <h5>Saint Petersburg <br> <span>₹660</span></h5>
+                            </div>
+                        </div>
+                        <div class="card1">
+                            <h3>SPAIN <img src="../../assets/icon/spain.png" alt=""></h3>
+                            <img src="../../assets/img/barcelona.jpg" alt="">
+                            <div class="btn_city">
+                                <a href="">Read Now</a>
+                                <h5>Barcelona <br> <span>₹730</span></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="offers">
+        <h1>Best tour Package offers for You</h1>
+        <p>choose your next destination</p>
+        <div class="cards">
+            <div class="card1">
+                <h3>Baga Beach - Goa</h3>
+                <div class="img_text">
+                    <img src="../../assets/img/Goa4.jpg" alt="">
+                    <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
+                </div>
+                <div class="cont_bx">
+                    <div class="price">
+                        <div class="heart_chat">
+                            <i class="bi bi-heart-fill"><span>86415</span></i>
+                            <i class="bi bi-chat-fill"><span>4586</span></i>
+                        </div>
+                        <div class="info_price">
+                            <a [routerLink]="['/Premium']" routerLinkActive="active">More Info</a>
+                            <h4>₹2648</h4>
+                        </div>
+                    </div>
+                    <div class="dayes" [routerLink]="['/Premium']" routerLinkActive="active">4 Days <br> India</div>
+                </div>
+            </div>
+            <div class="card1">
+                <h3>Burj Khalifa-DXB</h3>
+                <div class="img_text">
+                    <img src="../../assets/img/burjkhlifa.jpg" alt="">
+                    <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
+                </div>
+                <div class="cont_bx">
+                    <div class="price">
+                        <div class="heart_chat">
+                            <i class="bi bi-heart-fill"><span>86415</span></i>
+                            <i class="bi bi-chat-fill"><span>4586</span></i>
+                        </div>
+                        <div class="info_price">
+                            <a>More Info</a>
+                            <h4>₹2648</h4>
+                        </div>
+                    </div>
+                    <div class="dayes">5 Days <br> Dubai</div>
+                </div>
+            </div>
+            <div class="card1">
+                <h3>Darjeeling - Bengal</h3>
+                <div class="img_text">
+                    <img src="../../assets/img/Dar1.png" alt="">
+                    <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
+                </div>
+                <div class="cont_bx">
+                    <div class="price">
+                        <div class="heart_chat">
+                            <i class="bi bi-heart-fill"><span>86415</span></i>
+                            <i class="bi bi-chat-fill"><span>4586</span></i>
+                        </div>
+                        <div class="info_price">
+                            <a [routerLink]="['/Diamond']" routerLinkActive="active">More Info</a>
+                            <h4>₹2648</h4>
+                        </div>
+                    </div>
+                    <div class="dayes" [routerLink]="['/Diamond']" routerLinkActive="active">4 Days <br> India</div>
+                </div>
+            </div>
+            <div class="card1">
+                <h3>Pyramids-Egypt</h3>
+                <div class="img_text">
+                    <img src="../../assets/img/piramids.jpg" alt="">
+                    <h4>Included: Air ticket, Hotel, Breakfast, Tours, Airport Transfer</h4>
+                </div>
+                <div class="cont_bx">
+                    <div class="price">
+                        <div class="heart_chat">
+                            <i class="bi bi-heart-fill"><span>86415</span></i>
+                            <i class="bi bi-chat-fill"><span>4586</span></i>
+                        </div>
+                        <div class="info_price">
+                            <a>More Info</a>
+                            <h4>₹2648</h4>
+                        </div>
+                    </div>
+                    <div class="dayes">7 Days <br> Egypt</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="destination" style="margin-bottom: 30px;">
+        <div class="des_bx">
+            <h4>Our Destination</h4>
+            <p>choose your next Destination</p>
+            <li>India</li>
+            <li>Dubai</li>
+            <li>USA</li>
+            <li>Vietnam</li>
+            <li>Russia</li>
+            <li>Brazil</li>
+            <h6>Included: Air ticket, Hotel, Breakfast, Tours, Airport transfer</h6>
+            <!-- <button>MORE INFO</button> -->
+        </div>
+        <div class="img_bx">
+            <img src="../../assets/img/Main_plan.png" alt="">
+            <div class="msg">
+                <img src="../../assets/icon/round_india_flag.png" alt="">
+                <div class="cont">
+                    <h4>India</h4>
+                    <div class="icon">
+                        <i class="bi bi-heart-fill"><span>86415</span></i>
+                        <i class="bi bi-chat-fill"><span>4586</span></i>
+                    </div>
+                </div>
+            </div>
+            <div class="msg">
+                <img src="../../assets/icon/united-states.png" alt="">
+                <div class="cont">
+                    <h4>United States</h4>
+                    <div class="icon">
+                        <i class="bi bi-heart-fill"><span>86415</span></i>
+                        <i class="bi bi-chat-fill"><span>4586</span></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

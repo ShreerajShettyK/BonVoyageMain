@@ -2,7 +2,7 @@
     <div class="model-content">
         <!-- User details form -->
         <div class="center">
-            <h1>Travellers Details - Let's Go</h1>
+            <h1 style="color:white;">Travellers Details - Let's Go</h1>
         </div>
         <div class="user-details">
 
@@ -67,13 +67,13 @@
                   <div class="c1">
                     <div *ngIf="showNewPersonForm" class="form-group">
                       <label for="name" class="form-label">Full Name:</label>
-                      <input type="text" id="name" class="form-input" formControlName="name" required>
+                      <input type="text" [(ngModel)]="newPerson.name" id="name" class="form-input" formControlName="name" required>
                       <br><br>
                       <label for="dob" class="form-label date-label">Date of Birth:</label>
-                      <input type="date" formControlName="dob" required>
+                      <input type="date" [(ngModel)]="newPerson.dob" formControlName="dob" required>
                       <br><br>
                       <label for="gender" class="form-label gender-label">Gender:</label>
-                      <select formControlName="gender" required>
+                      <select [(ngModel)]="newPerson.gender" formControlName="gender" required>
                         <option value="" disabled selected>Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>

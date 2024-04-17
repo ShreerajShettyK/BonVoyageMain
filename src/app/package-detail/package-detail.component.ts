@@ -15,6 +15,7 @@ export class PackageDetailComponent {
       title: "Goa",
       description: "Explore the golden beaches, vibrant culture, and historic architecture of Goa, India's coastal paradise.",
       imgSrc: "https://i.pinimg.com/originals/88/b1/5c/88b15c085218dad18b673834563925b3.jpg",
+      imgSrc1:"https://i.pinimg.com/originals/88/b1/5c/88b15c085218dad18b673834563925b3.jpg",
       path: "/Premium"
     },
     {
@@ -59,12 +60,12 @@ export class PackageDetailComponent {
   }
 
 
-  // constructor(public enquiryModalService: EnquiryModalService) { }
+   constructor(public enquiryModalService: EnquiryModalService) { }
 
 
-  // sendEnquiry(packageName: string) {
-  //   console.log('Enquiry sent for package:', packageName);
-  //   this.enquiryModalService.openGallery();
-  // }
+   sendEnquiry(place:any) {
+     console.log('Enquiry sent for package:', place);
+     this.enquiryModalService.openGallery(place);
+   }
 
 }
