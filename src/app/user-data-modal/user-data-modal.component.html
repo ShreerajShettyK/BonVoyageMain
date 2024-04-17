@@ -4,7 +4,10 @@
         <div class="center">
             <h1 style="color:white;">Travellers Details - Let's Go</h1>
         </div>
-        <div class="user-details">
+        <div class="user-details" style="display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;">
 
             <!-- <form (submit)="submitUserData()">
                 <div class="cont">
@@ -103,7 +106,7 @@
                 </div>
             </form>
 
-            <table *ngIf="personsData.length > 0">
+            <table class="row" *ngIf="personsData.length > 0">
 
                 <thead>
                     <tr>
@@ -137,12 +140,6 @@
             </table>
 
         </div>
-        <!-- Submit button -->
-        <div class="button-container1">
-            <button type="button" (click)="submitUserData()" [disabled]="personsData.length === 0">Submit</button>
-        </div>
-
-
     </div>
     <div class="inv">
         <mat-card>
