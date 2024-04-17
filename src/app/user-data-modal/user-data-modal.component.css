@@ -62,6 +62,9 @@ form{
     size: 50px;
     background-color: red;
   }
+  table{
+    background-color: white;
+  }
   /* Decrease the size of buttons */
 table button {
     padding: 5px 10px; /* Adjust padding for smaller buttons */
