@@ -1,25 +1,32 @@
-<div class="container mt-5">
+<div class="container mt-5 a">
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <div class="card">
-        <div class="card-header"><h2 class="text-center">Register</h2></div>
+      <div class="card shadow-lg">
+        <div class="card-header bg-gradient-primary text-white">
+          <h2 class="text-center mb-0">Register</h2>
+        </div>
         <div class="card-body">
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-            <div class="mb-3">
+            <div class="mb-4">
               <label for="email" class="form-label">Email</label>
-              <input
-                type="email"
-                id="email"
-                class="form-control"
-                formControlName="email"
-                required
-              />
+              <div class="input-group">
+                <span class="input-group-text"
+                  ><i class="bi bi-envelope-fill"></i
+                ></span>
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control"
+                  formControlName="email"
+                  required
+                />
+              </div>
               <div
                 *ngIf="
                   registerForm.get('email')?.invalid &&
                   registerForm.get('email')?.touched
                 "
-                class="text-danger"
+                class="text-danger mt-1"
               >
                 <ng-container
                   *ngIf="registerForm.get('email')?.errors?.['required']"
@@ -33,101 +40,126 @@
                 </ng-container>
               </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
               <label for="password" class="form-label">Password</label>
-              <input
-                type="password"
-                id="password"
-                class="form-control"
-                formControlName="password"
-                required
-              />
+              <div class="input-group">
+                <span class="input-group-text"
+                  ><i class="bi bi-lock-fill"></i
+                ></span>
+                <input
+                  type="password"
+                  id="password"
+                  class="form-control"
+                  formControlName="password"
+                  required
+                />
+              </div>
               <div
                 *ngIf="
                   registerForm.get('password')?.invalid &&
                   registerForm.get('password')?.touched
                 "
-                class="text-danger"
+                class="text-danger mt-1"
               >
                 Password must be at least 8 characters long and contain at least
                 one uppercase letter, one number, and one symbol.
               </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
               <label for="confirmPassword" class="form-label"
                 >Confirm Password</label
               >
-              <input
-                type="password"
-                id="confirmPassword"
-                class="form-control"
-                formControlName="confirmPassword"
-                required
-              />
+              <div class="input-group">
+                <span class="input-group-text"
+                  ><i class="bi bi-lock-fill"></i
+                ></span>
+                <input
+                  type="password"
+                  id="confirmPassword"
+                  class="form-control"
+                  formControlName="confirmPassword"
+                  required
+                />
+              </div>
               <div
                 *ngIf="
                   registerForm.get('confirmPassword')?.invalid &&
                   registerForm.get('confirmPassword')?.touched
                 "
-                class="text-danger"
+                class="text-danger mt-1"
               >
                 Passwords do not match.
               </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
               <label for="displayName" class="form-label">Display Name</label>
-              <input
-                type="text"
-                id="displayName"
-                class="form-control"
-                formControlName="displayName"
-                required
-              />
+              <div class="input-group">
+                <span class="input-group-text"
+                  ><i class="bi bi-person-fill"></i
+                ></span>
+                <input
+                  type="text"
+                  id="displayName"
+                  class="form-control"
+                  formControlName="displayName"
+                  required
+                />
+              </div>
               <div
                 *ngIf="
                   registerForm.get('displayName')?.invalid &&
                   registerForm.get('displayName')?.touched
                 "
-                class="text-danger"
+                class="text-danger mt-1"
               >
-                Display name must be at least 4 characters long and must not start with a
-                number.
+                Display name must be at least 4 characters long and must not
+                start with a number.
               </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
               <label for="dob" class="form-label">Date of Birth</label>
-              <input
-                type="date"
-                id="dob"
-                class="form-control"
-                formControlName="dob"
-                required
-              />
+              <div class="input-group">
+                <span class="input-group-text"
+                  ><i class="bi bi-calendar-fill"></i
+                ></span>
+                <input
+                  type="date"
+                  id="dob"
+                  class="form-control"
+                  formControlName="dob"
+                  required
+                />
+              </div>
               <div
                 *ngIf="
                   registerForm.get('dob')?.invalid &&
                   registerForm.get('dob')?.touched
                 "
-                class="text-danger"
+                class="text-danger mt-1"
               >
                 Please enter a valid date of birth that is not in the future.
               </div>
             </div>
-            <div class="mb-3">
+            <div class="mb-4">
               <label for="mobileNumber" class="form-label">Mobile Number</label>
-              <input
-                type="tel"
-                id="mobileNumber"
-                class="form-control"
-                formControlName="mobileNumber"
-                required
-              />
+              <div class="input-group">
+                <span class="input-group-text"
+                  ><i class="bi bi-phone-fill"></i
+                ></span>
+                <input
+                  type="tel"
+                  id="mobileNumber"
+                  class="form-control"
+                  formControlName="mobileNumber"
+                  required
+                />
+              </div>
               <div
                 *ngIf="
                   registerForm.get('mobileNumber')?.invalid &&
                   registerForm.get('mobileNumber')?.touched
                 "
-                class="text-danger"
+                class="text-danger mt-1"
               >
                 Please enter a valid 10-digit mobile number that starts with a
                 non-zero digit.
@@ -135,7 +167,7 @@
             </div>
             <button
               type="submit"
-              class="btn btn-primary"
+              class="btn btn-primary btn-block"
               [disabled]="registerForm.invalid"
             >
               Register

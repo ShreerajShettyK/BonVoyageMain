@@ -1,73 +1,71 @@
-/* navbar.component.css */
 .navbar {
-  background-color: #ffffff !important;
-  border-radius: 0; /* Optional: Adjust the border-radius to your preference */
-  transition: background-color 0.3s; /* Smooth transition for background color */
-}
-
-/* .navbar:hover {
-  background-color: #000000 !important; 
-} */
-.webname {
-  color: rgb(0, 0, 0);
-  margin-left: 10%;
-  display: flex; /* Use flexbox layout */
-  align-items: center; /* Align items vertically */
-}
-
-.navbar-toggler-icon {
-  background-color: #fff; /* Change to your desired color */
-  transition: background-color 0.3s; /* Smooth transition for toggle button color */
-}
-
-.navbar-toggler:hover .navbar-toggler-icon {
-  background-color: #ccc; /* Change toggle button color on hover */
-}
-
-.navbar-nav .nav-link {
-  color: rgb(0, 0, 0);
-  /* font-family: Georgia, 'Times New Roman', Times, serif; */
-  transition: color 0.3s; /* Smooth transition for link color */
-  text-align: right !important;
-  margin-right: 30px;
-}
-
-.navbar-nav .nav-item {
-  margin-right: 10px; /* Optional: Adjust the spacing between nav items */
-}
-
-.navbar-nav .nav-link:hover {
-  color: navy;
-  text-decoration: none; /* Remove default underline on hover */
-  transform: scale(1.1); /* Add a scaling effect on hover */
-}
-
-/* Highlight the active link */
-.navbar-nav .nav-link.active {
-  color: navy;
-  font-weight: bold; /* Optional: Add bold style to the active link */
-}
-
-/* navbar.component.css */
-
-/* ... (your existing styles) */
-
-/* Ensure the navbar remains in one row on smaller screens */
-@media (max-width: 767px) {
-  .navbar-nav {
-    flex-direction: row !important;
-    text-align: center !important;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
   }
-  .nav-item {
-    margin-right: 8px; /* Remove margin between nav items */
+
+  .webname {
+    display: flex;
+    align-items: center;
   }
-  
-}
 
+  .navbar-brand {
+    color: #007bff;
+    font-weight: 600;
+    margin-top: 7px;
+  }
 
-.profile-image-toolbar {
-  border-radius: 100%;
-  margin-right: 8px;
-}
+  .navbar-toggler {
+    border: none;
+  }
 
+  .navbar-toggler-icon {
+    background-color: #007bff;
+  }
 
+  .navbar-nav .nav-link {
+    color: #000000;
+    transition: color 0.3s;
+    margin-right: 15px;
+  }
+
+  .navbar-nav .nav-link:hover {
+    color: #007bff;
+  }
+
+  .navbar-nav .nav-link.active {
+    color: #007bff;
+    font-weight: bold;
+  }
+
+  .profile-image-toolbar {
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  .dropdown-menu {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown-item {
+    color: #000000;
+    transition: background-color 0.3s;
+  }
+
+  .dropdown-item:hover {
+    background-color: #f8f9fa;
+    color: #007bff;
+  }
+
+  @media (max-width: 767px) {
+    .navbar-nav {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .nav-item {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
