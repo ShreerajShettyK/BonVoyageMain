@@ -17,6 +17,7 @@ import { Router } from '@angular/router';
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;
   errorMessage: string = '';
+  isSubmitting: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -81,11 +82,15 @@ export class RegisterComponent implements OnInit {
           .register(email, password, displayName, dob, mobileNumber)
           .then(() => {
             // Registration successful, navigate to a success page or login page
+            this.isSubmitting = true;
             this.router.navigate(['/login']);
           })
           .catch((error) => {
             // Handle registration error
             this.errorMessage = error.message;
+          })
+          .finally(() => {
+            this.isSubmitting = false;
           });
       }
     }
