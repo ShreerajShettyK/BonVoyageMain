@@ -276,7 +276,6 @@
               </mat-accordion>
             </div>
           </mat-tab>
-          <!-- <mat-tab label="SUMMARY">Content 3</mat-tab> -->
         </mat-tab-group>
       </div>
       <div class="col-12 col-md-3">
@@ -288,11 +287,11 @@
               </div>
               <div
                 style="background-color: red; color: white; padding: 5px; height: 35px; font-weight: 600; font-size: smaller; border-radius: 5px;">
-                25% OFF</div>
+                20% OFF</div>
             </div>
 
             <div class="row">
-              <h3 style="font-weight: 700;">₹20,000 <span style="font-size: x-small;color: grey;">per person*</span>
+              <h3 style="font-weight: 700;">₹32,000 <span style="font-size: x-small;color: grey;">per person*</span>
               </h3>
             </div>
 
@@ -301,13 +300,37 @@
 
           <mat-card-content>
             <div class="premium-package">
-              <h4>Number of Days: {{ numberOfDays }}</h4>
-              <div *ngIf="packageForm.get('numberOfTravellers')?.valid">
-                <p>Number of Travellers: {{ numberOfTravellers }}</p>
-                <p>Price: ₹{{ totalPrice }}</p>
-              </div>
+              <h5>Number of Days: {{ numberOfDays }}</h5>
             </div>
+            <!-- <div class="form-section">
+              <form [formGroup]="packageForm" (submit)="submitPackageForm()">
+                <div class="form-group">
+                  <label for="numberOfTravellers">Number of Travellers:</label>
+                  <input type="number" id="numberOfTravellers" formControlName="numberOfTravellers" min="0" max="15">
+                  <div *ngIf="packageForm.get('numberOfTravellers')?.errors" class="error-message">
+                    <ul style="list-style-type: none;">
+                      <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['required']">Number of travellers is
+                        required.</li>
+                      <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['minTravellers']">Minimum travellers
+                        should
+                        be 1.</li>
+                      <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['maxTravellers']">Maximum travellers
+                        should
+                        be 15.</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="travelDate">Travel Date:</label>
+                  <input type="date" id="travelDate" formControlName="travelDate" (change)="onTravelDateChange()">
+                  <div *ngIf="packageForm.controls['travelDate'].errors?.['invalidDate']" class="error-message">Travel
+                    date
+                    must be from tomorrow onwards.</div>
+                </div>
+              </form>
+            </div> -->
           </mat-card-content>
+
           <mat-card-footer>
             <mat-card-actions>
               <button class="bookOnline" routerLink="/traveller" matTooltip="Click to proceed further"
@@ -318,31 +341,7 @@
           </mat-card-footer>
         </mat-card>
 
-        <div class="form-section">
-          <form [formGroup]="packageForm" (submit)="submitPackageForm()">
-            <div class="form-group">
-              <label for="numberOfTravellers">Number of Travellers:</label>
-              <input type="number" id="numberOfTravellers" formControlName="numberOfTravellers" min="0" max="15">
-              <div *ngIf="packageForm.get('numberOfTravellers')?.errors" class="error-message">
-                <ul style="list-style-type: none;">
-                  <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['required']">Number of travellers is
-                    required.</li>
-                  <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['minTravellers']">Minimum travellers should
-                    be 1.</li>
-                  <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['maxTravellers']">Maximum travellers should
-                    be 15.</li>
-                </ul>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="travelDate">Travel Date:</label>
-              <input type="date" id="travelDate" formControlName="travelDate" (change)="onTravelDateChange()">
-              <div *ngIf="packageForm.controls['travelDate'].errors?.['invalidDate']" class="error-message">Travel date
-                must be from tomorrow onwards.</div>
-              <!-- Add error message if the date is invalid -->
-            </div>
-          </form>
-        </div>
+
       </div>
     </div>
   </div>

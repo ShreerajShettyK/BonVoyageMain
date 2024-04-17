@@ -8,23 +8,8 @@
         <button>Start your search</button>
       </div>
       <div class="trip_bx">
-        <!-- <div class="search_bx" style="height: max-content; width: max-content;">
-              <div class="card1">
-                  <h4>Location<i class="bi bi-caret-down-fill"></i></h4>
-                  <input type="text" placeholder="Enter your destination">
-              </div>
-              <div class="card1">
-                  <h4>Date<i class="bi bi-caret-down-fill"></i></h4>
-                  <input type="date">
-              </div>
-              <div class="card1">
-                  <h4>People<i class="bi bi-caret-down-fill"></i></h4>
-                  <input type="number" placeholder="How many People?">
-              </div>
-              <button class="btn" style="background-color: rgb(0, 0, 0); color: white;" (click)="sendEnquiry('Premium')" matTooltip="Click on Enquire Now to Enquire about Holiday Packages">Enquire
-                Now</button>
-          </div> -->
-        <div class="search_bx" style="height: 60px; width: max-content">
+
+        <!-- <div class="search_bx" style="height: 60px; width: max-content">
           <form (ngSubmit)="btnClick(taskForm)" #taskForm="ngForm" class="row">
             <div class="card1">
               <label for="toplace">Location<i class="bi bi-caret-down-fill"></i></label>
@@ -42,8 +27,8 @@
               <small *ngIf="taskForm.controls['date'].errors?.['required']">Date is required.</small>
               <small *ngIf="taskForm.controls['date'].errors?.['invalidDate']">Please enter a date after
                 today.</small>
-            </div>
-
+            </div> -->
+        <!-- 
             <div class="card1">
               <label for="travellerCount">People<i class="bi bi-caret-down-fill"></i></label>
               <input type="number" class="form-control" id="travellerCount"
@@ -60,7 +45,7 @@
                 style="background-color: rgb(0, 0, 0); color: white;">Search</button>
             </div>
           </form>
-        </div>
+        </div> -->
 
         <div class="travel_bx">
           <h4 style="font-weight: 700;">Countries to travel</h4>
@@ -68,8 +53,8 @@
             <div class="card1">
               <h3>INDIA <img src="../../assets/icon/india.png" alt=""></h3>
               <img src="../../assets/img/Mumbai-India-at-night.jpg" alt="">
-              <div class="btn_city">
-                <a [routerLink]="['/package/1']" routerLinkActive="active">Read Now</a>
+              <div class="btn_city" id="wow">
+                <a [routerLink]="['/package/1']" routerLinkActive="active">Learn More</a>
                 <h5>Mumbai Central <br> <span>₹460</span></h5>
               </div>
             </div>
@@ -77,7 +62,7 @@
               <h3>UNITED STATES <img src="../../assets/icon/united-states.png" alt=""></h3>
               <img src="../../assets/img/newyork.webp" alt="">
               <div class="btn_city">
-                <a>Read Now</a>
+                <a>Learn More</a>
                 <h5>New York <br> <span>₹870</span></h5>
               </div>
             </div>
@@ -85,7 +70,7 @@
               <h3>RUSSIA <img src="../../assets/icon/russia.png" alt=""></h3>
               <img src="../../assets/img/sanpitersburg.jpg" alt="">
               <div class="btn_city">
-                <a>Read Now</a>
+                <a>Learn More</a>
                 <h5>Saint Petersburg <br> <span>₹660</span></h5>
               </div>
             </div>
@@ -93,7 +78,7 @@
               <h3>SPAIN <img src="../../assets/icon/spain.png" alt=""></h3>
               <img src="../../assets/img/barcelona.jpg" alt="">
               <div class="btn_city">
-                <a>Read Now</a>
+                <a>Learn More</a>
                 <h5>Barcelona <br> <span>₹730</span></h5>
               </div>
             </div>
@@ -143,7 +128,7 @@
               <h4>₹2648</h4>
             </div>
           </div>
-          <div class="dayes">5 Days <br> Dubai</div>
+          <div class="dayes" id="omg">5 Days <br> Dubai</div>
         </div>
       </div>
       <div class="card1">
@@ -183,7 +168,7 @@
               <h4>₹2648</h4>
             </div>
           </div>
-          <div class="dayes">7 Days <br> Egypt</div>
+          <div class="dayes" id="omg">7 Days <br> Egypt</div>
         </div>
       </div>
     </div>

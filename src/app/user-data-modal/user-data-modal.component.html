@@ -1,6 +1,5 @@
 <div class="tot">
     <div class="model-content">
-        <!-- User details form -->
         <div class="center">
             <h1 style="color:white;">Travellers Details - Let's Go</h1>
         </div>
@@ -8,62 +7,6 @@
         flex-direction: row;
         justify-content: space-between;
         align-items: center;">
-
-            <!-- <form (submit)="submitUserData()">
-                <div class="cont">
-                    <div class="c1">
-                        <div *ngIf="showNewPersonForm" class="form-group">
-                            <label for="name" class="form-label">Full Name:</label>
-                            <input type="text" id="name" class="form-input" [(ngModel)]="newPerson.name" name="name"
-                                required>
-                            <br><br>
-                            <label for="dob" class="form-label date-label">Date of Birth:</label>
-                            <input type="date" [(ngModel)]="newPerson.dob" name="dob" required>
-                            <br><br>
-                            <label for="gender" class="form-label gender-label">Gender:</label>
-                            <select [(ngModel)]="newPerson.gender" name="gender" required>
-                                <option value="" disabled selected>Select Gender</option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                            <br><br>
-                        </div>
-                        <div class="buttons-container">
-                           
-                            <button type="button" id="add" (click)="addPerson()"
-                                [disabled]="!newPerson.name || !newPerson.dob || !newPerson.gender">Add Person</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="t1">
-                    
-                    <table *ngIf="personsData.length > 0">
-                        
-                        <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Date of Birth</th>
-                                <th>Gender</th>
-                                <th>Action</th>
-                            </tr>
-                        </thead>
-                        
-                        <tbody>
-                            <tr *ngFor="let person of personsData; let i = index">
-                                
-                                <td>{{ person.name }}</td>
-                                <td>{{ person.dob }}</td>
-                                <td>{{ person.gender }}</td>
-                                <td>
-                                    <button type="button" (click)="editPerson(i)">Edit</button>
-                                    <button type="button" (click)="removePerson(i)">Remove</button>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </form> -->
 
             <form [formGroup]="newPersonForm" (submit)="submitUserData()">
                 <div class="cont">
