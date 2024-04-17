@@ -766,6 +766,6 @@ footer ul li h6 {
 }
 
 .card{
-    background-color: rgba(112, 112, 112, 0.5);
-    height: 300px;
+    background-color: rgba(69, 68, 68, 0.3);
+    border: none;
   }

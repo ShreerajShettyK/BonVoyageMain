@@ -65,7 +65,7 @@
                 
                 <div class="col" *ngFor="let place of filteredBoxes">
                     <div class="card">
-                   <a (click)="sendEnquiry(place)" matTooltip="Click on Enquire Now to Enquire about Holiday Packages"> 
+                   <a (click)="sendEnquiry(place)" matTooltip="Click to open gallery"> 
                     <img src={{place.imgSrc}} class="card-img-top" alt="{{ place.title }}">
                   </a>
                         <div class="card-body">
@@ -74,7 +74,7 @@
                             <div class="button-container" style="display: flex; justify-content: space-between;">
                                 <div>
                                     <a routerLink={{place.path}} class="btn btn-primary button-margin"
-                                        matTooltip="Click on Explore Now , to know about this Package">Explore Now</a>
+                                        matTooltip="Click to know about this Package" style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 100%;height: 40px;" >Explore Now</a>
                                 </div>
                                 <div>
                                     <!-- <a class="btn btn-primary" (click)="sendEnquiry('Premium')" matTooltip="Click on Book now , to Book Your Package">Book Now</a> -->
