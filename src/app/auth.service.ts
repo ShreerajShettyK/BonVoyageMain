@@ -41,7 +41,7 @@ export class AuthService {
       .doc(user.uid)
       .set(additionalData, { merge: true });
   }
-  
+
   login(email: string, password: string) {
     return this.afAuth.signInWithEmailAndPassword(email, password);
   }
@@ -49,9 +49,51 @@ export class AuthService {
   logout() {
     return this.afAuth.signOut();
   }
-
-  loginWithGoogle() {
+  async loginWithGoogle() {
     const provider = new firebase.auth.GoogleAuthProvider();
-    return this.afAuth.signInWithPopup(provider);
+    try {
+      const userCredential = await this.afAuth.signInWithPopup(provider);
+      const user = userCredential.user;
+
+      // Check if the user document exists in the "users" collection
+      const userDoc = await this.firestore
+        .collection('users')
+        .doc(user.uid)
+        .get()
+        .toPromise();
+
+      if (!userDoc.exists) {
+        // If the user document doesn't exist, create a new entry in the "users" collection
+        const additionalData = {
+          displayName: user.displayName,
+          phoneNumber: user.phoneNumber || '',
+          dob: null, // Set a default value or prompt the user for their date of birth
+        };
+
+        await this.firestore
+          .collection('users')
+          .doc(user.uid)
+          .set(additionalData, { merge: true });
+      }
+
+      return userCredential;
+    } catch (error) {
+      throw error;
+    }
+  }
+  
+  async addBooking(userBooking: any) {
+    const user = await this.afAuth.currentUser;
+    if (user) {
+      const bookingRef = this.firestore
+        .collection('users')
+        .doc(user.uid)
+        .collection('bookings')
+        .doc();
+
+      return bookingRef.set(userBooking);
+    } else {
+      throw new Error('User not authenticated');
+    }
   }
 }

@@ -1,22 +1,22 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BookingDataService {
   bookingData: {
     numberOfDays: number;
     numberOfTravellers: number;
     totalPrice: number;
-    travelDate: Date
+    travelDate: Date;
   } = {
-      numberOfDays: 0,
-      numberOfTravellers: 0,
-      totalPrice: 0,
-      travelDate: new Date(),
-    };
+    numberOfDays: 0,
+    numberOfTravellers: 0,
+    totalPrice: 0,
+    travelDate: new Date(),
+  };
 
-  constructor() { }
+  constructor() {}
 
   setBookingData(data: {
     numberOfDays: number;
@@ -28,6 +28,15 @@ export class BookingDataService {
   }
 
   getBookingData(): {
+    numberOfDays: number;
+    numberOfTravellers: number;
+    totalPrice: number;
+    travelDate: Date;
+  } {
+    return this.bookingData;
+  }
+  
+  getNewBookingData(): {
     numberOfDays: number;
     numberOfTravellers: number;
     totalPrice: number;
