@@ -1,7 +1,7 @@
 /* user-data-modal.component.css */
-form {
+/* form {
   background-color: white;
-}
+} */
 
 .form-group {
   margin-bottom: 20px;
@@ -10,22 +10,27 @@ form {
 /* user-data-modal.component.css */
 .form-label {
   display: inline-block;
-  width: 100px;
+  width: 100%;
   /* Increase label width */
   margin-right: -20px;
   /* Reduce the margin to create less space between label and input */
 }
 
+#fo1{
+  background-color: transparent;
+  padding: 30px;
+}
+
 .date-label {
   display: inline-block;
-  width: 100px;
+  width: 100%;
   /* Increase label width */
   margin-right: -10px;
 }
 
 .gender-label {
   display: inline-block;
-  width: 100px;
+  width: 100%;
   /* Increase label width */
   margin-right: -10px;
   /* Reduce the margin to create less space between label and input */
@@ -72,7 +77,8 @@ button[type="submit"] {
 }
 
 table {
-  background-color: white;
+  background-color: #d0efff;
+  margin-left: 30px;
 }
 
 /* Decrease the size of buttons */
@@ -110,7 +116,7 @@ button+button {
   border: 2px solid;
   /* Decrease the border size */
   border-radius: 10px;
-  height: 300px;
+  height: 350px;
   width: 300px;
   display: flex;
   flex-direction: column;
@@ -118,6 +124,8 @@ button+button {
   justify-content: center;
   /* Center horizontally */
   align-items: center;
+  margin-left: 24px;
+  background-color: white;
   /* Center vertically */
   /* box-shadow: 5px 10px 5px 10px #888888;  */
 }
@@ -225,7 +233,7 @@ td {
 }
 
 th {
-  background-color: #f2f2f2;
+  /* background-color: #f2f2f2; */
 }
 
 tr:hover {
@@ -264,4 +272,40 @@ tr:hover {
   flex-direction: row;
   align-items: center;
   align-self: stretch;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #919191;
+  border-radius: 5px;
+}
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+small {
+  color: red;
+  font-size:x-small;
 }

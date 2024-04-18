@@ -8,7 +8,7 @@
         justify-content: space-between;
         align-items: center;">
 
-            <form [formGroup]="newPersonForm" (submit)="submitUserData()">
+            <form [formGroup]="newPersonForm" (submit)="submitUserData()" id= "fo1">
                 <div class="cont">
                     <div class="c1">
                         <div *ngIf="showNewPersonForm" class="form-group">
@@ -19,8 +19,7 @@
                             <div *ngIf="newPersonForm.get('name').errors && newPersonForm.get('name').dirty"
                                 style="color: red;">
                                 <div *ngIf="newPersonForm.get('name').hasError('required')">Name is required</div>
-                                <div *ngIf="newPersonForm.get('name').hasError('pattern')">Only letters and spaces are
-                                    allowed</div>
+                                <div *ngIf="newPersonForm.get('name').hasError('pattern')">No special symbols</div>
                             </div>
 
                             <label for="dob" class="form-label date-label">Date of Birth:</label>
@@ -29,7 +28,7 @@
                                 style="color: red;">
                                 <div *ngIf="newPersonForm.get('dob').hasError('required')">Date of Birth is required
                                 </div>
-                                <div *ngIf="newPersonForm.get('dob').hasError('invalidDate')">Ivalid date</div>
+                                <div *ngIf="newPersonForm.get('dob').hasError('invalidDate')">Invalid date</div>
                             </div>
 
 
@@ -42,7 +41,8 @@
                         </div>
                         <div class="buttons-container">
                             <!-- Add Person button -->
-                            <button type="button" id="add" (click)="addPerson()" [disabled]="newPersonForm.invalid">Add
+                            <button type="button" id="add" (click)="addPerson()" [disabled]="newPersonForm.invalid"
+                            style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 100%;height: 35px;">Add
                                 Person</button>
                         </div>
                     </div>
@@ -51,7 +51,7 @@
 
             <table class="row" *ngIf="personsData.length > 0">
 
-                <thead>
+                <thead style="background-color: white;">
                     <tr>
                         <th>Name</th>
                         <th>Date of Birth</th>
@@ -69,9 +69,9 @@
                         <td style="display: flex;justify-content: space-between;">
                             <!-- (dblClick)="editAppointment(appointment.id)" -->
                             <button class="btn" matTooltip=""
-                                style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 100%;height: 50px;"
+                                style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 50%;height: 35px;"
                                 (click)="editPerson(i)"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                    width="40" height="40" viewBox="0,0,256,256">
+                                    width="20" height="20" viewBox="0,0,256,256">
                                     <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1"
                                         stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
                                         stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
@@ -84,8 +84,8 @@
                                     </g>
                                 </svg></button>
                             <button class="btn" (click)="removePerson(i)" matTooltip=""
-                                style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 100%;height: 50px;"><svg
-                                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="40" height="40"
+                                style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 50%;height: 35px;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="20" height="20"
                                     viewBox="0,0,300,150">
                                     <g fill="#ffffff" fill-rule="nonzero" stroke="none" stroke-width="1"
                                         stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"

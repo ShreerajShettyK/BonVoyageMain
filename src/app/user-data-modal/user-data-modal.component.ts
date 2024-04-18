@@ -101,7 +101,7 @@ export class UserDataModalComponent implements OnInit {
     if (this.newPersonForm.valid) {
       const newPerson = this.newPersonForm.value;
       this.personsData.push({ name: newPerson.name, dob: newPerson.dob, gender: newPerson.gender });
-      // Add the new person to your data model
+      this.newPersonForm.reset();
     }
   }
 
