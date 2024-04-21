@@ -53,16 +53,16 @@
                         </div>
                         <div *ngIf="personsData.length === bookingData.numberOfTravellers && personsData.length > 0"
                             class="popup">
-                            <div style="background-color: rgb(255, 155, 155); margin-top: 10px; border-radius: 5px;"><p style="margin:5px">You have entered all the traveller details, now you can click Pay Now to continue</p></div>
+                            <div style="background-color: rgb(255, 155, 155); margin-top: 10px; border-radius: 5px;"><p style="margin:5px">Details have been entered..Click on pay now</p></div>
                             <!-- <button (click)="closePopup()">OK</button> -->
                         </div>
                     </div>
                 </div>
             </form>
 
-            <table class="row" *ngIf="personsData.length > 0">
+            <table class="row travellerTable" *ngIf="personsData.length > 0">
 
-                <thead style="background-color: white;">
+                <thead style="background-color:#d0efffcc ;">
                     <tr>
                         <th>Name</th>
                         <th>Date of Birth</th>
@@ -71,7 +71,7 @@
                     </tr>
                 </thead>
 
-                <tbody>
+                <tbody class="travellerTable">
                     <tr *ngFor="let person of personsData; let i = index">
 
                         <td style="word-wrap: break-word; overflow-wrap: break-word;">{{ person.name }}</td>
