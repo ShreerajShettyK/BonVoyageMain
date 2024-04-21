@@ -321,14 +321,7 @@
                 </div>
               </div>
             </mat-card-content>
-            <mat-card-footer>
-              <mat-card-actions>
-                <button class="bookOnline" routerLink="/traveller" matTooltip="Click to proceed further"
-                  [disabled]="dontShowButton" (click)="submitPackageForm()">
-                  Proceed to Book Online
-                </button>
-              </mat-card-actions>
-            </mat-card-footer>
+
           </mat-card>
 
           <div class="form-section">
@@ -358,6 +351,16 @@
                 <!-- Add error message if the date is invalid -->
               </div>
             </form>
+            <mat-card-footer>
+              <mat-card-actions>
+                <button class="bookOnline" routerLink="/traveller" matTooltip="Click to proceed further"
+                  [disabled]="!packageForm.get('travelDate').valid || dontShowButton"
+                  [class.disabled-button]="!packageForm.get('travelDate').valid || dontShowButton"
+                  (click)="submitPackageForm()">
+                  Proceed to Book Online
+                </button>
+              </mat-card-actions>
+            </mat-card-footer>
           </div>
         </div>
       </div>
@@ -693,12 +696,6 @@
               </div>
             </mat-card-content>
             <mat-card-footer>
-              <mat-card-actions>
-                <button class="bookOnline" routerLink="/traveller" matTooltip="Click on Book now, to Book Your Package"
-                  [disabled]="dontShowButton" (click)="submitPackageForm()">
-                  Proceed to Book Online
-                </button>
-              </mat-card-actions>
             </mat-card-footer>
           </mat-card>
 
@@ -729,6 +726,16 @@
                 <!-- Add error message if the date is invalid -->
               </div>
             </form>
+            <mat-card-footer>
+              <mat-card-actions>
+                <button class="bookOnline" routerLink="/traveller" matTooltip="Click to proceed further"
+                  [disabled]="!packageForm.get('travelDate').valid || dontShowButton"
+                  [class.disabled-button]="!packageForm.get('travelDate').valid || dontShowButton"
+                  (click)="submitPackageForm()">
+                  Proceed to Book Online
+                </button>
+              </mat-card-actions>
+            </mat-card-footer>
           </div>
         </div>
       </div>

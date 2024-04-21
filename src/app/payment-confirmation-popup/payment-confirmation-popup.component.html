@@ -45,17 +45,18 @@
                 </div>
             </div>
             <br>
-            <div>
+            <!-- <div>
                 <label for="paymentMethod">Select Payment Method:</label>
                 <select id="paymentMethod" name="paymentMethod" [(ngModel)]="paymentMethod" required>
                     <option value="CreditCard">Credit Card</option>
                     <option value="DebitCard">Debit Card</option>
                     <option value="Phonepay">Phonepay/Gpay</option>
                 </select>
-            </div>
+            </div> -->
             <!-- Buttons -->
             <div>
-                <button type="button"  id="rzp-button1" (click)="payNow()" [disabled]="newPersonForm.invalid" style="background-color:rgb(40, 40, 196)">Pay
+                <button type="button" id="rzp-button1" (click)="payNow()" [disabled]="newPersonForm.invalid"
+                    style="background-color:rgb(40, 40, 196)">Pay
                     Now</button>
                 <button type="button" (click)="onCancel()" style="background-color:rgb(40, 40, 196)">Cancel</button>
             </div>

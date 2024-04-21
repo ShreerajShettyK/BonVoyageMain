@@ -15,7 +15,9 @@
                         <div *ngIf="showNewPersonForm" class="form-group">
                             <label for="name">Full Name:</label>
                             <input type="text" [(ngModel)]="newPerson.name" id="name" class="form-input"
-                                formControlName="name" required>
+                                formControlName="name" required
+                                [disabled]="popupShown || (personsData.length === bookingData.numberOfTravellers && personsData.length > 0)">
+
                             <!-- Display error message for name field -->
                             <div *ngIf="newPersonForm.get('name').errors && newPersonForm.get('name').dirty"
                                 style="color: red;">
@@ -24,7 +26,8 @@
                             </div>
 
                             <label for="dob" class="form-label date-label">Date of Birth:</label>
-                            <input type="date" [(ngModel)]="newPerson.dob" formControlName="dob" required>
+                            <input type="date" [(ngModel)]="newPerson.dob" formControlName="dob" required
+                                [disabled]="personsData.length === bookingData.numberOfTravellers && personsData.length > 0">
                             <div *ngIf="newPersonForm.get('dob').errors && newPersonForm.get('dob').dirty"
                                 style="color: red;">
                                 <div *ngIf="newPersonForm.get('dob').hasError('required')">Date of Birth is required
@@ -34,7 +37,8 @@
 
 
                             <label for="gender" class="form-label gender-label">Gender:</label>
-                            <select [(ngModel)]="newPerson.gender" formControlName="gender" required>
+                            <select [(ngModel)]="newPerson.gender" formControlName="gender" required
+                                [disabled]="personsData.length === bookingData.numberOfTravellers && personsData.length > 0">
                                 <option value="" disabled selected>Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -42,9 +46,15 @@
                         </div>
                         <div class="buttons-container">
                             <!-- Add Person button -->
-                            <button type="button" id="add" (click)="addPerson()" [disabled]="newPersonForm.invalid"
+                            <button type="button" id="add" (click)="addPerson()"
+                                [disabled]="popupShown || newPersonForm.invalid || (personsData.length === bookingData.numberOfTravellers && personsData.length > 0)"
                                 style="color: white ;">Add
                                 Person</button>
+                        </div>
+                        <div *ngIf="personsData.length === bookingData.numberOfTravellers && personsData.length > 0"
+                            class="popup">
+                            <p>You have entered all the traveller details, now you can click Pay Now to continue</p>
+                            <!-- <button (click)="closePopup()">OK</button> -->
                         </div>
                     </div>
                 </div>
