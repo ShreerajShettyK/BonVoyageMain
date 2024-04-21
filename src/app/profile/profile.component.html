@@ -41,4 +41,69 @@
       </div>
     </div>
   </div>
+  <div class="row justify-content-center">
+    <div class="col-md-12 text-center">
+      <h2 style="margin:5px 0px">YOUR BOOKINGS <span>
+              <h3><img width="50" height="50" src="https://img.icons8.com/ios/50/000000/event-accepted.png" alt="event-accepted"/></h3>
+          </span></h2>
+    </div>
+    <div class="col-md-12 profile-container1">
+      <div *ngIf="bookingData.paid === true" class="row" style="border: 3px solid black;">
+        <div style="max-width: 400px; max-height: 450px; overflow: hidden;" class="col-md-5 imgSection">
+          <img src="../../assets/img/Goa2.jpg" alt="" style="width: 100%; height: auto;border-radius: 16px;">
+          <div class="profile-header1">
+            <h4 class="profile-name1">{{bookingData.destination}} (4D/3N Package)</h4>
+          </div>
+        </div>
+        <div class="col-md-5">     
+          <div class="profile-details1">
+            <div class="detail-row1">
+              <div class="travellers" style="margin-top: 18px; width: 100%;">
+                <mat-accordion>
+                  <mat-expansion-panel (opened)="cancelPanelOpenState = true" (closed)="cancelPanelOpenState = false">
+                    <mat-expansion-panel-header>
+                      <h5><mat-panel-title>
+                          Travellers Info ({{bookingData.numberOfTravellers}})<img width="30" height="30" src="https://img.icons8.com/ios-glyphs/30/group.png" alt="group" style="margin-left: 16px;"/>
+                        </mat-panel-title></h5>
+                    </mat-expansion-panel-header>
+                    <ul style="list-style: none;">
+                      <li *ngFor="let person of bookingData.personsData; let i = index">
+                        Name: {{ person.name }} Gender: {{person.gender}} DOB: {{person.dob}}
+                      </li>
+                  </ul>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+            </div>
+            <div class="detail-row1">
+              <div class="detail-label"><i class="bi bi-list-ol me-2"></i>Number of Days:</div>
+              <div class="detail-value1">{{ bookingData.numberOfDays }}</div>
+            </div>
+            <div class="detail-row1">
+              <div class="detail-label"><i class="bi bi-calendar-fill me-2"></i>Travel Date:</div>
+              <div class="detail-value1">{{bookingData.travelDate}}</div>
+            </div>
+            <!-- <div class="detail-row1">
+              <div class="detail-label1"><i class="bi bi-calendar-check-fill me-2"></i>Return Date:</div>
+              <div class="detail-value1">{{returnDate}}</div>
+            </div> -->
+            <div class="detail-row1">
+              <div class="detail-label1"><i class="bi bi-cash-coin me-2"></i>Amount Paid:</div>
+              <div class="detail-value1">{{bookingData.finalAmount}}</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2">
+        <span class=" badge payment-status" [ngClass]="{'paid': bookingData.paid}">
+          {{ bookingData.paid ? 'PAID' : '' }}
+        </span>
+      </div>
+      </div>
+
+      <div *ngIf="bookingData.paid === false" class="plchol">
+        <h2>No Bookings!</h2>
+    </div>
+
+    </div>
+  </div>
 </div>

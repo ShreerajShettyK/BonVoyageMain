@@ -56,3 +56,78 @@
     color: #007bff;
     font-size: 18px;
   }
+
+
+  /* css for bookings */
+
+  .profile-container1 {
+    background-color: #ffffff;
+    border-radius: 14px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-bottom: 30px;
+    margin-top: 15px;
+  }
+
+
+  .profile-name1 {
+    font-size: 32px;
+    font-weight: bold;
+    color: #000000;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
+  .imgSection{
+    padding: 20px;
+  }
+
+  .profile-details1 {
+    margin-top: 30px;
+  }
+
+  .detail-row1 {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  .detail-label1 {
+    flex: 1;
+    font-weight: bold;
+    color: #666666;
+  }
+
+  .detail-value1 {
+    flex: 2;
+    color: #333333;
+  }
+
+
+  .plchol {
+    text-align: center;
+    max-width: 400px;
+    margin: 100px auto;
+  }
+  
+  .plchol h2 {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.3);
+    margin-bottom: 16px;
+  }
+
+  .payment-status {
+    
+  top: 0; /* Position it at the top of the parent */
+  right: 0;
+  height: 50px;
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 18px;
+    color: #000000;
+
+  }
+  
+  .payment-status.paid {
+    background-color: rgb(169, 255, 169);
+  }
