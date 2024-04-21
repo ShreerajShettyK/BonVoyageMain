@@ -343,9 +343,14 @@
           <mat-card-footer>
             <mat-card-actions>
               <button class="bookOnline" routerLink="/traveller" matTooltip="Click to proceed further"
-                [disabled]="dontShowButton" (click)="submitPackageForm()">
+                [disabled]="!packageForm.get('travelDate').valid || dontShowButton"
+                [class.disabled-button]="!packageForm.get('travelDate').valid || dontShowButton"
+                (click)="submitPackageForm()">
                 Proceed to Book Online
               </button>
+
+
+
             </mat-card-actions>
           </mat-card-footer>
         </mat-card>

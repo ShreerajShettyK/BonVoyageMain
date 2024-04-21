@@ -8,15 +8,19 @@
   background-color: #f5f5f5;
   padding: 20px;
 }
+
 .error-message {
   color: red;
-  font-size: smaller; /* You can adjust the font size as needed */
+  font-size: smaller;
+  /* You can adjust the font size as needed */
 }
+
 .premium-package {
   margin-top: 10px;
   text-align: left;
   width: 100%;
-  max-width: 300px; /* Adjust max-width for responsiveness */
+  max-width: 300px;
+  /* Adjust max-width for responsiveness */
   background-color: #fff;
   /* box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); */
   transition: border-color 0.3s ease-in-out;
@@ -28,9 +32,11 @@
 
 .places-container {
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next row on smaller screens */
+  flex-wrap: wrap;
+  /* Allow items to wrap to the next row on smaller screens */
   justify-content: space-around;
-  align-items: stretch; /* Make items stretch vertically */
+  align-items: stretch;
+  /* Make items stretch vertically */
 }
 
 .place-card {
@@ -40,7 +46,8 @@
   border-radius: 8px;
   text-align: center;
   width: 100%;
-  max-width: 300px; /* Adjust max-width for responsiveness */
+  max-width: 300px;
+  /* Adjust max-width for responsiveness */
   overflow: hidden;
   position: relative;
   background-color: #fff;
@@ -74,7 +81,7 @@ a:hover {
   background-color: #0056b3;
 }
 
-.bookOnline{
+.bookOnline {
   display: inline-block;
   margin-top: 10px;
   padding: 8px 16px;
@@ -90,11 +97,11 @@ a:hover {
   margin: 10px 0px;
 } */
 
-.mat-mdc-form-field + .mat-mdc-form-field {
+.mat-mdc-form-field+.mat-mdc-form-field {
   margin-left: 8px;
 }
 
-.schedule{
+.schedule {
   display: flex;
   justify-content: space-between;
 }
@@ -152,4 +159,9 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   background-color: #0056b3;
+}
+
+.disabled-button {
+  background-color: #d0efff;
+  color: black;
 }

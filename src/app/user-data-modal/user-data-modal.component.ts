@@ -22,14 +22,16 @@ export class UserDataModalComponent implements OnInit {
     totalPrice: number;
     travelDate: Date;
   } = {
-    numberOfDays: 0,
-    numberOfTravellers: 0,
-    totalPrice: 0,
-    travelDate: new Date(),
-  };
+      numberOfDays: 0,
+      numberOfTravellers: 0,
+      totalPrice: 0,
+      travelDate: new Date(),
+    };
   finalAmountInclGst: number = 0;
   discountAmount: number = 0;
   gstAmount: number = 0;
+  showPopup: boolean = false;
+  popupShown: boolean = false;
 
   newPersonForm: FormGroup;
   personsData: any[] = [];
@@ -49,8 +51,13 @@ export class UserDataModalComponent implements OnInit {
     public dialog: MatDialog,
     private bookingDataService: BookingDataService,
     private authService: AuthService
-  ) {}
-
+  ) { }
+  closePopup() {
+    // Logic to close the popup
+    // For example, if you have a boolean flag to control the visibility of the popup,
+    // you can set it to false here
+    this.showPopup = false;
+  }
   ngOnInit(): void {
     this.bookingData = this.bookingDataService.getBookingData();
     console.log(this.bookingData);
@@ -68,9 +75,20 @@ export class UserDataModalComponent implements OnInit {
       gender: ['', Validators.required],
     });
 
+    // Show popup if conditions are met
+    this.showPopupIfConditionsMet();
+
     // Calculate final amount including discount and GST
-    this.finalAmountInclGst =
-      this.bookingData.totalPrice - this.discountAmount + this.gstAmount;
+    this.finalAmountInclGst = this.bookingData.totalPrice - this.discountAmount + this.gstAmount;
+  }
+
+  showPopupIfConditionsMet(): void {
+    if (this.personsData.length === this.bookingData.numberOfTravellers && this.personsData.length > 0) {
+      // If the condition is met, show the popup
+      this.showPopup = true;
+      this.popupShown = true;
+
+    }
   }
 
   // Custom validator to check if the date is not after today
@@ -131,13 +149,19 @@ export class UserDataModalComponent implements OnInit {
         gender: newPerson.gender,
       });
       this.newPersonForm.reset();
+      this.showPopupIfConditionsMet(); // Call showPopupIfConditionsMet after adding a person
+
+      // Reset the newPerson object to clear any previous values
+      this.newPerson = { name: '', dob: null, gender: '' };
     }
     console.log(this.personsData);
   }
 
   removePerson(index: number): void {
     this.personsData.splice(index, 1);
+    this.showPopupIfConditionsMet(); // Call showPopupIfConditionsMet after removing a person
   }
+
 
   editPerson(index: number): void {
     // Set newPerson object to the values of the person being edited
