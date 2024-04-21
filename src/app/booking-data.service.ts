@@ -14,6 +14,7 @@ export class BookingDataService {
     personsData: Person[];
     finalAmount: number;
     destination: String;
+    paid: boolean;
   } = {
     numberOfDays: 0,
     numberOfTravellers: 0,
@@ -22,6 +23,7 @@ export class BookingDataService {
     personsData: [],
     finalAmount: 0,
     destination: "",
+    paid: false
   };
 
   constructor() {}
@@ -34,6 +36,7 @@ export class BookingDataService {
     personsData: Person[];
     finalAmount: number;
     destination: String;
+    paid: boolean;
   }) {
     this.bookingData = data;
   }
@@ -55,6 +58,7 @@ export class BookingDataService {
     personsData: Person[];
     finalAmount: number;
     destination: String;
+    paid: boolean;
   }) {
     this.bookingData = data;
   }
@@ -67,6 +71,7 @@ export class BookingDataService {
     personsData: Person[];
     finalAmount: number;
     destination: String;
+    paid: boolean;
   } {
     return this.bookingData;
   }

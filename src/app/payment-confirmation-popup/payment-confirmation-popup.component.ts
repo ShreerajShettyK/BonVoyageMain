@@ -48,7 +48,8 @@ export class PaymentConfirmationPopupComponent implements OnInit {
     public dialogRef: MatDialogRef<PaymentConfirmationPopupComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    private bookingDataService: BookingDataService,
   ) {
     this.totalPrice = data.totalPrice;
     this.gst = data.gst;
@@ -71,7 +72,7 @@ export class PaymentConfirmationPopupComponent implements OnInit {
       amount: Math.floor(this.finalAmount*100), // Default amount in paise (e.g., Rs. 100)
       currency: 'INR',
       name: 'BonVoyage', // company name or product name
-      description: '', // product description
+      description: this.destination + " Package", // product description
       image: './../../assets/images/bon.jpg', // company logo or product image
       modal: {
         // We should prevent closing of the form when esc key is pressed.
@@ -88,13 +89,20 @@ export class PaymentConfirmationPopupComponent implements OnInit {
       } else {
         // Handle successful payment
         console.log(response);
-        this.router.navigateByUrl('paymentsuccess');
-
+        
         //code goes here
-        
-        
+        const existingData = this.bookingDataService.getNewBookingData();
 
+        // Update only the desired fields
+        const newData = {
+          ...existingData,
+          paid: true
+        };
 
+        this.bookingDataService.setNewBookingData(newData);
+        console.log(this.bookingDataService.getNewBookingData()); // Confirm the data is updated
+        // this.router.navigateByUrl('paymentsuccess');
+        
       }
     };
     options.modal.ondismiss = () => {

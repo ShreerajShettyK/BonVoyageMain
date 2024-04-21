@@ -108,6 +108,7 @@ export class ExplorePremiumPackageComponent implements OnInit {
         personsData: [],
         finalAmount: 0,
         destination: "Goa",
+        paid: false
       });
       console.log('Form submitted successfully:', this.packageForm.value);
       console.log('Form submitted successfully:', this.bookingDataService.getBookingData());

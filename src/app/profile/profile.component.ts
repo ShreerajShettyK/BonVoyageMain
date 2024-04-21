@@ -14,7 +14,8 @@ export class ProfileComponent implements OnInit {
 
   constructor(
     private afAuth: AngularFireAuth,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private bookingDataService: BookingDataService,
   ) {}
 
   ngOnInit() {

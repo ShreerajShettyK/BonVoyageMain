@@ -110,6 +110,7 @@ export class ExploreDiamondPackageComponent implements OnInit {
         personsData: [],
         finalAmount: 0,
         destination: "Darjeeling",
+        paid: false
       });
       console.log('Form submitted successfully:', this.packageForm.value);
       console.log('Form submitted successfully:', this.bookingDataService.getBookingData());

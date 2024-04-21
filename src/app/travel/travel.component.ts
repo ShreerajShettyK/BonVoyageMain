@@ -129,6 +129,7 @@ export class TravelComponent {
         personsData: [],
         finalAmount: 0,
         destination: this.uPlace,
+        paid: false
       });
       console.log('Form submitted successfully:', this.packageForm.value);
       console.log('Form submitted successfully:', this.bookingDataService.getBookingData());
