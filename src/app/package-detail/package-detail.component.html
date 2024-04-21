@@ -66,16 +66,16 @@
 
                 <div class="col" *ngFor="let place of filteredBoxes">
                     <div class="card">
-                        <a (click)="sendEnquiry(place)" matTooltip="Click to open gallery">
+                        <a (click)="sendEnquiry(place)">
                             <img src={{place.imgSrc}} class="card-img-top" alt="{{ place.title }}">
                         </a>
                         <div class="card-body">
-                            <h5 class="card-title">{{ place.title }}</h5>
+                            <h5 class="card-title">{{ place.title }} </h5>
                             <p class="card-text">{{ place.description }}</p>
                             <div class="button-container" style="display: flex; justify-content: space-between;">
                                 <div>
                                     <button routerLink={{place.path}} class="btn btn-primary button-margin"
-                                        [disabled]="place.disable" matTooltip="Click to know about this Package"
+                                        [disabled]="place.disable"
                                         style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 100%;height: 40px;">Explore
                                         Now</button>
                                 </div>

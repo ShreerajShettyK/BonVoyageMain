@@ -16,7 +16,7 @@
   /* Reduce the margin to create less space between label and input */
 }
 
-#fo1{
+#fo1 {
   background-color: transparent;
   padding: 30px;
 }
@@ -220,10 +220,14 @@ button+button {
 /* user-data-modal.component.css */
 
 /* user-data-modal.component.css */
+
 table {
   width: 100%;
   border-collapse: collapse;
+  table-layout: auto;
+  /* Adjust column widths automatically */
 }
+
 
 th,
 td {
@@ -307,5 +311,5 @@ input[type="submit"]:hover {
 
 small {
   color: red;
-  font-size:x-small;
+  font-size: x-small;
 }

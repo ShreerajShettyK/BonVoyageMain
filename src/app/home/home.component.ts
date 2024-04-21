@@ -12,6 +12,7 @@ import { ServiceComponent } from '../service/service.component';
 export class HomeComponent implements OnInit {
   user: any;
   taskForm: FormGroup;
+  showDropdown: boolean = false;
 
   constructor(
     public sendservice: ServiceComponent,
@@ -33,7 +34,9 @@ export class HomeComponent implements OnInit {
       date: [new Date(), [Validators.required, this.futureDateValidator]],
     });
   }
-
+  toggleDropdown() {
+    this.showDropdown = !this.showDropdown;
+  }
   sendEnquiry(packageName: string) {
     console.log('Enquiry sent for package:', packageName);
     this.enquiryModalService.openSuccessModal();

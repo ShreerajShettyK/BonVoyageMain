@@ -8,7 +8,7 @@
         justify-content: space-between;
         align-items: center;">
 
-            <form [formGroup]="newPersonForm" (submit)="submitUserData()" id= "fo1">
+            <form [formGroup]="newPersonForm" (submit)="submitUserData()" id="fo1">
                 <div class="cont">
                     <div class="c1">
                         <div *ngIf="showNewPersonForm" class="form-group">
@@ -42,7 +42,7 @@
                         <div class="buttons-container">
                             <!-- Add Person button -->
                             <button type="button" id="add" (click)="addPerson()" [disabled]="newPersonForm.invalid"
-                            style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 100%;height: 35px;">Add
+                                style="background-color:rgb(40, 40, 196);color: white ; border-radius: 10px; width: 100%;height: 35px;">Add
                                 Person</button>
                         </div>
                     </div>
@@ -63,9 +63,9 @@
                 <tbody>
                     <tr *ngFor="let person of personsData; let i = index">
 
-                        <td>{{ person.name }}</td>
-                        <td>{{ person.dob }}</td>
-                        <td>{{ person.gender }}</td>
+                        <td style="word-wrap: break-word; overflow-wrap: break-word;">{{ person.name }}</td>
+                        <td style="word-wrap: break-word; overflow-wrap: break-word;">{{ person.dob }}</td>
+                        <td style="word-wrap: break-word; overflow-wrap: break-word;">{{ person.gender }}</td>
                         <td style="display: flex;justify-content: space-between;">
                             <!-- (dblClick)="editAppointment(appointment.id)" -->
                             <button class="btn" matTooltip=""
