@@ -18,6 +18,7 @@
         <p>GST Amount: {{ gst }}</p>
         <p>Coupon Discount: {{ couponDiscount }}</p>
         <p>Total Amount (including GST and Discount): {{ finalAmount}}</p>
+        <p *ngFor="let person of personsData; let i = index">personsData: {{ person.name }}</p>
 
         <!-- Payment form -->
         <form [formGroup]="newPersonForm" (ngSubmit)="submitForm()" class="f">

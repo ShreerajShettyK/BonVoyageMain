@@ -2,25 +2,31 @@ import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentConfirmationPopupComponent } from '../payment-confirmation-popup/payment-confirmation-popup.component';
 import { BookingDataService } from '../booking-data.service';
-import { FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+} from '@angular/forms';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-user-data-modal',
   templateUrl: './user-data-modal.component.html',
-  styleUrls: ['./user-data-modal.component.css']
+  styleUrls: ['./user-data-modal.component.css'],
 })
 export class UserDataModalComponent implements OnInit {
   bookingData: {
     numberOfDays: number;
     numberOfTravellers: number;
     totalPrice: number;
-    travelDate: Date
+    travelDate: Date;
   } = {
-      numberOfDays: 0,
-      numberOfTravellers: 0,
-      totalPrice: 0,
-      travelDate: new Date(),
-    };
+    numberOfDays: 0,
+    numberOfTravellers: 0,
+    totalPrice: 0,
+    travelDate: new Date(),
+  };
   finalAmountInclGst: number = 0;
   discountAmount: number = 0;
   gstAmount: number = 0;
@@ -38,7 +44,12 @@ export class UserDataModalComponent implements OnInit {
   couponCode: string = '';
   @Output() userDataSubmitted: EventEmitter<any> = new EventEmitter();
 
-  constructor(private fb: FormBuilder, public dialog: MatDialog, private bookingDataService: BookingDataService) { }
+  constructor(
+    private fb: FormBuilder,
+    public dialog: MatDialog,
+    private bookingDataService: BookingDataService,
+    private authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.bookingData = this.bookingDataService.getBookingData();
@@ -54,11 +65,12 @@ export class UserDataModalComponent implements OnInit {
     this.newPersonForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]], // Only letters and spaces allowed
       dob: ['', [Validators.required, this.notAfterToday]], // Date not after today
-      gender: ['', Validators.required]
+      gender: ['', Validators.required],
     });
 
     // Calculate final amount including discount and GST
-    this.finalAmountInclGst = this.bookingData.totalPrice - this.discountAmount + this.gstAmount;
+    this.finalAmountInclGst =
+      this.bookingData.totalPrice - this.discountAmount + this.gstAmount;
   }
 
   // Custom validator to check if the date is not after today
@@ -67,7 +79,7 @@ export class UserDataModalComponent implements OnInit {
     const today = new Date();
 
     if (selectedDate > today) {
-      return { 'invalidDate': true }; // Return an error if the date is after today
+      return { invalidDate: true }; // Return an error if the date is after today
     }
 
     return null; // Return null if the date is valid
@@ -79,6 +91,18 @@ export class UserDataModalComponent implements OnInit {
     const gst = this.gstAmount;
     const couponDiscount = this.discountAmount;
     const finalAmount = this.finalAmountInclGst;
+    const userBooking = this.bookingDataService.getNewBookingData();
+
+    this.authService
+      .addBooking(userBooking)
+      .then(() => {
+        console.log('Booking added successfully');
+        // Clear the booking data or perform any necessary actions
+        // this.bookingDataService.clearBookingData();
+      })
+      .catch((error) => {
+        console.error('Error adding booking:', error);
+      });
 
     // Open payment confirmation dialog
     const dialogRef = this.dialog.open(PaymentConfirmationPopupComponent, {
@@ -88,11 +112,11 @@ export class UserDataModalComponent implements OnInit {
         totalPrice: totalPrice,
         gst: gst,
         couponDiscount: couponDiscount,
-        finalAmount: finalAmount
-      }
+        finalAmount: finalAmount,
+      },
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe((result) => {
       console.log('The dialog was closed');
     });
   }
@@ -100,7 +124,11 @@ export class UserDataModalComponent implements OnInit {
   addPerson(): void {
     if (this.newPersonForm.valid) {
       const newPerson = this.newPersonForm.value;
-      this.personsData.push({ name: newPerson.name, dob: newPerson.dob, gender: newPerson.gender });
+      this.personsData.push({
+        name: newPerson.name,
+        dob: newPerson.dob,
+        gender: newPerson.gender,
+      });
       this.newPersonForm.reset();
     }
   }
@@ -128,17 +156,25 @@ export class UserDataModalComponent implements OnInit {
   }
 
   submitUserData(): void {
-    const userData = this.personsData.filter(person => person.name && person.dob && person.gender);
+    const userData = this.personsData.filter(
+      (person) => person.name && person.dob && person.gender
+    );
 
     if (userData.length > 0) {
-      if (this.personsData.every(person => person.name && person.dob && person.gender)) {
+      if (
+        this.personsData.every(
+          (person) => person.name && person.dob && person.gender
+        )
+      ) {
         this.showContactForm = true;
         this.submitted = true;
         this.userDataSubmitted.emit();
         this.openPaymentConfirmation();
       }
     } else {
-      console.error('Please fill in all required fields for at least one person.');
+      console.error(
+        'Please fill in all required fields for at least one person.'
+      );
     }
   }
 }

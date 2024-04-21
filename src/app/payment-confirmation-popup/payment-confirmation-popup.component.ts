@@ -2,6 +2,8 @@ import { Component, Inject, ViewChild, ElementRef, OnInit } from '@angular/core'
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BookingDataService } from '../../app/booking-data.service'; // Import BookingDataService
+
 declare var Razorpay : any;
 
 @Component({
@@ -16,6 +18,8 @@ export class PaymentConfirmationPopupComponent implements OnInit {
   gst: number;
   couponDiscount: number;
   finalAmount: number;
+  personsData: any[] = [];
+
   razorPayKey: any;
   // Payment form fields
   name: string = '';
@@ -49,6 +53,7 @@ export class PaymentConfirmationPopupComponent implements OnInit {
     this.gst = data.gst;
     this.couponDiscount = data.couponDiscount;
     this.finalAmount = data.finalAmount;
+    this.personsData = data.personsData;
   }
 
   onCancel(): void {
