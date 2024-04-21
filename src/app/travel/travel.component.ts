@@ -25,6 +25,7 @@ export class TravelComponent {
   readonly numberOfDays = 4;
   readonly pricePerPerson = 20000;
   numberOfTravellers: number = 1;
+  uPlace: String;
 
   constructor(
     public enquiryModalService: EnquiryModalService,
@@ -34,6 +35,7 @@ export class TravelComponent {
   ) {}
 
   ngOnInit() {
+    this.uPlace = this.route.snapshot.paramMap.get('place');
     this.place = this.route.snapshot.paramMap.get('place').toLowerCase();
     // console.log('ID:', this.place);
     this.date = this.route.snapshot.paramMap.get('date')
@@ -123,13 +125,14 @@ export class TravelComponent {
         numberOfDays: this.numberOfDays,
         numberOfTravellers: this.packageForm.get('numberOfTravellers')?.value,
         totalPrice: this.totalPrice,
-        travelDate: this.packageForm.get('travelDate')?.value
+        travelDate: this.packageForm.get('travelDate')?.value,
+        personsData: [],
+        finalAmount: 0,
+        destination: this.uPlace,
       });
-      // Handle form submission logic here
-      // For example, you can access the form data using this.packageForm.value
       console.log('Form submitted successfully:', this.packageForm.value);
+      console.log('Form submitted successfully:', this.bookingDataService.getBookingData());
     } else {
-      // If the form is invalid, mark all fields as touched to display error messages
       this.packageForm.markAllAsTouched();
     }
   }

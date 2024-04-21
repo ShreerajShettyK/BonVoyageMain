@@ -14,11 +14,17 @@
         <!-- Price details -->
 
         <br>
+        <p>Destination: {{destination}}</p>
         <p>Total Price based on no of travellers: {{ totalPrice }}</p>
         <p>GST Amount: {{ gst }}</p>
         <p>Coupon Discount: {{ couponDiscount }}</p>
         <p>Total Amount (including GST and Discount): {{ finalAmount}}</p>
-        <p *ngFor="let person of personsData; let i = index">personsData: {{ person.name }}</p>
+        <!-- <p>Travellers Info: </p>
+        <ul>
+            <li *ngFor="let person of personsData; let i = index">
+              {{ person.name }}
+            </li>
+          </ul> -->
 
         <!-- Payment form -->
         <form [formGroup]="newPersonForm" (ngSubmit)="submitForm()" class="f">

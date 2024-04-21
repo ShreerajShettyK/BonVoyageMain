@@ -9,6 +9,7 @@ import {
   AbstractControl,
 } from '@angular/forms';
 import { AuthService } from '../auth.service';
+import { Person } from '../person.type';
 
 @Component({
   selector: 'app-user-data-modal',
@@ -21,11 +22,19 @@ export class UserDataModalComponent implements OnInit {
     numberOfTravellers: number;
     totalPrice: number;
     travelDate: Date;
+    personsData: Person[];
+    finalAmount: number;
+    destination: String;
+    
   } = {
       numberOfDays: 0,
       numberOfTravellers: 0,
       totalPrice: 0,
       travelDate: new Date(),
+      personsData: [],
+      finalAmount: 0,
+      destination: ""
+      
     };
   finalAmountInclGst: number = 0;
   discountAmount: number = 0;
@@ -35,6 +44,7 @@ export class UserDataModalComponent implements OnInit {
 
   newPersonForm: FormGroup;
   personsData: any[] = [];
+  destination: String = "";
   showContactForm: boolean = false;
   confirmCheckbox: boolean = false;
   newPerson: any = { name: '', dob: null, gender: '' };
@@ -45,6 +55,7 @@ export class UserDataModalComponent implements OnInit {
   contactNumber: string = '';
   couponCode: string = '';
   @Output() userDataSubmitted: EventEmitter<any> = new EventEmitter();
+  numberOfTravellers: number = 0;
 
   constructor(
     private fb: FormBuilder,
@@ -59,8 +70,10 @@ export class UserDataModalComponent implements OnInit {
     this.showPopup = false;
   }
   ngOnInit(): void {
-    this.bookingData = this.bookingDataService.getBookingData();
+    this.bookingData = this.bookingDataService.getNewBookingData();
     console.log(this.bookingData);
+    this.destination = this.bookingData.destination;
+    this.numberOfTravellers = this.bookingData.numberOfTravellers;
 
     // Calculate discount amount (25% off)
     this.discountAmount = (this.bookingData.totalPrice * 25) / 100;
@@ -131,7 +144,8 @@ export class UserDataModalComponent implements OnInit {
         gst: gst,
         couponDiscount: couponDiscount,
         finalAmount: finalAmount,
-        personsData: this.personsData
+        personsData: this.personsData,
+        destination: this.destination,
       },
     });
 

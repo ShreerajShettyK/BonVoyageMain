@@ -106,13 +106,14 @@ export class ExploreDiamondPackageComponent implements OnInit {
         numberOfDays: this.numberOfDays,
         numberOfTravellers: this.packageForm.get('numberOfTravellers')?.value,
         totalPrice: this.totalPrice,
-        travelDate: this.packageForm.get('travelDate')?.value
+        travelDate: this.packageForm.get('travelDate')?.value,
+        personsData: [],
+        finalAmount: 0,
+        destination: "Darjeeling",
       });
-      // Handle form submission logic here
-      // For example, you can access the form data using this.packageForm.value
       console.log('Form submitted successfully:', this.packageForm.value);
+      console.log('Form submitted successfully:', this.bookingDataService.getBookingData());
     } else {
-      // If the form is invalid, mark all fields as touched to display error messages
       this.packageForm.markAllAsTouched();
     }
   }

@@ -1,19 +1,27 @@
 import { Injectable } from '@angular/core';
+import { Person } from "../app/person.type";
 
 @Injectable({
   providedIn: 'root',
 })
+
 export class BookingDataService {
   bookingData: {
     numberOfDays: number;
     numberOfTravellers: number;
     totalPrice: number;
     travelDate: Date;
+    personsData: Person[];
+    finalAmount: number;
+    destination: String;
   } = {
     numberOfDays: 0,
     numberOfTravellers: 0,
     totalPrice: 0,
     travelDate: new Date(),
+    personsData: [],
+    finalAmount: 0,
+    destination: "",
   };
 
   constructor() {}
@@ -23,6 +31,9 @@ export class BookingDataService {
     numberOfTravellers: number;
     totalPrice: number;
     travelDate: Date;
+    personsData: Person[];
+    finalAmount: number;
+    destination: String;
   }) {
     this.bookingData = data;
   }
@@ -41,6 +52,9 @@ export class BookingDataService {
     numberOfTravellers: number;
     totalPrice: number;
     travelDate: Date;
+    personsData: Person[];
+    finalAmount: number;
+    destination: String;
   }) {
     this.bookingData = data;
   }
@@ -50,6 +64,9 @@ export class BookingDataService {
     numberOfTravellers: number;
     totalPrice: number;
     travelDate: Date;
+    personsData: Person[];
+    finalAmount: number;
+    destination: String;
   } {
     return this.bookingData;
   }

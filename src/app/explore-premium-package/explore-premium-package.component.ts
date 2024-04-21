@@ -104,9 +104,13 @@ export class ExplorePremiumPackageComponent implements OnInit {
         numberOfDays: this.numberOfDays,
         numberOfTravellers: this.packageForm.get('numberOfTravellers')?.value,
         totalPrice: this.totalPrice,
-        travelDate: this.packageForm.get('travelDate')?.value
+        travelDate: this.packageForm.get('travelDate')?.value,
+        personsData: [],
+        finalAmount: 0,
+        destination: "Goa",
       });
       console.log('Form submitted successfully:', this.packageForm.value);
+      console.log('Form submitted successfully:', this.bookingDataService.getBookingData());
     } else {
       this.packageForm.markAllAsTouched();
     }

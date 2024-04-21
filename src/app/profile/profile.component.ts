@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { BookingDataService } from '../../app/booking-data.service'; // Import BookingDataService
 
 @Component({
   selector: 'app-profile',

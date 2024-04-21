@@ -30,6 +30,7 @@ export class PaymentConfirmationPopupComponent implements OnInit {
   // Flag to indicate if payment was successful
   paymentSuccess: boolean = false;
   newPersonForm: FormGroup; // Declare the form group
+  destination: String = '';
 
 
   ngOnInit(): void {
@@ -54,6 +55,7 @@ export class PaymentConfirmationPopupComponent implements OnInit {
     this.couponDiscount = data.couponDiscount;
     this.finalAmount = data.finalAmount;
     this.personsData = data.personsData;
+    this.destination = data.destination;
   }
 
   onCancel(): void {
@@ -66,7 +68,7 @@ export class PaymentConfirmationPopupComponent implements OnInit {
 
     const options: any = {
       key: razorPayKey,
-      amount: 10000, // Default amount in paise (e.g., Rs. 100)
+      amount: Math.floor(this.finalAmount*100), // Default amount in paise (e.g., Rs. 100)
       currency: 'INR',
       name: 'BonVoyage', // company name or product name
       description: '', // product description
@@ -87,6 +89,12 @@ export class PaymentConfirmationPopupComponent implements OnInit {
         // Handle successful payment
         console.log(response);
         this.router.navigateByUrl('paymentsuccess');
+
+        //code goes here
+        
+        
+
+
       }
     };
     options.modal.ondismiss = () => {
