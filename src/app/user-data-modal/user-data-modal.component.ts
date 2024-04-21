@@ -113,6 +113,7 @@ export class UserDataModalComponent implements OnInit {
         gst: gst,
         couponDiscount: couponDiscount,
         finalAmount: finalAmount,
+        personsData: this.personsData
       },
     });
 
@@ -131,6 +132,7 @@ export class UserDataModalComponent implements OnInit {
       });
       this.newPersonForm.reset();
     }
+    console.log(this.personsData);
   }
 
   removePerson(index: number): void {

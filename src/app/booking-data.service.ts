@@ -35,6 +35,15 @@ export class BookingDataService {
   } {
     return this.bookingData;
   }
+
+  setNewBookingData(data: {
+    numberOfDays: number;
+    numberOfTravellers: number;
+    totalPrice: number;
+    travelDate: Date;
+  }) {
+    this.bookingData = data;
+  }
   
   getNewBookingData(): {
     numberOfDays: number;
