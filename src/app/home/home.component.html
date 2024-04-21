@@ -17,19 +17,29 @@
           <form (submit)="btnClick()" [formGroup]="taskForm" class="row">
             <div class="card1">
               <label for="toplace">Location<i class="bi bi-caret-down-fill"></i></label>
-              <input type="text" class="form-control" id="toplace" formControlName="toplace" [(ngModel)]="sendservice.selectedTask.toplace"
-                name="toplace" required pattern="[A-Za-z\s]+" [readonly]="sendservice.editingIndex !== null">
+              <input type="text" class="form-control" id="toplace" formControlName="toplace"
+                [(ngModel)]="sendservice.selectedTask.toplace" name="toplace" required pattern="[A-Za-z\s]+"
+                [readonly]="sendservice.editingIndex !== null">
+              <div
+                *ngIf="taskForm.get('toplace').invalid && (taskForm.get('toplace').dirty || taskForm.get('toplace').touched)">
+
+                <div class="error-message" *ngIf="taskForm.get('toplace').errors?.['pattern']">Only letters and spaces
+                  are allowed.</div>
+              </div>
+
+
               <small *ngIf="taskForm.get('toplace')?.errors?.['required']">To place is required.</small>
               <!-- <small *ngIf="toplace.errors?.['pattern']">Please enter a valid name (no numbers or
                 special characters).</small> -->
 
-               
-                
+
+
             </div>
 
             <div class="card1">
               <label for="travelDate">Date<i class="bi bi-caret-down-fill"></i></label>
-              <input type="date" class="form-control"  id="date" name="date" formControlName="date"  [(ngModel)]="sendservice.selectedTask.date" >
+              <input type="date" class="form-control" id="date" name="date" formControlName="date"
+                [(ngModel)]="sendservice.selectedTask.date">
               <!-- <div *ngIf="taskForm.form.get('travelDate').errors">
                 <p *ngIf="taskForm.form.get('travelDate').hasError('required')">Travel Date is required.</p>
                 <p *ngIf="taskForm.form.get('travelDate').hasError('invalidDate')">Travel Date should be a future date.</p>
@@ -42,23 +52,24 @@
             <div class="card1">
               <label for="travellerCount">People<i class="bi bi-caret-down-fill"></i></label>
               <input type="number" class="form-control" id="travellerCount" formControlName="travellerCount"
-              
-                 name="travellerCount" min="1" max="15" required [(ngModel)]="sendservice.selectedTask.travellerCount">
-              <small *ngIf="taskForm.get('travellerCount')?.errors?.['required']">Number of travelers is required.</small>
-              <small *ngIf="taskForm.get('travellerCount')?.errors?.['minTravellers']">Travelers number should be less then 15 grater the 1</small>
+                name="travellerCount" min="1" max="15" required [(ngModel)]="sendservice.selectedTask.travellerCount">
+              <small *ngIf="taskForm.get('travellerCount')?.errors?.['required']">Number of travelers is
+                required.</small>
+              <small *ngIf="taskForm.get('travellerCount')?.errors?.['minTravellers']">Travelers number should be less
+                then 15 grater the 1</small>
               <!-- <small
                 *ngIf="taskForm.controls['travellerCount'].errors?.['min'] || taskForm.controls['travellersCount'].errors?.['max']">Number
                 of travellers must be between 1 and 15.</small> -->
-                <!-- <div *ngIf="taskForm.form.get('numberOfTravellers').errors">
+              <!-- <div *ngIf="taskForm.form.get('numberOfTravellers').errors">
                   <p *ngIf="taskForm.form.get('numberOfTravellers').hasError('required')">Number of Travellers is required.</p>
                   
                 </div> -->
             </div>
             <div class="card1">
               <!-- [disabled]="taskForm.invalid || sendservice.editingIndex !== null" -->
-              <button type="submit"
-                class="btn btn-primary"  class="btn"
-                style="background-color: rgb(0, 0, 0); color: white; margin-top: 30px;border-radius: 18px;" (click)="btnClick()">Start your search</button>
+              <button type="submit" class="btn btn-primary" class="btn"
+                style="background-color: rgb(0, 0, 0); color: white; margin-top: 30px;border-radius: 18px;"
+                (click)="btnClick()">Start your search</button>
             </div>
             <!-- *ngIf="sendservice.isNewTask" -->
           </form>

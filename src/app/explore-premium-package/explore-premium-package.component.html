@@ -327,10 +327,15 @@
                 <div class="form-group">
                   <label for="travelDate">Travel Date:</label>
                   <input type="date" id="travelDate" formControlName="travelDate" (change)="onTravelDateChange()">
-                  <div *ngIf="packageForm.controls['travelDate'].errors?.['invalidDate']" class="error-message">Travel
-                    date
-                    must be from tomorrow onwards.</div>
+                  <div
+                    *ngIf="packageForm.get('travelDate').invalid && (packageForm.get('travelDate').dirty || packageForm.get('travelDate').touched)">
+                    <div *ngIf="packageForm.get('travelDate').errors?.['invalidDate']" style="color: red;">Travel date
+                      must be from tomorrow
+                      onwards.</div>
+                  </div>
+
                 </div>
+
               </form>
             </div>
           </mat-card-content>

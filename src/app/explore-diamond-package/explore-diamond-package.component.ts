@@ -11,7 +11,7 @@ import { BookingDataService } from '../booking-data.service';
 export class ExploreDiamondPackageComponent implements OnInit {
   cancelPanelOpenState = false;
   tandcPanelOpenState = false;
-  dontShowButton:boolean = false;
+  dontShowButton: boolean = false;
   // numberOfPersons!: number;
   travelDate!: Date;
   packageForm!: FormGroup;
@@ -26,7 +26,7 @@ export class ExploreDiamondPackageComponent implements OnInit {
     public enquiryModalService: EnquiryModalService,
     private fb: FormBuilder,
     private bookingDataService: BookingDataService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.numberOfTravellers = 1;
@@ -98,7 +98,7 @@ export class ExploreDiamondPackageComponent implements OnInit {
     console.log('Enquiry sent for package:', packageName);
     this.enquiryModalService.openSuccessModal();
   }
-  
+
   // Method for form submission
   submitPackageForm() {
     if (this.packageForm.valid) {

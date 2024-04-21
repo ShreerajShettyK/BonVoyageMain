@@ -11,8 +11,7 @@ import { BookingDataService } from '../booking-data.service';
 export class ExplorePremiumPackageComponent implements OnInit {
   cancelPanelOpenState = false;
   tandcPanelOpenState = false;
-  dontShowButton:boolean = false;
-  // numberOfPersons!: number;
+  dontShowButton: boolean = false;
   travelDate!: Date;
   packageForm!: FormGroup;
   enteredDate!: Date;
@@ -26,7 +25,7 @@ export class ExplorePremiumPackageComponent implements OnInit {
     public enquiryModalService: EnquiryModalService,
     private fb: FormBuilder,
     private bookingDataService: BookingDataService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.numberOfTravellers = 1;
@@ -39,21 +38,17 @@ export class ExplorePremiumPackageComponent implements OnInit {
     this.packageForm.valueChanges.subscribe(value => {
       this.calculateTotalPrice();
       this.calculateNumberOfTravellers();
-      this.dontShowButton = this.isInvalidTravellersCount();
+      this.dontShowButton = this.packageForm.get('numberOfTravellers').invalid;
     });
   }
 
-  // Function to handle travel date change
   onTravelDateChange() {
     this.enteredDate = this.packageForm.get('travelDate')!.value;
     this.updateDates();
   }
 
   updateDates(): void {
-    // Clear the previously generated dates
     this.generatedDates = [];
-
-    // Generate dates starting from the entered date
     for (let i = 0; i < 4; i++) {
       const newDate = new Date(this.enteredDate);
       newDate.setDate(newDate.getDate() + i);
@@ -70,13 +65,18 @@ export class ExplorePremiumPackageComponent implements OnInit {
     return (control: any): { [key: string]: any } | null => {
       const selectedDate = new Date(control.value);
       const currentDate = new Date();
-      currentDate.setDate(currentDate.getDate() + 1); // Tomorrow's date
-      if (selectedDate < currentDate) {
-        return { invalidDate: true };
+      const tomorrowDate = new Date();
+      tomorrowDate.setDate(currentDate.getDate() + 1); // Tomorrow's date
+
+      if (control.dirty && selectedDate < tomorrowDate) {
+        return { invalidDate: true }; // Return error for past date
       }
-      return null;
+
+      return null; // Return null for valid date
     };
   }
+
+
 
   calculateTotalPrice() {
     const numberOfTravellers = this.packageForm.get('numberOfTravellers')?.value;
@@ -90,16 +90,14 @@ export class ExplorePremiumPackageComponent implements OnInit {
   totalPrice = this.pricePerPerson;;
 
   calculateNumberOfTravellers() {
-    this.numberOfTravellers = this.packageForm.get('numberOfTravellers')?.value || 1; // Handle default 0 travellers
+    this.numberOfTravellers = this.packageForm.get('numberOfTravellers')?.value || 1;
   }
-
 
   sendEnquiry(packageName: string) {
     console.log('Enquiry sent for package:', packageName);
     this.enquiryModalService.openSuccessModal();
   }
-  
-  // Method for form submission
+
   submitPackageForm() {
     if (this.packageForm.valid) {
       this.bookingDataService.setBookingData({
@@ -108,11 +106,8 @@ export class ExplorePremiumPackageComponent implements OnInit {
         totalPrice: this.totalPrice,
         travelDate: this.packageForm.get('travelDate')?.value
       });
-      // Handle form submission logic here
-      // For example, you can access the form data using this.packageForm.value
       console.log('Form submitted successfully:', this.packageForm.value);
     } else {
-      // If the form is invalid, mark all fields as touched to display error messages
       this.packageForm.markAllAsTouched();
     }
   }
@@ -122,21 +117,23 @@ export class ExplorePremiumPackageComponent implements OnInit {
       const travellers = control.value;
 
       if (travellers === null || travellers === undefined) {
-        return { required: true }; // Handle missing input
+        return { required: true };
       }
 
       if (travellers < 1) {
-        return { minTravellers: true }; // Minimum travellers should be 1
+        return { minTravellers: true };
       } else if (travellers > 15) {
-        return { maxTravellers: true }; // Maximum travellers should be 15
+        return { maxTravellers: true };
       }
 
       return null;
     };
   }
 
-  isInvalidTravellersCount(): boolean {
-    const travellers = this.packageForm.get('numberOfTravellers')?.value;
-    return (travellers < 1 || travellers > 15);
+  isInvalidDate() {
+    const selectedDate = new Date(this.packageForm.controls['travelDate'].value);
+    const currentDate = new Date();
+    currentDate.setDate(currentDate.getDate() - 1); // Yesterday's date
+    return selectedDate < currentDate;
   }
 }

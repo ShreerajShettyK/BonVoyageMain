@@ -316,9 +316,11 @@
                     <ul style="list-style-type: none;">
                       <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['required']">Number of travellers is
                         required.</li>
-                      <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['minTravellers']">Minimum travellers should
+                      <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['minTravellers']">Minimum travellers
+                        should
                         be 1.</li>
-                      <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['maxTravellers']">Maximum travellers should
+                      <li *ngIf="packageForm.get('numberOfTravellers')?.errors?.['maxTravellers']">Maximum travellers
+                        should
                         be 15.</li>
                     </ul>
                   </div>
@@ -326,10 +328,16 @@
                 <div class="form-group">
                   <label for="travelDate">Travel Date:</label>
                   <input type="date" id="travelDate" formControlName="travelDate" (change)="onTravelDateChange()">
-                  <div *ngIf="packageForm.controls['travelDate'].errors?.['invalidDate']" class="error-message">Travel date
-                    must be from tomorrow onwards.</div>
-                  <!-- Add error message if the date is invalid -->
+                  <div
+                    *ngIf="packageForm.get('travelDate').invalid && (packageForm.get('travelDate').dirty || packageForm.get('travelDate').touched)">
+                    <div *ngIf="packageForm.get('travelDate').errors?.['invalidDate']" style="color: red;">Travel date
+                      must be from tomorrow
+                      onwards.</div>
+                  </div>
+
                 </div>
+                <!-- Add error message if the date is invalid -->
+
               </form>
             </div>
           </mat-card-content>
