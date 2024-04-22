@@ -42,13 +42,13 @@
     </div>
   </div>
   <div class="row justify-content-center">
-    <div class="col-md-12 text-center">
+    <div class="col-md-12 text-center" style="background-color: rgb(223, 240, 255);border-radius: 18px;">
       <h2 style="margin:5px 0px">BOOKINGS <span>
               <h3><img width="50" height="50" src="https://img.icons8.com/ios/50/000000/event-accepted.png" alt="event-accepted"/></h3>
           </span></h2>
     </div>
     <div class="col-md-12 profile-container1">
-      <div *ngIf="bookingData.paid === true" class="row" style="border: 1.5px solid rgb(132, 132, 132);border-radius: 17px;">
+      <div *ngIf="bookingData.paid === true" class="row" style="border: 1.5px solid rgb(95, 95, 95);border-radius: 17px;">
         <div style="max-width: 500px; max-height: 500px; overflow: hidden;" class="col-md-5 imgSection">
           <div class="row">
             <div class="col-md-10">
@@ -81,6 +81,8 @@
                     </mat-expansion-panel-header>
                     <ul style="list-style: none;">
                       <li *ngFor="let person of bookingData.personsData; let i = index">
+                        Traveller {{i+1}}: 
+                        <br>
                         Name: {{ person.name }} Gender: {{person.gender}} DOB: {{person.dob}}
                       </li>
                   </ul>
