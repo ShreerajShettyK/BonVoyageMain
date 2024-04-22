@@ -277,15 +277,12 @@ tr:hover {
   background-image: url(../../assets/img/bg5.png);
 }
 
-.inv {
-
-
-
+/* .inv { */
   /* margin-top: 20px; */
   /* Adjust as needed */
   /* margin-right: 20px; */
   /* Adjust as needed */
-}
+/* } */
 
 .vstack {
   display: flex;

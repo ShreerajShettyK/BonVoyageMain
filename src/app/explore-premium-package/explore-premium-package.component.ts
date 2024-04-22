@@ -66,7 +66,7 @@ export class ExplorePremiumPackageComponent implements OnInit {
       const selectedDate = new Date(control.value);
       const currentDate = new Date();
       const tomorrowDate = new Date();
-      tomorrowDate.setDate(currentDate.getDate() + 1); // Tomorrow's date
+      tomorrowDate.setDate(currentDate.getDate()); // Tomorrow's date
 
       if (control.dirty && selectedDate < tomorrowDate) {
         return { invalidDate: true }; // Return error for past date

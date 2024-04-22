@@ -309,3 +309,8 @@
   input[type="submit"]:hover {
     background-color: #0056b3;
   }
+
+  .img-fluid{
+    height: 400px;
+    width: 1280px;
+  }

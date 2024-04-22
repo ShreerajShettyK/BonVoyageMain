@@ -54,7 +54,7 @@ export class HomeComponent implements OnInit {
   futureDateValidator(control: any) {
     const selectedDate = new Date(control.value);
     const currentDate = new Date();
-    currentDate.setDate(currentDate.getDate() + 1); // Tomorrow's date
+    currentDate.setDate(currentDate.getDate()); // Tomorrow's date
     if (selectedDate < currentDate) {
       return { invalidDate: true };
     }
