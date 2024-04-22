@@ -93,13 +93,13 @@
   }
 
   .detail-label1 {
-    flex: 2;
+    flex: 1;
     font-weight: bold;
     color: #666666;
   }
 
   .detail-value1 {
-    flex: 2;
+    /* flex: 2; */
     color: #333333;
   }
 
@@ -130,4 +130,19 @@
   
   .payment-status.paid {
     background-color: rgb(169, 255, 169);
+  }
+
+  mat-divider.vertical {
+    background: #000000;
+    color: #000000;
+    background-color: #000000;
+    border: 2px solid black;
+    height: 100%;
+    border-left: 1px solid rgba(0, 0, 0, 0.12); /* Change color and width as needed */
+  }
+
+
+  .vertical-divider {
+    border-left: 2px solid #ccc; /* Adjust color and width as needed */
+    
   }

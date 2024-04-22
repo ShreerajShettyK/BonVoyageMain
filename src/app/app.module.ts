@@ -52,6 +52,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PaymentFailedComponent } from './payment-failed/payment-failed.component';
 import { PaymentSuccessComponent } from './payment-success/payment-success.component';
 import { TravelComponent } from './travel/travel.component';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 
@@ -114,6 +115,7 @@ import { TravelComponent } from './travel/travel.component';
     MatMenuModule,
     LightgalleryModule,
     AngularFirestoreModule,
+    MatDividerModule,
   
   ],
   providers: [],
