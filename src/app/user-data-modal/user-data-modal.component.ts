@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, ElementRef  } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PaymentConfirmationPopupComponent } from '../payment-confirmation-popup/payment-confirmation-popup.component';
 import { BookingDataService } from '../booking-data.service';
@@ -56,12 +56,14 @@ export class UserDataModalComponent implements OnInit {
   couponCode: string = '';
   @Output() userDataSubmitted: EventEmitter<any> = new EventEmitter();
   numberOfTravellers: number = 0;
+  couponPer: number =0;
 
   constructor(
     private fb: FormBuilder,
     public dialog: MatDialog,
     private bookingDataService: BookingDataService,
-    private authService: AuthService
+    private authService: AuthService,
+    private elementRef: ElementRef
   ) { }
   closePopup() {
     // Logic to close the popup
@@ -76,7 +78,7 @@ export class UserDataModalComponent implements OnInit {
     this.numberOfTravellers = this.bookingData.numberOfTravellers;
 
     // Calculate discount amount (25% off)
-    this.discountAmount = (this.bookingData.totalPrice * 25) / 100;
+    this.discountAmount = (this.bookingData.totalPrice * this.couponPer) / 100;
 
     // Calculate GST amount (5% of the original total price)
     this.gstAmount = (this.bookingData.totalPrice * 5) / 100;
@@ -92,6 +94,17 @@ export class UserDataModalComponent implements OnInit {
     this.showPopupIfConditionsMet();
 
     // Calculate final amount including discount and GST
+    this.finalAmountInclGst = this.bookingData.totalPrice - this.discountAmount + this.gstAmount;
+  }
+
+  onCouponCodeChange(newCouponCode: string) {
+    if (newCouponCode === 'ILOVETRAVEL') {
+      this.couponPer = 25;
+    } else {
+      this.couponPer = 0;
+    }
+  
+    this.discountAmount = (this.bookingData.totalPrice * this.couponPer) / 100;
     this.finalAmountInclGst = this.bookingData.totalPrice - this.discountAmount + this.gstAmount;
   }
 
@@ -246,6 +259,18 @@ export class UserDataModalComponent implements OnInit {
       console.error(
         'Please fill in all required fields for at least one person.'
       );
+    }
+  }
+
+  copybtnText: string = 'COPY'; // Initial text for the copy button
+
+  copyIt(): void {
+    const copyInput = this.elementRef.nativeElement.querySelector('#copyvalue') as HTMLInputElement;
+  
+    if (copyInput) {
+      copyInput.select();
+      document.execCommand('copy');
+      this.copybtnText = 'COPIED'; // Update button text after copying
     }
   }
 }

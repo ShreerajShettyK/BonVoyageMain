@@ -2,8 +2,9 @@
     <div class="model-content">
         <div class="center">
             <h1 style="color: white; position: absolute;font-size: 2.5rem;left: 50px;bottom: 453px;
-            ">Travellers Details - Let's Go</h1>
+            ">Travellers Details - Let's Goo</h1>
         </div>
+    
         <div class="user-details" style="display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -60,7 +61,7 @@
                 </div>
             </form>
 
-            <table class="row travellerTable" *ngIf="personsData.length > 0">
+            <table class="row travellerTable" *ngIf="personsData.length > 0" style="margin-left: 0px;" >
 
                 <thead style="background-color:#d0efffcc ;">
                     <tr>
@@ -116,7 +117,7 @@
 
         </div>
     </div>
-    <div class="inv">
+    <div class="inv" style="width: 27%;">
         <mat-card>
             <mat-card-header style="background-color: #d0efff; display: flex; flex-direction: column;">
                 <div style="display: flex; justify-content: space-between;">
@@ -134,12 +135,33 @@
                     <h3 style="font-weight: 700;">₹{{finalAmountInclGst}} <span
                             style="font-size: small;color: grey;">(Inclusive of GST)</span></h3>
                 </div>
-                <h4 style="font-weight: 500;margin-bottom: 10px;">Pay Full Amount Now</h4>
+                <!-- <p style="font-weight: 100;margin-bottom: 4px;">Pay Full Amount Now</p> -->
             </mat-card-header>
-            <div class="vstack gap-3">
-                <div class="p-2">
-                    <h4 style="margin-top: 5px;">Fare Breakup</h4>
+            <div class="couponContainer" style="width: 100%; height: 50px;">
+                <div class="card">
+                  <div class="main">
+                    <div class="co-img">
+                        <img width="20" height="20" src="../../assets/img/flighticon.png" alt="airport"
+                        style="margin-right: 5%" />
+                    </div>
+                    <div class="vertical"></div>
+                    <div class="content">
+                      <h2>BON VOYAGE
+                    </h2>
+                      <h1>25% <span>Coupon</span></h1>
+                      <p>Valid till 30 April 2025</p>
+                    </div>
+                  </div>
+                  <div class="copy-button">
+                    <input id="copyvalue" type="text" readonly value="ILOVETRAVEL" />
+                    <button (click)="copyIt()" class="copybtn">{{ copybtnText }}</button>
+                  </div>
                 </div>
+              </div>
+            <div class="vstack gap-3">
+                <!-- <div class="p-2">
+                    <h4 style="margin-top: 5px;">Fare Breakup</h4>
+                </div> -->
                 <div class="p-2">
                     <div class="hstack gap-3">
                         <div class="p-2">
@@ -156,11 +178,11 @@
                 <div class="p-2">
                     <div class="hstack gap-3">
                         <div class="p-2">
-                            <h5>Coupon Discount (-25%)</h5>
-                            <div class="d-flex justify-content-center align-items-center"
-                                style="background-color: #d1f8e6; color: darkgreen; padding: 5px; height: 35px; font-weight: 600; font-size: smaller; border-radius: 5px; width: 55%;">
-                                ILOVETRAVEL</div>
-                        </div>
+                            <h5>Coupon Discount (-{{couponPer}}%)</h5>
+                            <!-- <div class="d-flex justify-content-center align-items-center"
+                                style="background-color: #d1f8e6; color: darkgreen; padding: 5px; height: 35px; font-weight: 600; font-size: smaller; border-radius: 5px; width: 55%;"> -->
+                                <input type="text" placeholder="Apply Coupon" [(ngModel)]="couponCode" (ngModelChange)="onCouponCodeChange($event)"  style="background-color: #d1f8e6; color: darkgreen; padding: 5px; height: 35px; font-weight: 600; font-size: smaller; border-radius: 5px; width: 46%;"></div>
+                        <!-- </div> -->
                         <div class="p-2">
                             <h5 style="font-size: large;position: absolute;right: 10px;">-₹{{discountAmount}}</h5>
                         </div>
