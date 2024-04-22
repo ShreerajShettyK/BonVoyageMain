@@ -48,10 +48,23 @@
           </span></h2>
     </div>
     <div class="col-md-12 profile-container1">
-      <div *ngIf="bookingData.paid === true" class="row" style="border: 1.5px solid rgb(165, 165, 165);background-color: #e0f5ff;border-radius: 17px;">
-        <div style="max-width: 700px; max-height: 450px; overflow: hidden;" class="col-md-5 imgSection">
-          <img src="../../assets/img/Goa2.jpg" alt="" style="width: 90%; height: auto;border-radius: 16px;">
+      <div *ngIf="bookingData.paid === true" class="row" style="border: 1.5px solid rgb(132, 132, 132);border-radius: 17px;">
+        <div style="max-width: 500px; max-height: 500px; overflow: hidden;" class="col-md-5 imgSection">
+          <div class="row">
+            <div class="col-md-10">
+          <!-- <img src="../../assets/img/Goa2.jpg" alt="" style="width: 90%; height: auto;border-radius: 16px;"> -->
+          <img *ngIf="bookingData.destination === 'Goa'; else darjeelingImage" src="../../assets/img/Goa2.jpg" alt="" style="width: 70%;border-radius: 16px;">
+          <ng-template #darjeelingImage>
+            <img *ngIf="bookingData.destination === 'Darjeeling';" src="../../assets/img/darfinal.jpg" alt="" style="width: 70%;border-radius: 16px;">
+          </ng-template>
         </div>
+        <div class="col-md-2 vertical-divider">
+          <!-- <div style="background-color: black; width: 5px;height: max-content;">dddd</div> -->
+          <div class="border-end border-2 mx-3"></div>
+        </div>
+        </div>
+        </div>
+        <!-- <mat-divider vertical></mat-divider> -->
         <div class="col-md-5">  
           <div class="profile-header1" style="margin-top: 18px; width: 100%;">
             <h5 class="profile-name1">{{bookingData.destination}} (4D/3N Package)</h5>
@@ -76,7 +89,7 @@
               </div>
             </div>
             <div class="detail-row1">
-              <div class="detail-label"><i class="bi bi-list-ol me-2"></i>Number of Days:</div>
+              <div class="detail-label" style="width: 70px;"><i class="bi bi-list-ol me-2"></i>Number of Days:</div>
               <div class="detail-value1">{{ bookingData.numberOfDays }}</div>
             </div>
             <div class="detail-row1">

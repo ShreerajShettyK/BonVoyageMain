@@ -130,6 +130,22 @@ export class UserDataModalComponent implements OnInit {
         console.log('Booking added successfully');
         // Clear the booking data or perform any necessary actions
         // this.bookingDataService.clearBookingData();
+
+        if(this.personsData.length === this.numberOfTravellers){
+          const existingData = this.bookingDataService.getNewBookingData();
+          console.log(existingData);
+          // Update only the desired fields
+          const newData = {
+            ...existingData,
+            personsData: this.personsData,
+            finalAmount: this.finalAmountInclGst,
+          };
+          console.log(newData);
+          // Set the updated data in the service
+          this.bookingDataService.setNewBookingData(newData);
+          console.log(this.bookingDataService.getNewBookingData());
+        }
+
       })
       .catch((error) => {
         console.error('Error adding booking:', error);
@@ -167,20 +183,20 @@ export class UserDataModalComponent implements OnInit {
 
       // Reset the newPerson object to clear any previous values
       this.newPerson = { name: '', dob: null, gender: '' };
-      if(this.personsData.length === this.numberOfTravellers){
-        const existingData = this.bookingDataService.getNewBookingData();
-        console.log(existingData);
-        // Update only the desired fields
-        const newData = {
-          ...existingData,
-          personsData: this.personsData,
-          finalAmount: this.finalAmountInclGst,
-        };
-        console.log(newData);
-        // Set the updated data in the service
-        this.bookingDataService.setNewBookingData(newData);
-        console.log(this.bookingDataService.getNewBookingData());
-      }
+      // if(this.personsData.length === this.numberOfTravellers){
+      //   const existingData = this.bookingDataService.getNewBookingData();
+      //   console.log(existingData);
+      //   // Update only the desired fields
+      //   const newData = {
+      //     ...existingData,
+      //     personsData: this.personsData,
+      //     finalAmount: this.finalAmountInclGst,
+      //   };
+      //   console.log(newData);
+      //   // Set the updated data in the service
+      //   this.bookingDataService.setNewBookingData(newData);
+      //   console.log(this.bookingDataService.getNewBookingData());
+      // }
     }
     console.log(this.personsData);
     console.log(this.bookingDataService.getNewBookingData());
