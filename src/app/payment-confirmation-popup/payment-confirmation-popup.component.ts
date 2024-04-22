@@ -101,7 +101,7 @@ export class PaymentConfirmationPopupComponent implements OnInit {
 
         this.bookingDataService.setNewBookingData(newData);
         console.log(this.bookingDataService.getNewBookingData()); // Confirm the data is updated
-        // this.router.navigateByUrl('paymentsuccess');
+        this.router.navigateByUrl('profile');
         
       }
     };
