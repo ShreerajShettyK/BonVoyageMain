@@ -90,7 +90,7 @@ table button {
 }
 
 #add {
-  background-color: #007bff;
+  background-color: rgb(40, 40, 196);
 }
 
 .button-container {
@@ -116,7 +116,7 @@ button+button {
   /* border: 2px solid; */
   /* Decrease the border size */
   border-radius: 10px;
-  height: 380px;
+  height: 340px;
   width: 310px;
   display: flex;
   flex-direction: column;
@@ -265,9 +265,14 @@ td {
   background-color: rgb(90, 90, 255);
 }
 
-tr:hover {
-  background-color: #d0efff;
+tr{
+  display: flex;
+  justify-content: space-around;
 }
+
+/* .detailsRow:hover {
+  background-color: #b1b1b1;
+} */
 
 .tot {
 
@@ -313,7 +318,7 @@ input[type="email"],
 input[type="tel"],
 input[type="date"] {
   width: 100%;
-  padding: 10px;
+  padding: 5px;
   border: 1px solid #919191;
   border-radius: 15px;
 }

@@ -39,7 +39,7 @@
 
                             <label for="gender" class="form-label gender-label">Gender:</label>
                             <select [(ngModel)]="newPerson.gender" formControlName="gender" required
-                                [disabled]="personsData.length === bookingData.numberOfTravellers && personsData.length > 0">
+                                [disabled]="personsData.length === bookingData.numberOfTravellers && personsData.length > 0" style="width: 100%;padding: 7px;border-radius: 15px;">
                                 <option value="" disabled selected>Select Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -73,7 +73,7 @@
                 </thead>
 
                 <tbody class="travellerTable">
-                    <tr *ngFor="let person of personsData; let i = index">
+                    <tr *ngFor="let person of personsData; let i = index" class="detailsRow">
 
                         <td style="word-wrap: break-word; overflow-wrap: break-word;">{{ person.name }}</td>
                         <td style="word-wrap: break-word; overflow-wrap: break-word;">{{ person.dob }}</td>
